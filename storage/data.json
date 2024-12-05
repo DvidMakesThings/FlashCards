@@ -1,12 +1,5 @@
 [
     {
-        "question": "e Katze -n",
-        "answer": "Macska",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0
-    },
-    {
         "question": "r Hund -e",
         "answer": "Kutya",
         "interval": 1,
@@ -135,6 +128,13 @@
     {
         "question": "e Lampe -n",
         "answer": "Lámpa",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "e Katze -n",
+        "answer": "Macska",
         "interval": 1,
         "last_review": "2024-12-05",
         "score": 0

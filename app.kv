@@ -1,20 +1,13 @@
-# File: app.kv
-
 <HomeScreen>:
     BoxLayout:
         orientation: 'vertical'
         padding: '10dp'
         spacing: '10dp'
         canvas.before:
-            Color:
-                rgba: 0.9, 0.9, 0.95, 1  # Softer light blue background for mobile look
             Rectangle:
+                source: 'img/background916.png'
                 pos: self.pos
                 size: self.size
-        Label:
-            text: "Welcome to Flashcards!"
-            font_size: '24sp'
-            color: 0.1, 0.1, 0.4, 1  # Dark blue text for contrast
         Button:
             text: "Start Studying"
             font_size: '20sp'
@@ -35,12 +28,13 @@
 <StudyScreen>:
     BoxLayout:
         orientation: 'vertical'
-        padding: '10dp'
+        padding: '20dp'
         spacing: '10dp'
         canvas.before:
             Color:
-                rgba: 0.9, 0.9, 0.95, 1  # Softer light blue background
+                rgba: 0.95, 0.95, 1, 1  # Light blue background
             Rectangle:
+                source: 'img/background_game.png'
                 pos: self.pos
                 size: self.size
         BoxLayout:
@@ -72,6 +66,7 @@
                 halign: 'center'
                 valign: 'middle'
                 text_size: self.size
+
         BoxLayout:
             orientation: 'vertical'
             padding: '15dp'
@@ -94,6 +89,7 @@
                 size_hint_y: None
                 height: '50dp'
                 multiline: False
+
         Button:
             text: "Check Answer"
             font_size: '20sp'
@@ -143,9 +139,8 @@
         padding: '10dp'
         spacing: '10dp'
         canvas.before:
-            Color:
-                rgba: 0.9, 0.9, 0.95, 1  # Softer light blue background
             Rectangle:
+                source: 'img/background_game.png'
                 pos: self.pos
                 size: self.size
         BoxLayout:
@@ -154,27 +149,55 @@
             spacing: '10dp'
             canvas.before:
                 Color:
-                    rgba: 0.8, 0.9, 1, 1  # Light blue background for card
+                    rgba: 0.8, 0.9, 1, 0.  # Light blue background for card container with some transparency
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
                     radius: [20]
-            TextInput:
-                id: question_input
-                hint_text: "Enter Question"
-                font_size: '18sp'
-                background_color: 1, 1, 1, 1
-                foreground_color: 0.1, 0.1, 0.4, 1
+            BoxLayout:
+                orientation: 'vertical'
+                padding: '10dp'
+                spacing: '10dp'
                 size_hint_y: None
-                height: '50dp'
-            TextInput:
-                id: answer_input
-                hint_text: "Enter Answer"
-                font_size: '18sp'
-                background_color: 1, 1, 1, 1
-                foreground_color: 0.1, 0.1, 0.4, 1
+                height: '120dp'
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1  # White background for card
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                TextInput:
+                    id: question_input
+                    hint_text: "Enter Question"
+                    font_size: '18sp'
+                    background_color: 0, 0, 0, 0  # Transparent background to blend with card
+                    foreground_color: 0.1, 0.1, 0.4, 1
+                    size_hint_y: None
+                    height: '50dp'
+                    multiline: False
+            BoxLayout:
+                orientation: 'vertical'
+                padding: '10dp'
+                spacing: '10dp'
                 size_hint_y: None
-                height: '50dp'
+                height: '120dp'
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1  # White background for card
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                TextInput:
+                    id: answer_input
+                    hint_text: "Enter Answer"
+                    font_size: '18sp'
+                    background_color: 0, 0, 0, 0  # Transparent background to blend with card
+                    foreground_color: 0.1, 0.1, 0.4, 1
+                    size_hint_y: None
+                    height: '50dp'
+                    multiline: False
         Button:
             text: "Save Card"
             font_size: '20sp'
