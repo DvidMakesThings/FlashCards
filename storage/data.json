@@ -1,33 +1,5 @@
 [
     {
-        "question": "e Tür -en",
-        "answer": "Ajtó",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0
-    },
-    {
-        "question": "r Stuhl -e",
-        "answer": "Szék",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0
-    },
-    {
-        "question": "s Buch -er",
-        "answer": "Könyv",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0
-    },
-    {
-        "question": "e Lampe -n",
-        "answer": "Lámpa",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0
-    },
-    {
         "question": "e Katze -n",
         "answer": "Macska",
         "interval": 1,
@@ -135,6 +107,34 @@
     {
         "question": "r Tisch -e",
         "answer": "Asztal",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "e Tür -en",
+        "answer": "Ajtó",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "r Stuhl -e",
+        "answer": "Szék",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "s Buch -er",
+        "answer": "Könyv",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "e Lampe -n",
+        "answer": "Lámpa",
         "interval": 1,
         "last_review": "2024-12-05",
         "score": 0

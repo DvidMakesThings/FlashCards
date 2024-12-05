@@ -1,4 +1,5 @@
 # File: app.kv
+
 <HomeScreen>:
     BoxLayout:
         orientation: 'vertical'
@@ -25,7 +26,7 @@
         Button:
             text: "Add New Flashcard"
             font_size: '20sp'
-            background_color: 1, 0.5, 0, 1  # Bright orange button
+            background_color: 0.9, 0.7, 0.0, 1  # Soft orange button
             color: 1, 1, 1, 1
             size_hint_y: None
             height: '60dp'
@@ -55,7 +56,7 @@
                     size: self.size
                     radius: [20]
                 Color:
-                    rgba: 0.5, 0.5, 0.8, 0.2  # Dark blue frame
+                    rgba: 0.1, 0.1, 0.4, 1  # Dark blue frame
                 Line:
                     width: 2
                     rounded_rectangle: (self.x, self.y, self.width, self.height, 20)
@@ -71,18 +72,28 @@
                 halign: 'center'
                 valign: 'middle'
                 text_size: self.size
-        Widget:
+        BoxLayout:
+            orientation: 'vertical'
+            padding: '15dp'
+            spacing: '10dp'
             size_hint_y: None
-            height: '20dp'
-        TextInput:
-            id: user_input
-            hint_text: "Type your answer here"
-            font_size: '18sp'
-            background_color: 1, 1, 1, 1
-            foreground_color: 0.1, 0.1, 0.4, 1
-            size_hint_y: None
-            height: '50dp'
-            multiline: False
+            height: '100dp'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # White background for answer card
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+            TextInput:
+                id: user_input
+                hint_text: "Type your answer here"
+                font_size: '18sp'
+                background_color: 0, 0, 0, 0  # Transparent background to blend with card
+                foreground_color: 0.1, 0.1, 0.4, 1
+                size_hint_y: None
+                height: '50dp'
+                multiline: False
         Button:
             text: "Check Answer"
             font_size: '20sp'
@@ -96,12 +107,12 @@
             id: feedback_label
             text: ""
             font_size: '20sp'
-            color: 1, 0.5, 0, 1  # Feedback in soft orange
+            color: 0.9, 0.7, 0.0, 1  # Feedback in soft orange
         Button:
             id: next_button
             text: "Next"
             font_size: '20sp'
-            background_color: 1, 0.5, 0, 1
+            background_color: 0.9, 0.7, 0.0, 1
             color: 1, 1, 1, 1
             opacity: 0
             size_hint_y: None
@@ -120,7 +131,7 @@
         Button:
             text: "Back"
             font_size: '20sp'
-            background_color: 1, 0.5, 0, 1
+            background_color: 0.9, 0.7, 0.0, 1
             color: 1, 1, 1, 1
             size_hint_y: None
             height: '60dp'
@@ -175,7 +186,7 @@
         Button:
             text: "Back"
             font_size: '20sp'
-            background_color: 1, 0.5, 0, 1
+            background_color: 0.9, 0.7, 0.0, 1
             color: 1, 1, 1, 1
             size_hint_y: None
             height: '60dp'
