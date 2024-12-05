@@ -1,0 +1,142 @@
+[
+    {
+        "question": "e Tür -en",
+        "answer": "Ajtó",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "r Stuhl -e",
+        "answer": "Szék",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "s Buch -er",
+        "answer": "Könyv",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "e Lampe -n",
+        "answer": "Lámpa",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "e Katze -n",
+        "answer": "Macska",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "r Hund -e",
+        "answer": "Kutya",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "e Blume -n",
+        "answer": "Virág",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "s Haus -er",
+        "answer": "Ház",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Macska",
+        "answer": "e Katze -n",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Kutya",
+        "answer": "r Hund -e",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Virág",
+        "answer": "e Blume -n",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Ház",
+        "answer": "s Haus -er",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Iskola",
+        "answer": "e Schule -n",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Asztal",
+        "answer": "r Tisch -e",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Ajtó",
+        "answer": "e Tür -en",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Szék",
+        "answer": "r Stuhl -e",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Könyv",
+        "answer": "s Buch -er",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "Lámpa",
+        "answer": "e Lampe -n",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "e Schule -n",
+        "answer": "Iskola",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    },
+    {
+        "question": "r Tisch -e",
+        "answer": "Asztal",
+        "interval": 1,
+        "last_review": "2024-12-05",
+        "score": 0
+    }
+]

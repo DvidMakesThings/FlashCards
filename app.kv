@@ -1,0 +1,182 @@
+# File: app.kv
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '10dp'
+        spacing: '10dp'
+        canvas.before:
+            Color:
+                rgba: 0.9, 0.9, 0.95, 1  # Softer light blue background for mobile look
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: "Welcome to Flashcards!"
+            font_size: '24sp'
+            color: 0.1, 0.1, 0.4, 1  # Dark blue text for contrast
+        Button:
+            text: "Start Studying"
+            font_size: '20sp'
+            background_color: 0.2, 0.6, 0.9, 1  # Soft blue button
+            color: 1, 1, 1, 1  # White text for contrast
+            size_hint_y: None
+            height: '60dp'
+            on_press: app.root.current = 'study'
+        Button:
+            text: "Add New Flashcard"
+            font_size: '20sp'
+            background_color: 1, 0.5, 0, 1  # Bright orange button
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            on_press: app.root.current = 'add_card'
+
+<StudyScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '10dp'
+        spacing: '10dp'
+        canvas.before:
+            Color:
+                rgba: 0.9, 0.9, 0.95, 1  # Softer light blue background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation: 'vertical'
+            padding: '15dp'
+            spacing: '10dp'
+            size_hint_y: 0.6
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.9, 1, 1  # Light blue background for card
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+                Color:
+                    rgba: 0.5, 0.5, 0.8, 0.2  # Dark blue frame
+                Line:
+                    width: 2
+                    rounded_rectangle: (self.x, self.y, self.width, self.height, 20)
+                PushMatrix
+                Translate:
+                    y: -5
+                PopMatrix
+            Label:
+                id: question_label
+                text: "Question goes here"
+                font_size: '22sp'
+                color: 0.1, 0.1, 0.4, 1
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+        Widget:
+            size_hint_y: None
+            height: '20dp'
+        TextInput:
+            id: user_input
+            hint_text: "Type your answer here"
+            font_size: '18sp'
+            background_color: 1, 1, 1, 1
+            foreground_color: 0.1, 0.1, 0.4, 1
+            size_hint_y: None
+            height: '50dp'
+            multiline: False
+        Button:
+            text: "Check Answer"
+            font_size: '20sp'
+            background_color: 0.2, 0.6, 0.9, 1
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            pos_hint: {'y': 0.05}
+            on_press: root.check_user_answer()
+        Label:
+            id: feedback_label
+            text: ""
+            font_size: '20sp'
+            color: 1, 0.5, 0, 1  # Feedback in soft orange
+        Button:
+            id: next_button
+            text: "Next"
+            font_size: '20sp'
+            background_color: 1, 0.5, 0, 1
+            color: 1, 1, 1, 1
+            opacity: 0
+            size_hint_y: None
+            height: '0dp'
+            on_press: root.next_question()
+        Button:
+            id: practice_button
+            text: "Practice All Cards"
+            font_size: '20sp'
+            background_color: 0.2, 0.6, 0.9, 1
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            opacity: 0
+            on_press: root.start_practice_mode()
+        Button:
+            text: "Back"
+            font_size: '20sp'
+            background_color: 1, 0.5, 0, 1
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            on_press: app.root.current = 'home'
+
+<AddCardScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '10dp'
+        spacing: '10dp'
+        canvas.before:
+            Color:
+                rgba: 0.9, 0.9, 0.95, 1  # Softer light blue background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation: 'vertical'
+            padding: '15dp'
+            spacing: '10dp'
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.9, 1, 1  # Light blue background for card
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+            TextInput:
+                id: question_input
+                hint_text: "Enter Question"
+                font_size: '18sp'
+                background_color: 1, 1, 1, 1
+                foreground_color: 0.1, 0.1, 0.4, 1
+                size_hint_y: None
+                height: '50dp'
+            TextInput:
+                id: answer_input
+                hint_text: "Enter Answer"
+                font_size: '18sp'
+                background_color: 1, 1, 1, 1
+                foreground_color: 0.1, 0.1, 0.4, 1
+                size_hint_y: None
+                height: '50dp'
+        Button:
+            text: "Save Card"
+            font_size: '20sp'
+            background_color: 0.2, 0.6, 0.9, 1
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            on_press: root.save_card()
+        Button:
+            text: "Back"
+            font_size: '20sp'
+            background_color: 1, 0.5, 0, 1
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            on_press: app.root.current = 'home'
