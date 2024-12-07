@@ -2,12 +2,13 @@
 from datetime import datetime
 
 class Flashcard:
-    def __init__(self, question, answer, interval=1, last_review=None, score=0):
+    def __init__(self, question, answer, interval, last_review, score, category):
         self.question = question
         self.answer = answer
         self.interval = interval
-        self.last_review = last_review or datetime.now().strftime('%Y-%m-%d')
+        self.last_review = last_review
         self.score = score
+        self.category = category
 
     def check_answer(self, user_answer):
         return user_answer.strip().lower() == self.answer.strip().lower()

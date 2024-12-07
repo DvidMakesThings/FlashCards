@@ -15,7 +15,7 @@
             color: 1, 1, 1, 1  # White text for contrast
             size_hint_y: None
             height: '60dp'
-            on_press: app.root.current = 'study'
+            on_press: app.root.current = 'category'  # Correct transition to CategoryScreen
         Button:
             text: "Add New Flashcard"
             font_size: '20sp'
@@ -25,14 +25,40 @@
             height: '60dp'
             on_press: app.root.current = 'add_card'
 
+<CategoryScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '10dp'
+        spacing: '10dp'
+        canvas.before:
+            Rectangle:
+                source: 'img/background_game.png'
+                pos: self.pos
+                size: self.size
+        ScrollView:
+            GridLayout:
+                id: category_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: '40dp'
+                row_force_default: True
+                spacing: '5dp'
+        Button:
+            text: "Back"
+            font_size: '20sp'
+            background_color: 0.9, 0.7, 0.0, 1
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            on_press: app.root.current = 'home'
+
 <StudyScreen>:
     BoxLayout:
         orientation: 'vertical'
         padding: '20dp'
         spacing: '10dp'
         canvas.before:
-            Color:
-                rgba: 0.95, 0.95, 1, 1  # Light blue background
             Rectangle:
                 source: 'img/background_game.png'
                 pos: self.pos
@@ -49,15 +75,9 @@
                     pos: self.pos
                     size: self.size
                     radius: [20]
-                Color:
-                    rgba: 0.1, 0.1, 0.4, 1  # Dark blue frame
                 Line:
                     width: 2
                     rounded_rectangle: (self.x, self.y, self.width, self.height, 20)
-                PushMatrix
-                Translate:
-                    y: -5
-                PopMatrix
             Label:
                 id: question_label
                 text: "Question goes here"
@@ -84,7 +104,7 @@
                 id: user_input
                 hint_text: "Type your answer here"
                 font_size: '18sp'
-                background_color: 0, 0, 0, 0  # Transparent background to blend with card
+                background_color: 0, 0, 0, 0  # Transparent background
                 foreground_color: 0.1, 0.1, 0.4, 1
                 size_hint_y: None
                 height: '50dp'
@@ -97,7 +117,6 @@
             color: 1, 1, 1, 1
             size_hint_y: None
             height: '60dp'
-            pos_hint: {'y': 0.05}
             on_press: root.check_user_answer()
         Label:
             id: feedback_label
@@ -131,7 +150,7 @@
             color: 1, 1, 1, 1
             size_hint_y: None
             height: '60dp'
-            on_press: app.root.current = 'home'
+            on_press: app.root.current = 'category'
 
 <AddCardScreen>:
     BoxLayout:
@@ -147,13 +166,8 @@
             orientation: 'vertical'
             padding: '15dp'
             spacing: '10dp'
-            canvas.before:
-                Color:
-                    rgba: 0.8, 0.9, 1, 0.  # Light blue background for card container with some transparency
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [20]
+
+            # Dropdown for Category
             BoxLayout:
                 orientation: 'vertical'
                 padding: '10dp'
@@ -162,7 +176,62 @@
                 height: '120dp'
                 canvas.before:
                     Color:
-                        rgba: 1, 1, 1, 1  # White background for card
+                        rgba: 1, 1, 1, 1  # White background for the card
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                AnchorLayout:
+                    anchor_x: "center"
+                    anchor_y: "center"
+                    Spinner:
+                        id: category_spinner
+                        text: "Select or Add Category"
+                        values: root.get_categories() + ["Add New Category"]  # Dynamic values
+                        font_size: '18sp'
+                        background_color: 0.2, 0.6, 0.9, 1  # Same soft blue as other buttons
+                        background_normal: ""  # Removes default spinner background
+                        color: 1, 1, 1, 1  # White text
+                        size_hint: None, None
+                        size: 300, 40
+                        on_text: root.toggle_custom_category(self.text)
+
+            # Custom Category Box (Always Stays Below Spinner)
+            BoxLayout:
+                id: custom_category_box
+                orientation: 'vertical'
+                padding: '10dp'
+                spacing: '10dp'
+                size_hint_y: None
+                height: 0  # Initially hidden
+                opacity: 0  # Initially hidden
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1  # White background for the card
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                TextInput:
+                    id: custom_category_input
+                    hint_text: "Enter New Category"
+                    font_size: '18sp'
+                    background_color: 0, 0, 0, 0  # Transparent background
+                    foreground_color: 0.1, 0.1, 0.4, 1
+                    size_hint_y: None
+                    height: '50dp'
+                    multiline: False
+
+            # Input for Question
+            BoxLayout:
+                orientation: 'vertical'
+                padding: '10dp'
+                spacing: '10dp'
+                size_hint_y: None
+                height: '120dp'
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1  # White background for the card
                     RoundedRectangle:
                         pos: self.pos
                         size: self.size
@@ -171,11 +240,13 @@
                     id: question_input
                     hint_text: "Enter Question"
                     font_size: '18sp'
-                    background_color: 0, 0, 0, 0  # Transparent background to blend with card
+                    background_color: 0, 0, 0, 0  # Transparent background
                     foreground_color: 0.1, 0.1, 0.4, 1
                     size_hint_y: None
                     height: '50dp'
                     multiline: False
+
+            # Input for Answer
             BoxLayout:
                 orientation: 'vertical'
                 padding: '10dp'
@@ -184,7 +255,7 @@
                 height: '120dp'
                 canvas.before:
                     Color:
-                        rgba: 1, 1, 1, 1  # White background for card
+                        rgba: 1, 1, 1, 1  # White background for the card
                     RoundedRectangle:
                         pos: self.pos
                         size: self.size
@@ -193,11 +264,24 @@
                     id: answer_input
                     hint_text: "Enter Answer"
                     font_size: '18sp'
-                    background_color: 0, 0, 0, 0  # Transparent background to blend with card
+                    background_color: 0, 0, 0, 0  # Transparent background
                     foreground_color: 0.1, 0.1, 0.4, 1
                     size_hint_y: None
                     height: '50dp'
                     multiline: False
+
+        # Feedback Label
+        Label:
+            id: feedback_label
+            text: ""
+            font_size: '16sp'
+            color: 1, 1, 1, 1  # Default color
+            size_hint_y: None
+            height: '40dp'
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
+        # Save Card Button
         Button:
             text: "Save Card"
             font_size: '20sp'
@@ -206,6 +290,8 @@
             size_hint_y: None
             height: '60dp'
             on_press: root.save_card()
+
+        # Back Button
         Button:
             text: "Back"
             font_size: '20sp'

@@ -44,8 +44,10 @@ flashcards_app/
 │   ├── screens.py      # Screen management (Study, Add Card, etc.)
 │   ├── widgets.py      # Custom widgets (e.g., buttons, labels)
 │   └── handlers.py     # Event and user interaction handlers
-└── storage/
-    └── data.json       # Stores flashcard data (or SQLite DB)
+├── storage/
+│   └── data.json       # Stores flashcard data (or SQLite DB)
+└── unittest/
+    └── reports           # Stores report files
 ```
 
 ### High-Level Design Overview
