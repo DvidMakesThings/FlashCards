@@ -182,7 +182,7 @@ class TestFlashcards(unittest.TestCase):
 
 if __name__ == '__main__':
     # Create the HTML report path
-    report_path = os.path.join(project_root, 'unittest', 'test_report.html')
+    report_path = os.path.join(project_root, 'unittest', 'reports', 'test_report.html')
 
     # Run the tests and capture results
     test_suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestFlashcards)

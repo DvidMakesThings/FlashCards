@@ -34,20 +34,22 @@ Store flashcards in a JSON or SQLite database. Each card has:
 
 ```
 flashcards_app/
-├── main.py             # Entry point for the program
-├── app.kv              # Kivy layout file (UI design)
+├── main.py                             # Entry point for the program
+├── app.kv                              # Kivy layout file (UI design)
 ├── core/
-│   ├── flashcard.py    # Flashcard class and data model
-│   ├── manager.py      # Flashcard manager (CRUD operations)
-│   └── algorithm.py    # Spaced repetition algorithm
+│   ├── flashcard.py                    # Flashcard class and data model
+│   ├── manager.py                      # Flashcard manager (CRUD operations)
+│   └── algorithm.py                    # Spaced repetition algorithm
 ├── gui/
-│   ├── screens.py      # Screen management (Study, Add Card, etc.)
-│   ├── widgets.py      # Custom widgets (e.g., buttons, labels)
-│   └── handlers.py     # Event and user interaction handlers
+│   ├── screens.py                      # Screen management (Study, Add Card, etc.)
+│   ├── widgets.py                      # Custom widgets (e.g., buttons, labels)
+│   └── handlers.py                     # Event and user interaction handlers
 ├── storage/
-│   └── data.json       # Stores flashcard data (or SQLite DB)
+│   └── data.json                       # Stores flashcard data (or SQLite DB)
 └── unittest/
-    └── reports           # Stores report files
+    ├── test_flashcards.py              # Screen management (Study, Add Card, etc.)
+    └── reports                         # Stores report files
+        └── test_report.html            # Stores flashcard data (or SQLite DB)
 ```
 
 
