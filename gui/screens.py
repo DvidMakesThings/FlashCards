@@ -111,8 +111,12 @@ class StudyScreen(Screen):
             self.ids.question_label.text = "No due cards for this category."
 
     def normalize_text(self, text):
-        """Normalize text for case-insensitive comparison."""
-        return unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode('utf-8').lower()
+        """Normalize the text for comparison, removing extra spaces and line breaks."""
+        # Normalize to lowercase and remove extra spaces and line breaks
+        text = unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode('utf-8').lower()  # Remove accents
+        text = text.replace('\n', ' ').strip()  # Replace line breaks with spaces and remove leading/trailing spaces
+        return ' '.join(text.split())  # Join the text back into a single string with single spaces
+
 
     def check_user_answer(self):
         """Check the user's answer and provide feedback."""
@@ -122,6 +126,11 @@ class StudyScreen(Screen):
         # Normalize the text for case-insensitive comparison
         user_answer = self.normalize_text(self.ids.user_input.text)
         correct_answer = self.normalize_text(self.current_card.answer)
+        print(f"[DEBUG] User answer: {user_answer}, Correct answer: {correct_answer}")
+
+        # Format the question for better readability (if too long)
+        formatted_question = self.format_answer(self.current_card.question)  # Format question the same way as the answer
+        self.ids.question_label.text = formatted_question  # Display the formatted question
 
         # If the answer is correct
         if user_answer == correct_answer:
@@ -138,7 +147,7 @@ class StudyScreen(Screen):
 
         else:
             # If the answer is incorrect
-            self.ids.feedback_label.text = f"Incorrect!\nCorrect answer: {self.current_card.answer}"  # Display correct answer under "Incorrect"
+            self.ids.feedback_label.text = "Incorrect!"  # Display "Incorrect!"
             self.ids.feedback_label.color = 1, 0, 0, 1  # Red color for incorrect answer
 
             # Show the "Next" button
@@ -148,8 +157,44 @@ class StudyScreen(Screen):
             if not self.practice_mode:
                 self.current_card.update_review("hard")
 
-        # Do NOT clear the input field here when the answer is wrong (keep the wrong answer visible)
-        # Clear the input field after clicking the "Next" button
+            # Format the correct answer (if it's too long, truncate it or format it)
+            formatted_answer = self.format_answer(self.current_card.answer)
+            print(f"[DEBUG] Formatted answer: {formatted_answer}")
+            
+            # Display the correct answer in the input field and set the text color to red
+            self.ids.user_input.text = formatted_answer  # Display the correct answer in the input field
+            self.ids.user_input.foreground_color = (1, 0, 0, 1)  # Set the text color to red
+
+        # Reset the text color back to default after the next question is loaded
+        self.ids.user_input.foreground_color = (0, 0, 0, 1)  # Reset to black
+
+
+    def format_answer(self, answer):
+        """Format the answer if it's too long to fit in the input field."""
+        max_length = 40  # Set the maximum length per line
+        words = answer.split(' ')  # Split the answer by spaces
+
+        formatted_answer = ""
+        line = ""
+
+        for word in words:
+            # Check if adding the word exceeds the max length
+            if len(line) + len(word) + 1 <= max_length:  # +1 for space
+                if line:
+                    line += ' ' + word
+                else:
+                    line = word
+            else:
+                # If the line is too long, push the current line and start a new one
+                formatted_answer += line + '\n'
+                line = word
+
+        # Add the remaining line
+        if line:
+            formatted_answer += line
+
+        return formatted_answer
+
 
     def show_next_button(self):
         """Show the "Next" button so the user can proceed manually."""
@@ -177,6 +222,8 @@ class StudyScreen(Screen):
             # Clear the feedback label and reset color
             self.ids.feedback_label.text = ""  # Clear feedback text
             self.ids.feedback_label.color = 1, 1, 1, 1  # Reset color to default
+        # Reset the text color of the input field to black when moving to the next question
+        self.ids.user_input.foreground_color = (0, 0, 0, 1)  # Set text color back to black
 
         # Clear the user input field after moving to the next question
         self.ids.user_input.text = ""  # Clear the input field when moving to the next card
