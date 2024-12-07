@@ -1,177 +1,185 @@
 [
     {
+        "question": "der Hund, die Hunde",
+        "answer": "Kutya",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Blume, die Blumen",
+        "answer": "Virág",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "das Haus, die Häuser",
+        "answer": "Ház",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Katze, die Katzen",
+        "answer": "Macska",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "der Hund, die Hunde",
+        "answer": "Kutya",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Blume, die Blumen",
+        "answer": "Virág",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "das Haus, die Häuser",
+        "answer": "Ház",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Schule, die Schulen",
+        "answer": "Iskola",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "der Tisch, die Tische",
+        "answer": "Asztal",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Tür, die Türen",
+        "answer": "Ajtó",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "der Stuhl, die Stühle",
+        "answer": "Szék",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "das Buch, die Bücher",
+        "answer": "Könyv",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Lampe, die Lampen",
+        "answer": "Lámpa",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Schule, die Schulen",
+        "answer": "Iskola",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "der Tisch, die Tische",
+        "answer": "Asztal",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Tür, die Türen",
+        "answer": "Ajtó",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "der Stuhl, die Stühle",
+        "answer": "Szék",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "das Buch, die Bücher",
+        "answer": "Könyv",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Lampe, die Lampen",
+        "answer": "Lámpa",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
+        "question": "die Katze, die Katzen",
+        "answer": "Macska",
+        "interval": 1,
+        "last_review": null,
+        "score": 0,
+        "category": "TestData"
+    },
+    {
         "question": "die Katze, die Katzen",
         "answer": "Macska",
         "interval": 2,
-        "last_review": "2024-12-05",
+        "last_review": null,
         "score": 0,
         "category": "Cats"
     },
     {
-        "question": "Macska",
-        "answer": "die Katze, die Katzen",
+        "question": "a",
+        "answer": "b",
         "interval": 1,
-        "last_review": "2024-12-05",
+        "last_review": null,
         "score": 0,
         "category": "Cats"
     },
     {
-        "question": "r Hund -e",
-        "answer": "Kutya",
+        "question": "a",
+        "answer": "c",
         "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "e Blume -n",
-        "answer": "Virág",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "s Haus -er",
-        "answer": "Ház",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Macska",
-        "answer": "e Katze -n",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Kutya",
-        "answer": "r Hund -e",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Virág",
-        "answer": "e Blume -n",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Ház",
-        "answer": "s Haus -er",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Iskola",
-        "answer": "e Schule -n",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Asztal",
-        "answer": "r Tisch -e",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Ajtó",
-        "answer": "e Tür -en",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Szék",
-        "answer": "r Stuhl -e",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Könyv",
-        "answer": "s Buch -er",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "Lámpa",
-        "answer": "e Lampe -n",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "e Schule -n",
-        "answer": "Iskola",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "r Tisch -e",
-        "answer": "Asztal",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "e Tür -en",
-        "answer": "Ajtó",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "r Stuhl -e",
-        "answer": "Szék",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "s Buch -er",
-        "answer": "Könyv",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "e Lampe -n",
-        "answer": "Lámpa",
-        "interval": 1,
-        "last_review": "2024-12-05",
-        "score": 0,
-        "category": "TestData"
-    },
-    {
-        "question": "e Katze -n",
-        "answer": "Macska",
-        "interval": 1,
-        "last_review": "2024-12-05",
+        "last_review": null,
         "score": 0,
         "category": "TestData"
     }
