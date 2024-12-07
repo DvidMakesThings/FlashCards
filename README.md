@@ -73,6 +73,35 @@ flashcards_app/
 
 - **main.py**: Initializes the app, sets up the screen manager, and launches the GUI.
 
+### Unit Testing
+
+Unit tests are implemented to verify the correctness of core functionalities and the app’s reliability. The unit tests are stored in the `unittest` folder and provide the following benefits:
+
+- **Test Core Logic**: Ensure that the flashcard checking logic, spaced repetition algorithm, and card management functions work as expected.
+- **Data Integrity**: Confirm that the application reads and writes data correctly, especially with regard to the spaced repetition mechanism.
+- **GUI Interaction**: Test user interactions (e.g., checking answers, adding flashcards) to make sure the GUI responds as expected.
+- **Mocking**: The `save_cards` method is mocked to prevent actual data changes during tests, ensuring that test data remains intact.
+
+#### Test Execution
+
+Tests are written using Python’s `unittest` framework, and an HTML report is generated for easy viewing. The tests include the following:
+
+- **Test flashcard answer validation** (`test_check_answer`)
+- **Test adding new flashcards** (`test_add_card`)
+- **Test getting due cards** (`test_get_due_cards`)
+- **Test spaced repetition algorithm** (`test_calculate_next_review`)
+- **Test the `is_due` function** (`test_is_due`)
+- **Test custom button widget** (`test_custom_button`)
+- **Test flashcard addition via the app handler** (`test_add_flashcard`)
+- **Test answer validation via the app handler** (`test_validate_answer`)
+
+The test results are saved to an HTML report, which includes:
+
+- **Test name**
+- **Status (pass, fail, error)**
+- **Failure message (if applicable)**
+- **Debug messages**: Captured from the console to aid debugging
+
 ### Interaction Diagram
 
 ```
@@ -122,7 +151,6 @@ flashcards_app/
 
 ```
 
-
 ### Flow Example: User Checks an Answer
 
 **User Interaction**:
@@ -148,6 +176,9 @@ flashcards_app/
   - Core handles the logic and data.
   - GUI focuses on user interaction.
   - Handlers bridge the gap between the two.
+
+- **Testing**: The `unittest` framework ensures that core functionalities work as expected, with detailed reports on test outcomes and debug messages for error resolution.
+
 
 ## License
 This project is licensed under the GPL-3.0 License. See the [LICENSE](LICENSE) file for details.
