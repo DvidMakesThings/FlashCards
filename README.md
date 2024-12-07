@@ -50,6 +50,7 @@ flashcards_app/
     └── reports           # Stores report files
 ```
 
+
 ### High-Level Design Overview
 
 #### Core Modules
@@ -75,50 +76,52 @@ flashcards_app/
 ### Interaction Diagram
 
 ```
-       +---------------------------+
-       |        main.py            |
-       |  Initializes App and GUI  |
-       +---------------------------+
-                  ↓
-       +---------------------------+
-       |         screens.py         |
-       | Manages App Screens (Home, |
-       | Study, Add Card) and Links |
-       |         to Logic           |
-       +---------------------------+
-                  ↓
-       +---------------------------+
-       |        handlers.py         |
-       | Handles Events:            |
-       | - User Answer Check        |
-       | - Screen Navigation        |
-       +---------------------------+
-                  ↓
-       +---------------------------+
-       |        manager.py          |
-       | Loads, Saves, and Updates  |
-       | Flashcards from Storage    |
-       +---------------------------+
-                  ↓
-       +---------------------------+
-       |       flashcard.py         |
-       | Flashcard Class:           |
-       | - Data Structure           |
-       | - Review/Check Logic       |
-       +---------------------------+
-                  ↓
-       +---------------------------+
-       |       algorithm.py         |
-       | Calculates New Review      |
-       | Intervals (Spaced Repetition)|
-       +---------------------------+
-                  ↓
-       +---------------------------+
-       |        data.json           |
-       | Persistent Storage of      |
-       | Flashcards                 |
-       +---------------------------+
+   +---------------------------+
+   |        main.py            |
+   |  Initializes App and GUI  |
+   +---------------------------+
+              ↓
+   +---------------------------+
+   |         screens.py         |
+   | Manages App Screens (Home, |
+   | Study, Add Card) and Links |
+   |         to Logic           |
+   +---------------------------+
+              ↓
+   +---------------------------+
+   |        handlers.py         |
+   | Handles Events:            |
+   | - User Answer Check        |
+   | - Screen Navigation        |
+   +---------------------------+
+              ↓
+   +---------------------------+
+   |        manager.py          |
+   | Loads, Saves, and Updates  |
+   | Flashcards from Storage    |
+   +---------------------------+
+              ↓
+   +---------------------------+
+   |       flashcard.py         |
+   | Flashcard Class:           |
+   | - Data Structure           |
+   | - Review/Check Logic       |
+   +---------------------------+
+              ↓
+   +---------------------------+
+   |       algorithm.py         |
+   | Calculates New Review      |
+   | Intervals (Spaced Repetition)|
+   +---------------------------+
+              ↓
+   +---------------------------+
+   |        data.json           |
+   | Persistent Storage of      |
+   | Flashcards                 |
+   +---------------------------+
+
 ```
+
 
 ### Flow Example: User Checks an Answer
 
@@ -145,3 +148,11 @@ flashcards_app/
   - Core handles the logic and data.
   - GUI focuses on user interaction.
   - Handlers bridge the gap between the two.
+
+## License
+This project is licensed under the GPL-3.0 License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+For any questions or feedback, please contact:
+- Email: [s.dvid@hotmail.com](mailto:s.dvid@hotmail.com)
+- GitHub: [DvidMakesThings](https://github.com/DvidMakesThings)
