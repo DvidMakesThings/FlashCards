@@ -137,13 +137,10 @@ class StudyScreen(Screen):
             # Update review score as hard if the answer was incorrect (but don't save data)
             if not self.practice_mode:
                 self.current_card.update_review("hard")
-            
-        # Clear the user input field after checking the answer
-        self.ids.user_input.text = ""  # Clear the input field after submission
         
-        # Do NOT save cards during practice mode to prevent overwriting data
-        # if not self.practice_mode:
-        #    self.flashcard_manager.save_cards()  # Save data only if NOT in practice mode
+        # Do NOT clear the input field here when the answer is wrong (keep the wrong answer visible)
+        # Clear the input field after clicking the "Next" button
+
 
 
     def show_next_button(self):
@@ -159,14 +156,22 @@ class StudyScreen(Screen):
         self.ids.next_button.height = '0dp'
 
 
-
     def next_question(self):
-        self.ids.feedback_label.text = ""  # Clear the feedback text
-        self.ids.feedback_label.color = 1, 1, 1, 1  # Reset color to default
-
-        self.hide_next_button()  # Hide the "Next" button
-        self.load_next_card()  # Load the next card (or loop through the cards in practice mode)
-
+        if self.practice_mode:
+            # Move current card to end for endless mode
+            self.flashcard_manager.cards.append(self.flashcard_manager.cards.pop(0))
+            self.load_all_cards()
+        else:
+            # Load the next card and reset feedback
+            self.load_next_card()
+            self.hide_next_button()  # Hide the "Next" button after answering
+            
+            # Clear the feedback label and reset color
+            self.ids.feedback_label.text = ""  # Clear feedback text
+            self.ids.feedback_label.color = 1, 1, 1, 1  # Reset color to default
+        
+        # Clear the user input field after moving to the next question
+        self.ids.user_input.text = ""  # Clear the input field when moving to the next card
 
 class AddCardScreen(Screen):
     flashcard_manager = None  # Class-level attribute
