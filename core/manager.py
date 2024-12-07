@@ -70,7 +70,7 @@ class FlashcardManager:
 
 
     def add_card(self, question, answer, category=None):
-        """Add a new card to the list and assign it a category."""
+        """Add a new card to the list and assign it a category, including reversed card."""
         # Check for duplicates where both question and answer are identical
         for card in self.cards:
             if isinstance(card, Flashcard):
@@ -82,7 +82,7 @@ class FlashcardManager:
                     print(f"[WARNING] Duplicate card detected. Question: '{question}', Answer: '{answer}'")
                     return False  # Indicate failure due to duplicate
 
-        # Create a new card
+        # Create the original card
         new_card = Flashcard(
             question=question,
             answer=answer,
@@ -91,9 +91,24 @@ class FlashcardManager:
             last_review=None,
             score=0,
         )
+        
+        # Create the reversed card (question becomes answer and vice versa)
+        reversed_card = Flashcard(
+            question=answer,
+            answer=question,
+            category=category or "Uncategorized",
+            interval=1,
+            last_review=None,
+            score=0,
+        )
+
+        # Add both the new card and its reversed pair to the list
         self.cards.append(new_card)
+        self.cards.append(reversed_card)
+        
+        # Save the updated list of cards
         self.save_cards()
-        print(f"[DEBUG] Added card: {new_card.__dict__}")
+        print(f"[DEBUG] Added cards: {new_card.__dict__} and {reversed_card.__dict__}")
         return True  # Indicate success
 
 

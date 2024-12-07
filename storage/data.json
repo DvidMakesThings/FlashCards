@@ -166,21 +166,5 @@
         "last_review": null,
         "score": 0,
         "category": "Cats"
-    },
-    {
-        "question": "a",
-        "answer": "b",
-        "interval": 1,
-        "last_review": null,
-        "score": 0,
-        "category": "Cats"
-    },
-    {
-        "question": "a",
-        "answer": "c",
-        "interval": 1,
-        "last_review": null,
-        "score": 0,
-        "category": "TestData"
     }
 ]
