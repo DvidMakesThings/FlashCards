@@ -47,9 +47,9 @@ flashcards_app/
 ├── storage/
 │   └── data.json                       # Stores flashcard data (or SQLite DB)
 └── unittest/
-    ├── test_flashcards.py              # Screen management (Study, Add Card, etc.)
+    ├── test_flashcards.py              # Unit test script
     └── reports                         # Stores report files
-        └── test_report.html            # Stores flashcard data (or SQLite DB)
+        └── test_report.html            # Unit test report file
 ```
 
 
