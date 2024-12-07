@@ -1,3 +1,4 @@
+# File: unittest/test_flashcards.py
 import sys
 import os
 import unittest
@@ -20,11 +21,20 @@ from gui.handlers import AppHandlers
 
 # Function to generate the formatted HTML report
 def write_html_report(report_path, results, debug_messages):
+    """
+    Generates and writes a formatted HTML report with test results and debug messages.
+
+    Args:
+        report_path (str): Path to save the HTML report.
+        results (list): List of test results with status and messages.
+        debug_messages (list): List of captured debug messages.
+    """
     with open(report_path, 'w') as f:
         f.write("<html><head><title>Test Report</title></head><body>")
         f.write("<h1>Test Results</h1>")
         f.write("<table border='1'><tr><th>Test</th><th>Status</th><th>Message</th></tr>")
 
+        # Writing test results
         for result in results:
             if result['status'] == 'pass':
                 color = 'green'
@@ -58,6 +68,10 @@ debug_messages = []
 
 # Main test class
 class TestFlashcards(unittest.TestCase):
+    """
+    A test class to test the functionality of flashcard management,
+    including adding, reviewing, and calculating intervals.
+    """
     # Path to original and test data
     original_data_path = os.path.join(project_root, 'storage', 'data.json')
     test_data_path = os.path.join(project_root, 'unittest', 'data_test.json')
@@ -115,43 +129,51 @@ class TestFlashcards(unittest.TestCase):
         debug_messages.append(printed_output)
 
     def test_check_answer(self):
+        """Test the check_answer method in Flashcard."""
         print("Running test_check_answer")
         flashcard = Flashcard("Capital of France?", "Paris", 2, "2024-12-05", 0, "General")
         self.assertTrue(flashcard.check_answer("Paris"))
         self.assertFalse(flashcard.check_answer("London"))
 
     def test_add_card(self):
+        """Test the add_card method in FlashcardManager."""
         print("Running test_add_card")
         result = self.manager.add_card("Unique Test Question 2", "Unique Test Answer 2", "Test Category")
         self.assertTrue(result)  # Ensure the card was added successfully
         self.assertGreater(len(self.manager.cards), 0)
 
     def test_get_due_cards(self):
+        """Test getting the due cards from FlashcardManager."""
         print("Running test_get_due_cards")
         cards = self.manager.get_due_cards("TestData")
         self.assertGreaterEqual(len(cards), 1)
 
     def test_calculate_next_review(self):
+        """Test the calculate_next_review function."""
         print("Running test_calculate_next_review")
         self.assertEqual(calculate_next_review("easy", 2), 4)
         self.assertEqual(calculate_next_review("hard", 2), 1)
 
     def test_is_due(self):
+        """Test the is_due function."""
         print("Running test_is_due")
         self.assertTrue(is_due("2024-12-05", 0))
 
     def test_custom_button(self):
+        """Test the CustomButton widget."""
         print("Running test_custom_button")
         button = CustomButton(text="Click Me")
         self.assertEqual(button.text, "Click Me")
 
     def test_add_flashcard(self):
+        """Test the add_flashcard method in AppHandlers."""
         print("Running test_add_flashcard")
         handlers = AppHandlers()
         handlers.add_flashcard("Test Question", "Test Answer")
         self.assertGreater(len(handlers.manager.cards), 0)
 
     def test_validate_answer(self):
+        """Test the validate_answer method in AppHandlers."""
         print("Running test_validate_answer")
         card = Flashcard("Capital of France?", "Paris", 2, "2024-12-05", 0, "General")
         handlers = AppHandlers()

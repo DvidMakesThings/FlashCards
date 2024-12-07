@@ -1,4 +1,3 @@
-# File: screens.py
 import json
 from kivy.uix.screenmanager import Screen
 from kivy.uix.boxlayout import BoxLayout
@@ -10,13 +9,16 @@ from kivy.clock import Clock
 import unicodedata
 
 
+# CategoryScreen: This screen handles displaying and selecting categories for studying.
 class CategoryScreen(Screen):
     def on_pre_enter(self):
+        """Called before entering this screen to update the list of categories."""
         self.update_category_list()
 
     def update_category_list(self):
+        """Update the list of available categories by adding a button for each category."""
         self.ids.category_list.clear_widgets()  # Clear existing buttons
-        categories = self.get_available_categories()
+        categories = self.get_available_categories()  # Get available categories
         for category in categories:
             print(f"[DEBUG] Adding button for category: {category}")
             btn = Button(
@@ -27,35 +29,38 @@ class CategoryScreen(Screen):
                 color=(1, 1, 1, 1),  # White text for contrast
                 font_size='18sp'
             )
-            btn.bind(on_press=self.select_category)  # Bind the button to the select_category method
-            self.ids.category_list.add_widget(btn)
-
+            btn.bind(on_press=self.select_category)  # Bind button to select category method
+            self.ids.category_list.add_widget(btn)  # Add button to the layout
 
     def get_available_categories(self):
+        """Get all categories from the stored flashcards."""
         import os
-        categories = set()
+        categories = set()  # Use a set to avoid duplicates
         for file in os.listdir('storage'):
             if file.endswith('.json'):
                 with open(os.path.join('storage', file), 'r', encoding='utf-8') as f:
-                    data = json.load(f)
+                    data = json.load(f)  # Load card data from the file
                     for card in data:
                         if 'category' in card:
-                            categories.add(card['category'])
+                            categories.add(card['category'])  # Add category to the set
         print(f"[DEBUG] Categories found: {categories}")
-        return sorted(categories)
+        return sorted(categories)  # Return sorted categories
 
     def select_category(self, button):
-        category = button.text
+        """Handle the selection of a category and transition to the StudyScreen."""
+        category = button.text  # Get the category from the button text
         print(f"[DEBUG] Selected category: {category}")
-        study_screen = self.manager.get_screen('study')
-        study_screen.set_category(category)
-        self.manager.current = 'study'
+        study_screen = self.manager.get_screen('study')  # Get StudyScreen instance
+        study_screen.set_category(category)  # Set the selected category in StudyScreen
+        self.manager.current = 'study'  # Transition to StudyScreen
 
 
+# HomeScreen: The main screen of the app, where the user can choose to start studying or add new flashcards.
 class HomeScreen(Screen):
     pass
 
 
+# StudyScreen: This screen is where the user can practice flashcards by answering questions.
 class StudyScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -64,6 +69,7 @@ class StudyScreen(Screen):
         self.practice_mode = False  # Initialize this attribute to avoid AttributeError
 
     def set_category(self, category):
+        """Set the selected category and load the first card."""
         print(f"[DEBUG] Setting category for StudyScreen: {category}")
         self.category = category  # Store the selected category
 
@@ -74,6 +80,7 @@ class StudyScreen(Screen):
         self.load_next_card()
 
     def start_practice_mode(self):
+        """Start practice mode with all the cards in the selected category."""
         if not self.flashcard_manager or not self.flashcard_manager.cards:
             print("[ERROR] No cards to review!")
             self.ids.question_label.text = "No cards available!"
@@ -83,6 +90,7 @@ class StudyScreen(Screen):
         self.load_next_card()
 
     def load_next_card(self):
+        """Load the next card in the selected category."""
         if not self.category:
             print("[ERROR] No category selected!")
             return
@@ -103,20 +111,22 @@ class StudyScreen(Screen):
             self.ids.question_label.text = "No due cards for this category."
 
     def normalize_text(self, text):
+        """Normalize text for case-insensitive comparison."""
         return unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode('utf-8').lower()
 
     def check_user_answer(self):
+        """Check the user's answer and provide feedback."""
         if not self.current_card:
             return
 
         # Normalize the text for case-insensitive comparison
         user_answer = self.normalize_text(self.ids.user_input.text)
         correct_answer = self.normalize_text(self.current_card.answer)
-        
+
         # If the answer is correct
         if user_answer == correct_answer:
             # Provide positive feedback and display green message
-            self.ids.feedback_label.text = "Correct!"  
+            self.ids.feedback_label.text = "Correct!"
             self.ids.feedback_label.color = 0, 0.5, 0, 1  # Green color for correct answer
 
             # If not in practice mode, update review score (but don't save data)
@@ -125,7 +135,7 @@ class StudyScreen(Screen):
             
             # Wait for 0.5 seconds before showing the next card
             Clock.schedule_once(lambda dt: self.next_question(), 0.5)
-            
+
         else:
             # If the answer is incorrect
             self.ids.feedback_label.text = f"Incorrect!\nCorrect answer: {self.current_card.answer}"  # Display correct answer under "Incorrect"
@@ -137,26 +147,24 @@ class StudyScreen(Screen):
             # Update review score as hard if the answer was incorrect (but don't save data)
             if not self.practice_mode:
                 self.current_card.update_review("hard")
-        
+
         # Do NOT clear the input field here when the answer is wrong (keep the wrong answer visible)
         # Clear the input field after clicking the "Next" button
 
-
-
     def show_next_button(self):
-        # Show the "Next" button so the user can proceed manually
+        """Show the "Next" button so the user can proceed manually."""
         self.ids.next_button.opacity = 1
         self.ids.next_button.size_hint_y = None
         self.ids.next_button.height = '60dp'
 
     def hide_next_button(self):
-        # Hide the "Next" button
+        """Hide the "Next" button."""
         self.ids.next_button.opacity = 0
         self.ids.next_button.size_hint_y = None
         self.ids.next_button.height = '0dp'
 
-
     def next_question(self):
+        """Load the next question or move the current card to the end in practice mode."""
         if self.practice_mode:
             # Move current card to end for endless mode
             self.flashcard_manager.cards.append(self.flashcard_manager.cards.pop(0))
@@ -165,16 +173,18 @@ class StudyScreen(Screen):
             # Load the next card and reset feedback
             self.load_next_card()
             self.hide_next_button()  # Hide the "Next" button after answering
-            
+
             # Clear the feedback label and reset color
             self.ids.feedback_label.text = ""  # Clear feedback text
             self.ids.feedback_label.color = 1, 1, 1, 1  # Reset color to default
-        
+
         # Clear the user input field after moving to the next question
         self.ids.user_input.text = ""  # Clear the input field when moving to the next card
 
+
+# AddCardScreen: This screen handles the creation and saving of new flashcards.
 class AddCardScreen(Screen):
-    flashcard_manager = None  # Class-level attribute
+    flashcard_manager = None  # Class-level attribute to manage flashcards
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -192,7 +202,6 @@ class AddCardScreen(Screen):
         categories = {getattr(card, 'category', 'Uncategorized') for card in self.flashcard_manager.cards}
         print(f"[DEBUG] Existing categories: {categories}")
         return sorted(categories)
-
 
     def toggle_custom_category(self, selected_text):
         """Show or hide the custom category input field based on spinner selection."""

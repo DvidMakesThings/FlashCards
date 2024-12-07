@@ -1,13 +1,18 @@
+# HomeScreen: The main screen where users can choose to start studying or add new flashcards
 <HomeScreen>:
+    # Vertical layout for the home screen
     BoxLayout:
         orientation: 'vertical'
         padding: '10dp'
         spacing: '10dp'
         canvas.before:
+            # Background image for the home screen
             Rectangle:
                 source: 'img/background916.png'
                 pos: self.pos
                 size: self.size
+        
+        # Button to start studying (Navigates to CategoryScreen)
         Button:
             text: "Start Studying"
             font_size: '20sp'
@@ -15,7 +20,9 @@
             color: 1, 1, 1, 1  # White text for contrast
             size_hint_y: None
             height: '60dp'
-            on_press: app.root.current = 'category'  # Correct transition to CategoryScreen
+            on_press: app.root.current = 'category'  # Transition to CategoryScreen
+        
+        # Button to add a new flashcard (Navigates to AddCardScreen)
         Button:
             text: "Add New Flashcard"
             font_size: '20sp'
@@ -23,18 +30,24 @@
             color: 1, 1, 1, 1
             size_hint_y: None
             height: '60dp'
-            on_press: app.root.current = 'add_card'
+            on_press: app.root.current = 'add_card'  # Transition to AddCardScreen
 
+
+# CategoryScreen: Displays the list of available categories for studying.
 <CategoryScreen>:
+    # Vertical layout for CategoryScreen
     BoxLayout:
         orientation: 'vertical'
         padding: '10dp'
         spacing: '10dp'
         canvas.before:
+            # Background image for the category screen
             Rectangle:
                 source: 'img/background_game.png'
                 pos: self.pos
                 size: self.size
+        
+        # Scrollable list to display available categories
         ScrollView:
             GridLayout:
                 id: category_list
@@ -44,6 +57,8 @@
                 row_default_height: '40dp'
                 row_force_default: True
                 spacing: '5dp'
+
+        # Button to navigate back to the home screen
         Button:
             text: "Back"
             font_size: '20sp'
@@ -51,18 +66,24 @@
             color: 1, 1, 1, 1
             size_hint_y: None
             height: '60dp'
-            on_press: app.root.current = 'home'
+            on_press: app.root.current = 'home'  # Transition back to HomeScreen
 
+
+# StudyScreen: The main screen for practicing the flashcards, where the user answers questions.
 <StudyScreen>:
+    # Vertical layout for StudyScreen
     BoxLayout:
         orientation: 'vertical'
         padding: '20dp'
         spacing: '10dp'
         canvas.before:
+            # Background image for the study screen
             Rectangle:
                 source: 'img/background_game.png'
                 pos: self.pos
                 size: self.size
+        
+        # Display the question in a card-like box with rounded corners
         BoxLayout:
             orientation: 'vertical'
             padding: '15dp'
@@ -70,7 +91,7 @@
             size_hint_y: 0.6
             canvas.before:
                 Color:
-                    rgba: 0.8, 0.9, 1, 1  # Light blue background for card
+                    rgba: 0.8, 0.9, 1, 1  # Light blue background for the question card
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
@@ -87,6 +108,7 @@
                 valign: 'middle'
                 text_size: self.size
 
+        # Input field for the user to type their answer
         BoxLayout:
             orientation: 'vertical'
             padding: '15dp'
@@ -95,7 +117,7 @@
             height: '100dp'
             canvas.before:
                 Color:
-                    rgba: 1, 1, 1, 1  # White background for answer card
+                    rgba: 1, 1, 1, 1  # White background for the answer input field
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
@@ -110,6 +132,7 @@
                 height: '50dp'
                 multiline: False
 
+        # Button to check the user's answer
         Button:
             text: "Check Answer"
             font_size: '20sp'
@@ -118,11 +141,15 @@
             size_hint_y: None
             height: '60dp'
             on_press: root.check_user_answer()
+        
+        # Feedback label for displaying whether the answer was correct or incorrect
         Label:
             id: feedback_label
             text: ""
             font_size: '20sp'
-            color: 0.50, 0.80, 0.20, 1  # Soft green button  # Feedback in soft orange
+            color: 0.50, 0.80, 0.20, 1  # Feedback color in green for correct answers
+        
+        # Button to move to the next card, initially hidden
         Button:
             id: next_button
             text: "Next"
@@ -133,6 +160,8 @@
             size_hint_y: None
             height: '0dp'
             on_press: root.next_question()
+
+        # Button to start practicing all the cards
         Button:
             id: practice_button
             text: "Practice All Cards"
@@ -143,6 +172,8 @@
             height: '60dp'
             opacity: 0
             on_press: root.start_practice_mode()
+        
+        # Button to navigate back to the CategoryScreen
         Button:
             text: "Back"
             font_size: '20sp'
@@ -152,51 +183,50 @@
             height: '60dp'
             on_press: app.root.current = 'category'
 
+
+# AddCardScreen: Allows the user to create and save new flashcards.
 <AddCardScreen>:
     BoxLayout:
         orientation: 'vertical'
         padding: '10dp'
         spacing: '10dp'
         canvas.before:
+            # Background image for the add card screen
             Rectangle:
                 source: 'img/background_game.png'
                 pos: self.pos
                 size: self.size
+        
+        # Card category dropdown menu
         BoxLayout:
             orientation: 'vertical'
-            padding: '15dp'
+            padding: '10dp'
             spacing: '10dp'
+            size_hint_y: None
+            height: '120dp'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # White background for the card
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+            AnchorLayout:
+                anchor_x: "center"
+                anchor_y: "center"
+                Spinner:
+                    id: category_spinner
+                    text: "Select or Add Category"
+                    values: root.get_categories() + ["Add New Category"]  # Dynamic values for categories
+                    font_size: '18sp'
+                    background_color: 0.2, 0.6, 0.9, 1  # Soft blue background
+                    background_normal: ""  # Removes default spinner background
+                    color: 1, 1, 1, 1  # White text
+                    size_hint: None, None
+                    size: 300, 40
+                    on_text: root.toggle_custom_category(self.text)  # Toggle custom category box
 
-            # Dropdown for Category
-            BoxLayout:
-                orientation: 'vertical'
-                padding: '10dp'
-                spacing: '10dp'
-                size_hint_y: None
-                height: '120dp'
-                canvas.before:
-                    Color:
-                        rgba: 1, 1, 1, 1  # White background for the card
-                    RoundedRectangle:
-                        pos: self.pos
-                        size: self.size
-                        radius: [20]
-                AnchorLayout:
-                    anchor_x: "center"
-                    anchor_y: "center"
-                    Spinner:
-                        id: category_spinner
-                        text: "Select or Add Category"
-                        values: root.get_categories() + ["Add New Category"]  # Dynamic values
-                        font_size: '18sp'
-                        background_color: 0.2, 0.6, 0.9, 1  # Same soft blue as other buttons
-                        background_normal: ""  # Removes default spinner background
-                        color: 1, 1, 1, 1  # White text
-                        size_hint: None, None
-                        size: 300, 40
-                        on_text: root.toggle_custom_category(self.text)
-
-            # Custom Category Box (Always Stays Below Spinner)
+            # Custom category input box (appears only when "Add New Category" is selected)
             BoxLayout:
                 id: custom_category_box
                 orientation: 'vertical'
@@ -222,7 +252,7 @@
                     height: '50dp'
                     multiline: False
 
-            # Input for Question
+            # Input fields for question and answer
             BoxLayout:
                 orientation: 'vertical'
                 padding: '10dp'
@@ -246,7 +276,7 @@
                     height: '50dp'
                     multiline: False
 
-            # Input for Answer
+            # Answer input field
             BoxLayout:
                 orientation: 'vertical'
                 padding: '10dp'
@@ -270,18 +300,19 @@
                     height: '50dp'
                     multiline: False
 
-        # Feedback Label
+        # Feedback label to show messages to the user (Success/Failure)
         Label:
             id: feedback_label
             text: ""
             font_size: '16sp'
-            color: 1, 1, 1, 1  # Default color
+            color: 1, 1, 1, 1  # Default color (white)
             size_hint_y: None
             height: '40dp'
             halign: 'center'
             valign: 'middle'
             text_size: self.size
-        # Save Card Button
+        
+        # Button to save the flashcard (calls save_card method)
         Button:
             text: "Save Card"
             font_size: '20sp'
@@ -291,7 +322,7 @@
             height: '60dp'
             on_press: root.save_card()
 
-        # Back Button
+        # Back button to navigate back to the HomeScreen
         Button:
             text: "Back"
             font_size: '20sp'
