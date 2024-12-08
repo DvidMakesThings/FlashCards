@@ -34,6 +34,12 @@ jobs:
           docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer init
         fi
 
+    - name: Ensure SDK license is accepted
+      run: |
+        if ! grep -q "android.accept_sdk_license = True" ${GITHUB_WORKSPACE}/buildozer.spec; then
+          echo "android.accept_sdk_license = True" >> ${GITHUB_WORKSPACE}/buildozer.spec
+        fi
+
     - name: Build APK
       run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug
 
