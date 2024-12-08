@@ -7,7 +7,7 @@ ENV ANDROID_HOME=/opt/android-sdk
 ENV PATH="${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
 ENV BUILD_PATH=/app/.buildozer  
 
-# Install required packages
+# Install required packages including libstdc++6 and Android SDK dependencies
 RUN apt-get update && apt-get install -y \
     python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk build-essential libstdc++6 && \
     apt-get clean
@@ -26,11 +26,7 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     rm cmdline-tools.zip && \
     yes | sdkmanager --licenses && \
     sdkmanager --update && \
-    sdkmanager --licenses && \
-    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest"
-
-# Install AIDL
-RUN apt-get update && apt-get install -y aidl
+    yes | sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "aidl"
 
 # Create a non-root user for running Buildozer
 RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
