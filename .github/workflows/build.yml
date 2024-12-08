@@ -23,12 +23,16 @@ jobs:
         run: docker build -t buildozer-android .
 
       - name: Run Docker container to build APK
-        run: docker run --rm -v ${PWD}:/home/builder/source buildozer-android
+        run: docker run -d -v ${PWD}:/home/builder/source buildozer-android
+
+      - name: List contents of source directory
+        run: ls -R /home/builder/source
 
       - name: Move APK to bin folder
         run: |
           mkdir -p bin
-          mv /home/builder/source/bin/*.apk bin/
+          mv /home/builder/source/.buildozer/android/platform/build-arm64-v8a/dists/your_project_name/bin/*.apk bin/
+        shell: bash
 
       - name: Commit and push APK to bin folder
         run: |
