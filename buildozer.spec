@@ -112,7 +112,7 @@ android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE
 android.api = 33
 
 # (int) Minimum API your APK / AAB will support.
-#android.minapi = 21
+android.minapi = 29
 
 # (int) Android SDK version to use
 #android.sdk = 20
@@ -121,7 +121,7 @@ android.api = 33
 android.ndk = 25b
 
 # (int) Android NDK API to use. This is the minimum API your app will support, it should usually match android.minapi.
-android.ndk_api = 21
+android.ndk_api = 29
 
 # (str) Android NDK directory (if empty, it will be automatically downloaded.)
 #android.ndk_path =
@@ -133,7 +133,7 @@ android.ndk_api = 21
 #android.ant_path =
 
 # (str) Java Development Kit version to use
-android.jdk = /usr/lib/jvm/java-17-openjdk-amd64
+# android.jdk = /usr/lib/jvm/java-17-openjdk-amd64
 
 # (bool) If True, then skip trying to update the Android SDK
 # This can be useful to avoid excess Internet downloads or save time
@@ -295,7 +295,7 @@ android.add_compile_options = "sourceCompatibility = 17", "targetCompatibility =
 
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 # In past, was `android.arch` as we weren't supporting builds for multiple archs at the same time.
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing

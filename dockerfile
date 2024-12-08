@@ -14,13 +14,12 @@ RUN apt-get update && apt-get install -y \
 # Install Buildozer, Cython
 RUN pip3 install buildozer cython
 
-# Android SDK Command-line tools
+# Android SDK Command-line tools (version 9695651)
 RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
-    wget -q https://dl.google.com/android/repository/commandlinetools-linux-9143000_latest.zip -O cmdline-tools.zip && \
+    wget -q https://dl.google.com/android/repository/commandlinetools-linux-9695651.zip -O cmdline-tools.zip && \
     unzip -q cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools && \
     mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
     rm cmdline-tools.zip
-
 
 # Accept licenses - crucial change: use `expect` for reliable license acceptance
 RUN apt-get install -y expect && \
@@ -29,12 +28,9 @@ RUN apt-get install -y expect && \
         eof { exit 0 } \
     }'
 
-
-# Install SDK components - install a wider range of build tools
+# Install SDK components (matching versions)
 RUN sdkmanager --update && \
-    sdkmanager "platform-tools" "build-tools;31.0.0" "build-tools;32.0.0" "build-tools;33.0.0" "platforms;android-33" "platforms;android-32" "platforms;android-31"
-
-
+    sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-33"
 
 # Create buildozer user and set permissions
 RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
