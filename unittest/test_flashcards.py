@@ -8,6 +8,10 @@ from tempfile import mkdtemp
 from io import StringIO
 import logging
 from termcolor import colored
+import os
+from kivy.config import Config
+Config.set('graphics', 'window', 'none')  # Disable the window initialization
+
 
 # Add the root directory (FlashCards) to sys.path
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
