@@ -25,6 +25,9 @@ jobs:
         sed -i '/ENTRYPOINT \["buildozer"\]/d' Dockerfile
         docker build --tag=buildozer .
 
+    - name: Adjust permissions for the mounted directory
+      run: sudo chmod -R 777 ${GITHUB_WORKSPACE}
+
     - name: Initialize Buildozer if buildozer.spec does not exist
       run: |
         if [ ! -f ${GITHUB_WORKSPACE}/buildozer.spec ]; then
