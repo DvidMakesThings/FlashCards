@@ -23,6 +23,29 @@ from core.algorithm import calculate_next_review, is_due
 from gui.widgets import CustomButton
 from gui.handlers import AppHandlers
 
+@classmethod
+def setUpClass(cls):
+    """Run once before all tests."""
+    cls.temp_dir = mkdtemp()  # Create a temporary directory
+    cls.temp_backup = os.path.join(cls.temp_dir, 'data.json')
+
+    # Generate a default data.json if it doesn't exist
+    if not os.path.exists(cls.original_data_path):
+        os.makedirs(os.path.dirname(cls.original_data_path), exist_ok=True)
+        with open(cls.original_data_path, 'w') as f:
+            f.write('[]')  # Create an empty JSON array
+
+    # Copy the original data.json to a temp directory
+    shutil.copy(cls.original_data_path, cls.temp_backup)
+
+    # Remove the old test data if it exists
+    if os.path.exists(cls.test_data_path):
+        os.remove(cls.test_data_path)
+
+    # Copy the original data.json to the unittest folder for testing
+    shutil.copy(cls.original_data_path, cls.test_data_path)
+
+
 # Function to generate the formatted HTML report
 def write_html_report(report_path, results, debug_messages):
     """
