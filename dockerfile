@@ -9,7 +9,7 @@ ENV BUILD_PATH=/app/.buildozer
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip python3-venv openjdk-11-jdk wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev && \
+    python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk && \
     apt-get clean
 
 # Install Buildozer

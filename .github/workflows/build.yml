@@ -16,21 +16,24 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # Step 2: Build Docker Image
-    - name: Build Docker Image
-      run: |
-        docker build -t buildozer-android .
+    # Step 2: Adjust Permissions
+    - name: Adjust Permissions
+      run: chmod -R 777 ${{ github.workspace }}
 
-    # Step 3: Run Buildozer in Docker
+    # Step 3: Build Docker Image
+    - name: Build Docker Image
+      run: docker build -t buildozer-android .
+
+    # Step 4: Run Buildozer in Docker
     - name: Run Buildozer in Docker
       run: |
         docker run --rm \
           -v ${{ github.workspace }}:/app \
           -e BUILD_PATH=/app/.buildozer \
-          -u 1000:1000 \
+          -u $(id -u):$(id -g) \
           buildozer-android
 
-    # Step 4: Upload APK Artifact
+    # Step 5: Upload APK Artifact
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
