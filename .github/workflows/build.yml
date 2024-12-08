@@ -22,9 +22,10 @@ jobs:
     - name: Modify Dockerfile to Install Android Command-Line Tools
       run: |
         cd buildozer
-        sed -i '/^RUN apt-get update/a RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip && \
-          unzip commandlinetools-linux-8512546_latest.zip -d /home/user/android-sdk/cmdline-tools && \
-          mv /home/user/android-sdk/cmdline-tools/cmdline-tools /home/user/android-sdk/cmdline-tools/tools && \
+        sed -i '/^RUN apt-get update/a \
+          RUN mkdir -p /home/user/android-sdk/cmdline-tools/latest && \
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip && \
+          unzip -q commandlinetools-linux-8512546_latest.zip -d /home/user/android-sdk/cmdline-tools/latest && \
           rm commandlinetools-linux-8512546_latest.zip' Dockerfile
 
     - name: Build Buildozer Docker image
@@ -45,8 +46,8 @@ jobs:
     - name: Ensure SDK and Build-Tools are Installed
       run: |
         docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer bash -c "
-          /home/user/android-sdk/cmdline-tools/tools/bin/sdkmanager 'platform-tools' 'build-tools;33.0.0' 'platforms;android-33' &&
-          yes | /home/user/android-sdk/cmdline-tools/tools/bin/sdkmanager --licenses"
+          /home/user/android-sdk/cmdline-tools/latest/bin/sdkmanager 'platform-tools' 'build-tools;33.0.0' 'platforms;android-33' &&
+          yes | /home/user/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses"
 
     - name: Install AIDL
       run: |
