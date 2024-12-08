@@ -1,41 +1,54 @@
-# Use Ubuntu 20.04 as the base image (more recent and better support)
-FROM ubuntu:20.04
+# Use Ubuntu 18.04 as the base image
+FROM ubuntu:18.04
 
-# Set environment variables
+# Set environment variables for non-interactive installs
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ANDROID_HOME=/opt/android-sdk
 ENV PATH="${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
+ENV BUILD_PATH=/app/.buildozer  
 
-# Install essential packages
+# Install required packages including libstdc++6, Flutter dependencies, and Android SDK dependencies
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk build-essential libstdc++6 curl zip && \
+    python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk build-essential libstdc++6 curl && \
     apt-get clean
 
-# Install Buildozer, Cython
-RUN pip3 install buildozer cython
+# Install Buildozer and Cython
+RUN pip3 install buildozer cython && \
+    mkdir -p /root/.local/bin && \
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    echo 'export PATH=$HOME/.local/bin:$PATH' >> /root/.bashrc
 
-# Android SDK Command-line tools (version 9695651)
+# Install Android SDK command-line tools
 RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
-    wget -q https://dl.google.com/android/repository/commandlinetools-linux-9695651.zip -O cmdline-tools.zip && \
+    wget -q https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O cmdline-tools.zip && \
     unzip -q cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools && \
     mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
-    rm cmdline-tools.zip
+    rm cmdline-tools.zip && \
+    yes | sdkmanager --licenses && \
+    sdkmanager --update && \
+    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" && \
+    sdkmanager --list
 
-# Accept licenses - crucial change: use `expect` for reliable license acceptance
-RUN apt-get install -y expect && \
-    expect -c 'spawn sdkmanager --licenses; expect { \
-        "y/n" { send "y\r"; exp_continue } \
-        eof { exit 0 } \
-    }'
+# Manually accept the android-sdk-preview-license
+RUN mkdir -p ${ANDROID_HOME}/licenses && \
+    echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > ${ANDROID_HOME}/licenses/android-sdk-license && \
+    echo "d56f5187479451eabf01fb78af6dfcb131a6481e" > ${ANDROID_HOME}/licenses/android-sdk-preview-license
 
-# Install SDK components (matching versions)
-RUN sdkmanager --update && \
-    sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-33"
+# Install Flutter SDK
+RUN git clone https://github.com/flutter/flutter.git /opt/flutter && \
+    /opt/flutter/bin/flutter doctor
 
-# Create buildozer user and set permissions
+# Automatically accept all Android SDK licenses using yes
+RUN yes | /opt/flutter/bin/flutter doctor --android-licenses
+
+# Create a non-root user for running Buildozer
 RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
+
+# Switch to non-root user
 USER builder
+
+# Set working directory
 WORKDIR /app
 
-# CMD - removed flutter, focus on buildozer
-CMD ["buildozer", "android", "debug"]
+# Default command to build the APK with Buildozer and run Flutter
+CMD ["sh", "-c", "buildozer android debug && /opt/flutter/bin/flutter run"]
