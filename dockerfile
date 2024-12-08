@@ -5,15 +5,16 @@ FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ANDROID_HOME=/opt/android-sdk
 ENV PATH="${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
-ENV BUILD_PATH=/app/.buildozer 
+ENV BUILD_PATH=/app/.buildozer  
+
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
     python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk && \
     apt-get clean
 
-# Install Buildozer
-RUN pip3 install buildozer && \
+# Install Buildozer and Cython
+RUN pip3 install buildozer cython && \
     mkdir -p /root/.local/bin && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     echo 'export PATH=$HOME/.local/bin:$PATH' >> /root/.bashrc
