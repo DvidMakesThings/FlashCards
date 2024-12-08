@@ -20,13 +20,20 @@ jobs:
     - name: Adjust Permissions
       run: chmod -R 777 ${{ github.workspace }}
 
-    # Step 3: Install Android SDK dependencies
-    - name: Install Android SDK dependencies
+    # Step 3: Install Android SDK Command-Line Tools
+    - name: Install Android SDK Command-Line Tools
       run: |
-        echo "Installing required Android SDK tools..."
-        yes | sdkmanager --licenses
-        sdkmanager --update
-        sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest"
+        echo "Installing Android SDK Command-Line Tools..."
+        wget -q https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O cmdline-tools.zip
+        mkdir -p $HOME/Android/cmdline-tools
+        unzip -q cmdline-tools.zip -d $HOME/Android/cmdline-tools
+        mv $HOME/Android/cmdline-tools/cmdline-tools $HOME/Android/cmdline-tools/latest
+        rm cmdline-tools.zip
+        export ANDROID_HOME=$HOME/Android
+        export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --update
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest" "aidl"
 
     # Step 4: Build Docker Image
     - name: Build Docker Image
