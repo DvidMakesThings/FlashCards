@@ -10,30 +10,23 @@ jobs:
   build-android:
     name: Build APK for Android
     runs-on: ubuntu-latest
-
     steps:
-    # Step 1: Checkout the code
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # Step 2: Adjust Permissions (to avoid permission issues)
-    - name: Adjust Permissions
+    - name: Adjust Permissions (important to do this *after* checkout)
       run: chmod -R 777 ${{ github.workspace }}
 
-    # Step 3: Build Docker Image
     - name: Build Docker Image
       run: docker build -t buildozer-android .
 
-    # Step 4: Run Buildozer in Docker
-    - name: Run Buildozer in Docker
+    - name: Run Buildozer in Docker (simplified)
       run: |
         docker run --rm \
           -v ${{ github.workspace }}:/app \
-          -e BUILD_PATH=/app/.buildozer \
           -u 1000:1000 \
           buildozer-android
 
-    # Step 5: Upload APK Artifact
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
