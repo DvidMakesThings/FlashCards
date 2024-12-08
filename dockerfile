@@ -11,19 +11,11 @@ RUN useradd -m -U builder && \
 USER builder
 WORKDIR /home/builder
 
-# Create source directory and copy project files
-RUN mkdir source
-COPY --chown=builder:builder ./ ./source/
-
 # Set up environment and install dependencies
 RUN echo "export PATH=$PATH:/home/builder/.local/bin/" >> /home/builder/.profile && \
     echo "export PATH=$PATH:/home/builder/.local/bin/" >> /home/builder/.bashrc && \
     pip3 install --user --upgrade buildozer Cython==0.29.33 wheel pip setuptools virtualenv && \
     git clone https://github.com/kivy/python-for-android.git
-
-# Build the project
-WORKDIR /home/builder/source
-RUN /bin/bash -c "source /home/builder/.profile && yes | buildozer android debug"
 
 # Set the volume
 VOLUME /home/builder/source

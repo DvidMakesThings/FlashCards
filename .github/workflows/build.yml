@@ -23,15 +23,15 @@ jobs:
         run: docker build -t jedie/buildozer .
 
       - name: Run Docker container to build APK
-        run: docker run --name buildozer-container -v ${PWD}:/buildozer jedie/buildozer buildozer --verbose android release
+        run: docker run --name buildozer-container -v ${PWD}:/home/builder/source jedie/buildozer /bin/bash -c "source /home/builder/.profile && buildozer --verbose android release"
 
       - name: List contents of buildozer directory
-        run: docker exec buildozer-container ls -R /buildozer
+        run: docker exec buildozer-container ls -R /home/builder/source
 
       - name: Move APK to bin folder
         run: |
           mkdir -p bin
-          docker cp buildozer-container:/buildozer/.buildozer/android/platform/build-arm64-v8a/dists/Wortmeister/bin/*.apk bin/
+          docker cp buildozer-container:/home/builder/source/.buildozer/android/platform/build-arm64-v8a/dists/Wortmeister/bin/*.apk bin/
         shell: bash
 
       - name: Commit and push APK to bin folder
