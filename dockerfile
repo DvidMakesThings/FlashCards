@@ -29,8 +29,8 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" && \
     sdkmanager --list
 
-# Explicitly install AIDL separately (may resolve the error)
-RUN sdkmanager "aidl" || echo "Failed to install aidl"
+# Accept all Android SDK licenses using flutter doctor
+RUN yes | flutter doctor --android-licenses
 
 # Create a non-root user for running Buildozer
 RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
