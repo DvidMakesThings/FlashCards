@@ -13,66 +13,22 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-
-    - name: Clone Buildozer repository
-      run: git clone https://github.com/kivy/buildozer
-
-    - name: Modify Dockerfile to Install Android Command-Line Tools
+    - name: Install Buildozer
       run: |
-        cd buildozer
-        sed -i '/^RUN apt-get update/a \
-          RUN mkdir -p /home/user/android-sdk/cmdline-tools/latest && \
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip && \
-          unzip -q commandlinetools-linux-8512546_latest.zip -d /home/user/android-sdk/cmdline-tools/latest && \
-          rm commandlinetools-linux-8512546_latest.zip' Dockerfile
+        sudo apt update
+        sudo apt install -y python3-pip
+        pip install buildozer
 
-    - name: Build Buildozer Docker image
+    - name: Install Android SDK and NDK
       run: |
-        cd buildozer
-        sed -i '/ENTRYPOINT \["buildozer"\]/d' Dockerfile
-        docker build --tag=buildozer .
-
-    - name: Adjust permissions for the mounted directory
-      run: sudo chmod -R 777 ${GITHUB_WORKSPACE}
-
-    - name: Initialize Buildozer if buildozer.spec does not exist
-      run: |
-        if [ ! -f ${GITHUB_WORKSPACE}/buildozer.spec ]; then
-          docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer init
-        fi
-
-    - name: Ensure SDK and Build-Tools are Installed
-      run: |
-        docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer bash -c "
-          /home/user/android-sdk/cmdline-tools/latest/bin/sdkmanager 'platform-tools' 'build-tools;33.0.0' 'platforms;android-33' &&
-          yes | /home/user/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses"
-
-    - name: Install AIDL
-      run: |
-        docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer bash -c "
-          apt-get update && apt-get install -y aidl"
-
-    - name: Ensure SDK license is accepted
-      run: |
-        if ! grep -q "android.accept_sdk_license = True" ${GITHUB_WORKSPACE}/buildozer.spec; then
-          echo "android.accept_sdk_license = True" >> ${GITHUB_WORKSPACE}/buildozer.spec
-        fi
-
-    - name: Replace Build Tools Version in Buildozer Spec
-      run: |
-        sed -i 's/android.build_tools_version = .*/android.build_tools_version = "33.0.0"/' ${GITHUB_WORKSPACE}/buildozer.spec
+        sudo apt install -y wget unzip
+        wget https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O cmdline-tools.zip
+        mkdir -p $HOME/android/cmdline-tools
+        unzip cmdline-tools.zip -d $HOME/android/cmdline-tools
+        mv $HOME/android/cmdline-tools/cmdline-tools $HOME/android/cmdline-tools/tools
+        rm cmdline-tools.zip
+        yes | $HOME/android/cmdline-tools/tools/bin/sdkmanager --sdk_root=$HOME/android 'platform-tools' 'build-tools;33.0.0' 'platforms;android-33'
 
     - name: Build APK
-      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug --accept-license
-
-    - name: Check Docker containers
-      run: docker ps -a
-
-    - name: Commit and push Docker image
       run: |
-        CONTAINER_ID=$(docker ps -a -q --filter ancestor=buildozer --format="{{.ID}}")
-        docker commit $CONTAINER_ID ghcr.io/${{ secrets.GHCR_USERNAME }}/flashcards:latest
-        echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
-        docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/flashcards:latest
+        buildozer android debug
