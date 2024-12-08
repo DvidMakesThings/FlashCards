@@ -34,18 +34,29 @@ jobs:
           docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer init
         fi
 
+    - name: Ensure SDK and Build-Tools are Installed
+      run: |
+        docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer bash -c "
+          sdkmanager 'platform-tools' 'build-tools;33.0.0' 'platforms;android-33' &&
+          yes | sdkmanager --licenses"
+
+    - name: Install AIDL
+      run: |
+        docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer bash -c "
+          apt-get update && apt-get install -y aidl"
+
     - name: Ensure SDK license is accepted
       run: |
         if ! grep -q "android.accept_sdk_license = True" ${GITHUB_WORKSPACE}/buildozer.spec; then
           echo "android.accept_sdk_license = True" >> ${GITHUB_WORKSPACE}/buildozer.spec
         fi
 
-    - name: Accept Android SDK licenses
+    - name: Replace Build Tools Version in Buildozer Spec
       run: |
-        docker run --rm --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer bash -c "yes | sdkmanager --licenses"
+        sed -i 's/android.build_tools_version = .*/android.build_tools_version = "33.0.0"/' ${GITHUB_WORKSPACE}/buildozer.spec
 
     - name: Build APK
-      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug
+      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug --accept-license
 
     - name: Check Docker containers
       run: docker ps -a
