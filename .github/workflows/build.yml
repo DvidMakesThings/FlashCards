@@ -1,34 +1,27 @@
-name: Build APK
-
-on:
+name: Build
+on: 
   push:
-    branches:
-      - master
+  pull_request:
 
 jobs:
-  build:
+  # Build job. Builds app for Android with Buildozer
+  build-android:
+    name: Build for Android
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Install Buildozer
-      run: |
-        sudo apt update
-        sudo apt install -y python3-pip
-        pip install buildozer
+      - name: Build with Buildozer
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
+        with:
+          workdir: .
+          buildozer-version: stable
 
-    - name: Install Android SDK and NDK
-      run: |
-        sudo apt install -y wget unzip
-        wget https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O cmdline-tools.zip
-        mkdir -p $HOME/android/cmdline-tools
-        unzip cmdline-tools.zip -d $HOME/android/cmdline-tools
-        mv $HOME/android/cmdline-tools/cmdline-tools $HOME/android/cmdline-tools/tools
-        rm cmdline-tools.zip
-        yes | $HOME/android/cmdline-tools/tools/bin/sdkmanager --sdk_root=$HOME/android 'platform-tools' 'build-tools;33.0.0' 'platforms;android-33'
-
-    - name: Build APK
-      run: |
-        buildozer android debug
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: ${{ steps.buildozer.outputs.filename }}
