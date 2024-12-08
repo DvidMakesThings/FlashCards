@@ -1,10 +1,7 @@
-name: 'Kivy App to APK'
+name: Build APK
 
 on:
   push:
-    branches:
-      - master
-  pull_request:
     branches:
       - master
 
@@ -16,86 +13,30 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Setup python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.8'
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
 
-    - name: Setup Java 17 required by Gradle
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+    - name: Clone Buildozer repository
+      run: git clone https://github.com/kivy/buildozer
 
-    - name: Set JAVA_HOME
+    - name: Build Buildozer Docker image
       run: |
-        echo "JAVA_HOME=$JAVA_HOME" >> $GITHUB_ENV
-      shell: bash
+        cd buildozer
+        sed -i '/ENTRYPOINT \["buildozer"\]/d' Dockerfile
+        docker build --tag=buildozer .
 
-    - name: Prepare virtual environment
-      run: |
-        python3 -m venv venv
-        source venv/bin/activate
-        echo "Using Python==$(python --version)"
-      shell: bash
+    - name: Initialize Buildozer
+      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer init
 
-    - name: Install and upgrade dependencies
-      run: |
-        sudo apt update
-        sudo apt install -y git \
-          zip \
-          unzip \
-          openjdk-17-jdk \
-          python3-pip \
-          autoconf \
-          libtool \
-          pkg-config \
-          zlib1g-dev \
-          libncurses5-dev \
-          libncursesw5-dev \
-          libtinfo5 \
-          cmake \
-          libffi-dev \
-          libssl-dev
-        export PATH=$PATH:~/.local/bin/
-        python3 -m pip install --upgrade \
-          Cython==0.29.33 \
-          buildozer
-      shell: bash
+    - name: Build APK
+      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug
 
-    - name: Install requirements in requirements.txt if it exists
-      run: |
-        if [ -f requirements.txt]; then
-          python3 -m pip install -r requirements.txt
-        fi
-      shell: bash
+    - name: Check Docker containers
+      run: docker ps -a
 
-    - name: Install Android SDK tools
+    - name: Commit and push Docker image
       run: |
-        mkdir -p $HOME/android-sdk/cmdline-tools
-        cd $HOME/android-sdk/cmdline-tools
-        wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O cmdline-tools.zip
-        unzip cmdline-tools.zip -d latest
-        export ANDROID_SDK_ROOT=$HOME/android-sdk
-        export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
-        cd latest/bin
-        ./sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-30" "build-tools;30.0.3"
-        cd ..
-        cp -r build-tools ../cmdline-tools/
-      shell: bash
-
-    - name: Accept Android SDK licenses
-      run: |
-        yes | sdkmanager --licenses
-      shell: bash
-
-    - name: Clean up build environment
-      run: |
-        buildozer appclean
-        rm -rf ~/.buildozer
-      shell: bash
-
-    - name: Build with Buildozer
-      run: |
-        buildozer android debug
-      shell: bash
+        CONTAINER_ID=$(docker ps -a -q --filter ancestor=buildozer --format="{{.ID}}")
+        docker commit $CONTAINER_ID ghcr.io/${{ secrets.GHCR_USERNAME }}/flashcards:latest
+        echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
+        docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/flashcards:latest
