@@ -26,8 +26,8 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     rm cmdline-tools.zip && \
     yes | sdkmanager --licenses && \
     sdkmanager --update && \
-    yes | sdkmanager --licenses && \
-    yes | sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33"
+    sdkmanager --licenses && \
+    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest" "aidl"
 
 # Create a non-root user for running Buildozer
 RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
