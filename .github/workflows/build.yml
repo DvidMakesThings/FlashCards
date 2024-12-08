@@ -31,20 +31,25 @@ jobs:
         rm cmdline-tools.zip
         export ANDROID_HOME=$HOME/Android
         export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
+        
+        # Accept licenses automatically
         yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+
+        # Install necessary SDK components (including build tools and platforms)
         yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --update
-
-        # Force sync of SDK manager repositories
-        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --no_https --update
-
-        # Install necessary SDK components (omit aidl if unnecessary)
         yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest"
 
-    # Step 4: Build Docker Image
+    # Step 4: Install AIDL
+    - name: Install AIDL
+      run: |
+        echo "Installing AIDL..."
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest" "aidl"
+
+    # Step 5: Build Docker Image
     - name: Build Docker Image
       run: docker build -t buildozer-android .
 
-    # Step 5: Run Buildozer in Docker
+    # Step 6: Run Buildozer in Docker
     - name: Run Buildozer in Docker
       run: |
         docker run --rm \
@@ -53,7 +58,7 @@ jobs:
           -u 1000:1000 \
           buildozer-android
 
-    # Step 6: Upload APK Artifact
+    # Step 7: Upload APK Artifact
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
