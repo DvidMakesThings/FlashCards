@@ -45,5 +45,5 @@ USER builder
 # Set working directory
 WORKDIR /app
 
-# Default command to build the APK with Buildozer
-CMD ["buildozer", "android", "debug"]
+# Default command to build the APK with Buildozer and run Flutter
+CMD ["sh", "-c", "buildozer android debug && /opt/flutter/bin/flutter run"]
