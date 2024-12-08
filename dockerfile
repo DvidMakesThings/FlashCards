@@ -9,7 +9,7 @@ ENV BUILD_PATH=/app/.buildozer
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk && \
+    python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk build-essential libstdc++6 && \
     apt-get clean
 
 # Install Buildozer and Cython
@@ -27,7 +27,10 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     yes | sdkmanager --licenses && \
     sdkmanager --update && \
     sdkmanager --licenses && \
-    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest" "aidl"
+    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest"
+
+# Install AIDL
+RUN apt-get update && apt-get install -y aidl
 
 # Create a non-root user for running Buildozer
 RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
