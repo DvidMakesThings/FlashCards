@@ -7,7 +7,6 @@ ENV ANDROID_HOME=/opt/android-sdk
 ENV PATH="${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
 ENV BUILD_PATH=/app/.buildozer  
 
-
 # Install required packages
 RUN apt-get update && apt-get install -y \
     python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk && \
@@ -39,5 +38,5 @@ USER builder
 # Set working directory
 WORKDIR /app
 
-# Default command
+# Default command to build the APK with Buildozer
 CMD ["buildozer", "android", "debug"]
