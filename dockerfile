@@ -7,9 +7,9 @@ ENV ANDROID_HOME=/opt/android-sdk
 ENV PATH="${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
 ENV BUILD_PATH=/app/.buildozer  
 
-# Install required packages including libstdc++6 and Android SDK dependencies
+# Install required packages including libstdc++6, Flutter dependencies and Android SDK dependencies
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk build-essential libstdc++6 && \
+    python3 python3-pip python3-venv wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev openjdk-11-jdk build-essential libstdc++6 curl && \
     apt-get clean
 
 # Install Buildozer and Cython
@@ -29,8 +29,12 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" && \
     sdkmanager --list
 
+# Install Flutter SDK
+RUN git clone https://github.com/flutter/flutter.git /opt/flutter && \
+    /opt/flutter/bin/flutter doctor
+
 # Accept all Android SDK licenses using flutter doctor
-RUN yes | flutter doctor --android-licenses
+RUN yes | /opt/flutter/bin/flutter doctor --android-licenses
 
 # Create a non-root user for running Buildozer
 RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
