@@ -25,8 +25,11 @@ jobs:
         sed -i '/ENTRYPOINT \["buildozer"\]/d' Dockerfile
         docker build --tag=buildozer .
 
-    - name: Initialize Buildozer
-      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer init
+    - name: Initialize Buildozer if buildozer.spec does not exist
+      run: |
+        if [ ! -f ${GITHUB_WORKSPACE}/buildozer.spec ]; then
+          docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer init
+        fi
 
     - name: Build APK
       run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug
