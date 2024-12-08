@@ -1,39 +1,26 @@
-name: Build and Test
+name: Build and Push Docker Image
 
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Log in to Docker Hub
-      run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - name: Log in to Docker Hub
+        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build Docker image
-      run: docker build -t jedie/buildozer .
+      - name: Build Docker image
+        run: docker build -t my-image:latest .
 
-    - name: List installed packages
-      run: docker run jedie/buildozer pip freeze
-
-    - name: Print version info
-      run: |
-        docker run jedie/buildozer uname -a
-        docker run jedie/buildozer cython --version
-        docker run jedie/buildozer buildozer --version
-
-    - name: Echo OK
-      run: echo "OK"
-
-    - name: Push Docker image
-      if: github.ref == 'refs/heads/master'
-      run: docker push jedie/buildozer
+      - name: Push Docker image
+        run: docker push my-image:latest
