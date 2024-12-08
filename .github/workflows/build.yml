@@ -40,8 +40,12 @@ jobs:
           echo "android.accept_sdk_license = True" >> ${GITHUB_WORKSPACE}/buildozer.spec
         fi
 
+    - name: Accept Android SDK licenses
+      run: |
+        docker run --rm --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer bash -c "yes | sdkmanager --licenses"
+
     - name: Build APK
-      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug --accept-license
+      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug
 
     - name: Check Docker containers
       run: docker ps -a
