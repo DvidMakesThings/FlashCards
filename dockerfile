@@ -23,16 +23,18 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     wget -q https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O cmdline-tools.zip && \
     unzip -q cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools && \
     mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
-    rm cmdline-tools.zip && \
-    yes | sdkmanager --licenses && \
-    sdkmanager --update && \
-    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" && \
-    sdkmanager --list
+    rm cmdline-tools.zip
 
 # Manually accept the android-sdk-preview-license
 RUN mkdir -p ${ANDROID_HOME}/licenses && \
     echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > ${ANDROID_HOME}/licenses/android-sdk-license && \
     echo "d56f5187479451eabf01fb78af6dfcb131a6481e" > ${ANDROID_HOME}/licenses/android-sdk-preview-license
+
+# Install Android SDK components
+RUN yes | sdkmanager --licenses && \
+    sdkmanager --update && \
+    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" && \
+    sdkmanager --list
 
 # Install Flutter SDK
 RUN git clone https://github.com/flutter/flutter.git /opt/flutter && \
