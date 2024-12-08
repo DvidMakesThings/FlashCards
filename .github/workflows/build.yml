@@ -24,10 +24,6 @@ jobs:
     - name: Setup Java 17 required by Gradle
       uses: actions/setup-java@v4
       with:
-        distribution: 'temurin'  # or 'zulu','liberica', etc.
-    - name: Setup Java 17 required by Gradle
-      uses: actions/setup-java@v4
-      with:
         distribution: 'temurin'
         java-version: '17'
 
@@ -69,7 +65,7 @@ jobs:
 
     - name: Install requirements in requirements.txt if it exists
       run: |
-        if [ -f requirements.txt ]; then
+        if [ -f requirements.txt]; then
           python3 -m pip install -r requirements.txt
         fi
       shell: bash
