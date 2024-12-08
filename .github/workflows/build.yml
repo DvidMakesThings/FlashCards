@@ -41,7 +41,7 @@ jobs:
         fi
 
     - name: Build APK
-      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug
+      run: docker run --volume ${GITHUB_WORKSPACE}:/home/user/hostcwd buildozer buildozer android debug --accept-license
 
     - name: Check Docker containers
       run: docker ps -a
