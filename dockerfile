@@ -28,11 +28,20 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     yes | sdkmanager --licenses && \
     yes | sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33"
 
+# Create a new user named "builder"
+RUN useradd -m builder
+
 # Set working directory
 WORKDIR /app
 
 # Copy the project into the container
 COPY . /app
+
+# Set "builder" as the owner of the working directory
+RUN chown -R builder:builder /app
+
+# Switch to the "builder" user
+USER builder
 
 # Set Buildozer environment variables
 ENV PACKAGES_PATH=/root/.buildozer/android/packages
