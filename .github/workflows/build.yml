@@ -70,6 +70,22 @@ jobs:
         fi
       shell: bash
 
+    - name: Install Android SDK Build-Tools
+      run: |
+        sdkmanager "build-tools;30.0.3"
+      shell: bash
+
+    - name: Accept Android SDK licenses
+      run: |
+        yes | sdkmanager --licenses
+      shell: bash
+
+    - name: Clean up build environment
+      run: |
+        buildozer appclean
+        rm -rf ~/.buildozer
+      shell: bash
+
     - name: Build with Buildozer
       run: |
         buildozer android debug
