@@ -28,16 +28,8 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
     rm cmdline-tools.zip
 
-# Accept licenses using expect (IMPORTANT)
-RUN expect -c '
-    set timeout -1;  # Set a very long timeout to prevent issues
-    spawn sdkmanager --licenses;
-    expect {
-        "y/n" { send "y\r"; exp_continue }
-        timeout { exit 1 }  # Exit with error if timeout occurs
-        eof { exit 0 }      # Exit successfully if all licenses are accepted
-    }
-'
+# Accept licenses using yes (IMPORTANT)
+RUN yes | sdkmanager --licenses
 
 # Install SDK components
 RUN sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-33"  # Or your desired versions

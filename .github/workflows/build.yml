@@ -31,7 +31,8 @@ jobs:
           -v ${{ github.workspace }}:/app \
           -e BUILD_PATH=/app/.buildozer \
           -u 1000:1000 \
-          buildozer-android
+          buildozer-android \
+          sh -c "yes | sdkmanager --licenses && buildozer android debug"
 
     # Step 5: Upload APK Artifact
     - name: Upload APK
