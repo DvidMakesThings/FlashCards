@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y expect
 
 # Install the command-line tools
 RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
-    wget -q https://dl.google.com/android/repository/commandlinetools-linux-9695651.zip -O cmdline-tools.zip && \
+    wget -q https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdline-tools.zip && \
     unzip -q cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools && \
     mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
     rm cmdline-tools.zip
