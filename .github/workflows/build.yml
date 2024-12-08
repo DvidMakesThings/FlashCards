@@ -30,7 +30,7 @@ jobs:
         docker run --rm \
           -v ${{ github.workspace }}:/app \
           -e BUILD_PATH=/app/.buildozer \
-          -u $(id -u):$(id -g) \
+          -u 1000:1000 \
           buildozer-android
 
     # Step 5: Upload APK Artifact
