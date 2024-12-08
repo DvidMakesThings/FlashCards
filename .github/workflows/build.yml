@@ -33,7 +33,12 @@ jobs:
         export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
         yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
         yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --update
-        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest" "aidl"
+
+        # Force sync of SDK manager repositories
+        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --no_https --update
+
+        # Install necessary SDK components (omit aidl if unnecessary)
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "cmdline-tools;latest"
 
     # Step 4: Build Docker Image
     - name: Build Docker Image
