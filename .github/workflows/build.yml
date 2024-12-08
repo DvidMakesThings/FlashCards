@@ -65,22 +65,23 @@ jobs:
 
     - name: Install requirements in requirements.txt if it exists
       run: |
-        if [ -f requirements.txt ]; then
+        if [ -f requirements.txt]; then
           python3 -m pip install -r requirements.txt
         fi
       shell: bash
 
     - name: Install Android SDK tools
       run: |
-        mkdir -p $HOME/android-sdk
-        cd $HOME/android-sdk
+        mkdir -p $HOME/android-sdk/cmdline-tools
+        cd $HOME/android-sdk/cmdline-tools
         wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O cmdline-tools.zip
-        unzip cmdline-tools.zip
-        mkdir -p cmdline-tools
-        mv cmdline-tools/* cmdline-tools/latest/
+        unzip cmdline-tools.zip -d latest
         export ANDROID_SDK_ROOT=$HOME/android-sdk
         export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
-        sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+        cd latest/bin
+        ./sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+        cd ..
+        cp -r build-tools ../cmdline-tools/
       shell: bash
 
     - name: Accept Android SDK licenses
