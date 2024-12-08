@@ -1,6 +1,6 @@
-# FlashCards
+# WortMeister
 
-Flashcards app for German learning
+WortMeister app for German learning
 
 The best algorithm for a flashcard app in language learning is the spaced repetition algorithm (e.g., the SM2 algorithm from the SuperMemo method). Here's how it works:
 
@@ -15,7 +15,7 @@ Spaced repetition is effective because it optimizes recall by showing cards just
 
 ### Data Storage
 
-Store flashcards in a JSON or SQLite database. Each card has:
+Store WortMeister in a JSON or SQLite database. Each card has:
 
 - Question
 - Answer
@@ -33,7 +33,7 @@ Store flashcards in a JSON or SQLite database. Each card has:
 ### Project Structure
 
 ```
-flashcards_app/
+WortMeister_app/
 ├── main.py                             # Entry point for the program
 ├── app.kv                              # Kivy layout file (UI design)
 ├── core/
@@ -47,7 +47,7 @@ flashcards_app/
 ├── storage/
 │   └── data.json                       # Stores flashcard data (or SQLite DB)
 └── unittest/
-    ├── test_flashcards.py              # Unit test script
+    ├── test_WortMeister.py              # Unit test script
     └── reports                         # Stores report files
         └── test_report.html            # Unit test report file
 ```
@@ -58,7 +58,7 @@ flashcards_app/
 #### Core Modules
 
 - **flashcard.py**: Defines the structure of a flashcard and includes methods to check answers and update review intervals.
-- **manager.py**: Handles the management of flashcards (CRUD operations) and interacts with the storage layer to load/save flashcards.
+- **manager.py**: Handles the management of WortMeister (CRUD operations) and interacts with the storage layer to load/save WortMeister.
 - **algorithm.py**: Implements the spaced repetition algorithm to calculate review intervals.
 
 #### GUI Modules
@@ -81,7 +81,7 @@ Unit tests are implemented to verify the correctness of core functionalities and
 
 - **Test Core Logic**: Ensure that the flashcard checking logic, spaced repetition algorithm, and card management functions work as expected.
 - **Data Integrity**: Confirm that the application reads and writes data correctly, especially with regard to the spaced repetition mechanism.
-- **GUI Interaction**: Test user interactions (e.g., checking answers, adding flashcards) to make sure the GUI responds as expected.
+- **GUI Interaction**: Test user interactions (e.g., checking answers, adding WortMeister) to make sure the GUI responds as expected.
 - **Mocking**: The `save_cards` method is mocked to prevent actual data changes during tests, ensuring that test data remains intact.
 
 #### Test Execution
@@ -89,7 +89,7 @@ Unit tests are implemented to verify the correctness of core functionalities and
 Tests are written using Python’s `unittest` framework, and an HTML report is generated for easy viewing. The tests include the following:
 
 - **Test flashcard answer validation** (`test_check_answer`)
-- **Test adding new flashcards** (`test_add_card`)
+- **Test adding new WortMeister** (`test_add_card`)
 - **Test getting due cards** (`test_get_due_cards`)
 - **Test spaced repetition algorithm** (`test_calculate_next_review`)
 - **Test the `is_due` function** (`test_is_due`)
@@ -129,7 +129,7 @@ The test results are saved to an HTML report, which includes:
    +---------------------------+
    |        manager.py          |
    | Loads, Saves, and Updates  |
-   | Flashcards from Storage    |
+   | WortMeister from Storage    |
    +---------------------------+
               ↓
    +---------------------------+
@@ -148,7 +148,7 @@ The test results are saved to an HTML report, which includes:
    +---------------------------+
    |        data.json           |
    | Persistent Storage of      |
-   | Flashcards                 |
+   | WortMeister                 |
    +---------------------------+
 
 ```

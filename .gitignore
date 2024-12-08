@@ -3,3 +3,7 @@ __pycache__/
 .venv/
 core/__pycache__/
 gui/__pycache__/
+*.buildozer/
+*myvenv/
+*.vscode/
+APKBUILD.md
