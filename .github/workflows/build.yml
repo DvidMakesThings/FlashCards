@@ -41,11 +41,22 @@ jobs:
           pip install --upgrade pip
           pip install cython
 
+      - name: Install Android SDK
+        run: |
+          sudo apt-get install -y wget
+          wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
+          mkdir -p $HOME/android-sdk/cmdline-tools
+          unzip commandlinetools-linux-7583922_latest.zip -d $HOME/android-sdk/cmdline-tools
+          export ANDROID_HOME=$HOME/android-sdk
+          export PATH=$ANDROID_HOME/cmdline-tools/tools/bin:$PATH
+          yes | sdkmanager --licenses
+          sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          command: android debug
+          command: buildozer -v android debug
           buildozer_version: stable
 
       - name: Upload artifacts

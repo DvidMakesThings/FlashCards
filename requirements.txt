@@ -1,2 +1,2 @@
-pip uninstall kivy_deps.sdl2_dev==0.7.0 kivy_deps.gstreamer_dev==0.3.3 kivy_deps.sdl2==0.7.0
-pip uninstall kivy_deps.glew==0.3.0 kivy_deps.sdl2_dev~=0.8.0 kivy_deps.gstreamer_dev~=0.3.4
+kivy
+termcolor
