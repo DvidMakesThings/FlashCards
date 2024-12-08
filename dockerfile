@@ -18,16 +18,29 @@ RUN pip3 install buildozer cython && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     echo 'export PATH=$HOME/.local/bin:$PATH' >> /root/.bashrc
 
-# Install Android SDK command-line tools
+# Install expect
+RUN apt-get update && apt-get install -y expect
+
+# Install the command-line tools
 RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
-    wget -q https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O cmdline-tools.zip && \
+    wget -q https://dl.google.com/android/repository/commandlinetools-linux-9695651.zip -O cmdline-tools.zip && \
     unzip -q cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools && \
     mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
-    rm cmdline-tools.zip && \
-    yes | sdkmanager --licenses && \
-    sdkmanager --update && \
-    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" && \
-    sdkmanager --list
+    rm cmdline-tools.zip
+
+# Accept licenses using expect (IMPORTANT)
+RUN expect -c '
+    set timeout -1;  # Set a very long timeout to prevent issues
+    spawn sdkmanager --licenses;
+    expect {
+        "y/n" { send "y\r"; exp_continue }
+        timeout { exit 1 }  # Exit with error if timeout occurs
+        eof { exit 0 }      # Exit successfully if all licenses are accepted
+    }
+'
+
+# Install SDK components
+RUN sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-33"  # Or your desired versions
 
 # Manually accept the android-sdk-preview-license
 RUN mkdir -p ${ANDROID_HOME}/licenses && \
