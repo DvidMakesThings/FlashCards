@@ -26,7 +26,11 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     rm cmdline-tools.zip && \
     yes | sdkmanager --licenses && \
     sdkmanager --update && \
-    yes | sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" "aidl"
+    sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33" && \
+    sdkmanager --list
+
+# Explicitly install AIDL separately (may resolve the error)
+RUN sdkmanager "aidl" || echo "Failed to install aidl"
 
 # Create a non-root user for running Buildozer
 RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
