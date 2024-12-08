@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
@@ -16,19 +16,23 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # Step 2: Set up Docker
+    # Step 2: Build Docker Image
     - name: Build Docker Image
       run: |
         docker build -t buildozer-android .
 
-    # Step 3: Run the Docker Container
+    # Step 3: Run Buildozer in Docker
     - name: Run Buildozer in Docker
       run: |
-        docker run --rm -v ${{ github.workspace }}:/app -u $(id -u):$(id -g) buildozer-android
+        docker run --rm \
+          -v ${{ github.workspace }}:/app \
+          -e BUILD_PATH=/app/.buildozer \
+          -u 1000:1000 \
+          buildozer-android
 
     # Step 4: Upload APK Artifact
     - name: Upload APK
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: APK
         path: bin/*.apk

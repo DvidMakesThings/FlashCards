@@ -5,10 +5,11 @@ FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ANDROID_HOME=/opt/android-sdk
 ENV PATH="${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
+ENV BUILD_PATH=/app/.buildozer  
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip python3-venv openjdk-11-jdk wget unzip git zlib1g-dev cmake autoconf automake libtool && \
+    python3 python3-pip python3-venv openjdk-11-jdk wget unzip git zlib1g-dev cmake autoconf automake libtool libffi-dev && \
     apt-get clean
 
 # Install Buildozer
@@ -28,30 +29,14 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     yes | sdkmanager --licenses && \
     yes | sdkmanager "platform-tools" "build-tools;33.0.0" "platforms;android-33"
 
-# Create a new user named "builder"
-RUN useradd -m builder
+# Create a non-root user for running Buildozer
+RUN useradd -m builder && mkdir -p /app && chown -R builder:builder /app
+
+# Switch to non-root user
+USER builder
 
 # Set working directory
 WORKDIR /app
 
-# Copy the project into the container
-COPY . /app
-
-# Set "builder" as the owner of the working directory
-RUN chown -R builder:builder /app
-
-# Switch to the "builder" user
-USER builder
-
-# Set Buildozer environment variables
-ENV PACKAGES_PATH=/root/.buildozer/android/packages
-ENV ANDROIDSDK=${ANDROID_HOME}
-ENV ANDROIDNDK=${ANDROID_HOME}/ndk-bundle
-ENV ANDROIDAPI=33
-ENV ANDROIDMINAPI=21
-
-# Pre-accept Android licenses
-RUN yes | sdkmanager --licenses
-
-# Run Buildozer (default command)
+# Default command
 CMD ["buildozer", "android", "debug"]
