@@ -33,10 +33,7 @@ jobs:
       run: |
         git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
         cd ~/FlashCards
-        export ANDROID_SDK_ROOT=$HOME/.buildozer/android/platform/android-sdk
-        export ANDROID_NDK_HOME=$HOME/.buildozer/android/platform/android-ndk-r25b
-        export ANDROID_HOME=$ANDROID_SDK_ROOT
-        buildozer -v android debug
+        yes | buildozer -v android debug
 
     - name: Upload APK to Repository
       run: |
