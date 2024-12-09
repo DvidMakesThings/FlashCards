@@ -1,47 +1,28 @@
 #!/bin/bash
 
-# Update and upgrade the system
-sudo apt update && sudo apt upgrade -y
+# Function to check the exit status of the last command and print an error message if it failed
+check_error() {
+    if [ $? -ne 0 ]; then
+        echo -e "\e[31mError occurred during: $1\e[0m"
+        read -p "Press any key to continue..."
+        exit 1
+    fi
+}
 
-# Install git
-sudo apt-get install -y git
+# Update the system
+sudo apt update
+check_error "system update"
 
-# Clone the buildozer repository
-git clone https://github.com/kivy/buildozer.git
+# Install required packages
+sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+check_error "installing required packages"
 
-# Install Python and pip
-sudo apt install -y python3 python3-pip ipython3
+# Install Python packages
+pip3 install --user --upgrade Cython==0.29.33 virtualenv
+check_error "installing Python packages"
 
-# Install Cython
-sudo pip3 install cython==0.29.37
+# Add the following line at the end of your ~/.bashrc file
+echo 'export PATH=$PATH:~/.local/bin/' >> ~/.bashrc
+check_error "updating ~/.bashrc"
 
-# Install autoconf
-sudo apt-get install -y autoconf
-
-# Install OpenJDK 8
-sudo apt-get install -y openjdk-8-jdk
-
-# Install build essentials and other dependencies
-sudo apt install -y build-essential libltdl-dev libffi-dev libssl-dev python-dev-is-python3
-
-# Install unzip and zip
-sudo apt-get install -y unzip zip
-
-# Upgrade Cython
-sudo pip3 install --upgrade cython
-
-# Install Python 3.12 virtual environment
-sudo apt install -y python3.12-venv
-
-# Navigate to the buildozer directory and install it
-cd buildozer/
-sudo python3 setup.py install
-
-# Navigate to the home directory
-cd ~
-
-# Clone the FlashCards project
-git clone https://github.com/DvidMakesThings/FlashCards.git
-
-# Navigate to the FlashCards directory
-cd FlashCards/
+echo "Installation completed successfully."
