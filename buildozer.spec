@@ -12,7 +12,7 @@ title = Wortmeister
 package.name = Wortmeister
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = org.Wortmeister
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -42,7 +42,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.7.6,hostpython3==3.7.6,kivy,pillow
+requirements = python3,kivy,pillow,unicodedata,datetime,json,random
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -69,13 +69,13 @@ orientation = portrait
 
 #
 # OSX Specific
-osx.python_version = 3.7.6
+osx.python_version = 3
 
 #
 # author = © Copyright Info
 
 # Kivy version to use
-osx.kivy_version = 1.9.1
+osx.kivy_version = 2.0.0
 
 #
 # Android specific
@@ -109,19 +109,19 @@ android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-android.api = 33
+android.api = 30
 
 # (int) Minimum API your APK / AAB will support.
-android.minapi = 29
+# android.minapi = 29
 
 # (int) Android SDK version to use
 #android.sdk = 20
 
 # (str) Android NDK version to use
-android.ndk = 25b
+# android.ndk = 25b
 
 # (int) Android NDK API to use. This is the minimum API your app will support, it should usually match android.minapi.
-android.ndk_api = 29
+# android.ndk_api = 29
 
 # (str) Android NDK directory (if empty, it will be automatically downloaded.)
 #android.ndk_path =
@@ -223,7 +223,7 @@ android.ndk_api = 29
 # (list) add java compile options
 # this can for example be necessary when importing certain java libraries using the 'android.gradle_dependencies' option
 # see https://developer.android.com/studio/write/java8-support for further information
-android.add_compile_options = "sourceCompatibility = 17", "targetCompatibility = 17"
+# android.add_compile_options = "sourceCompatibility = 17", "targetCompatibility = 17"
 
 # (list) Gradle repositories to add {can be necessary for some android.gradle_dependencies}
 # please enclose in double quotes 
@@ -282,7 +282,7 @@ android.add_compile_options = "sourceCompatibility = 17", "targetCompatibility =
 #android.uses_library =
 
 # (str) Android logcat filters to use
-#android.logcat_filters = *:S python:D
+android.logcat_filters = *:S python:D
 
 # (bool) Android logcat only display log for activity's pid
 #android.logcat_pid_only = False
@@ -295,7 +295,7 @@ android.add_compile_options = "sourceCompatibility = 17", "targetCompatibility =
 
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 # In past, was `android.arch` as we weren't supporting builds for multiple archs at the same time.
-android.archs = arm64-v8a
+android.archs = arm64-v8a, armeabi-v7a
 
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing
@@ -317,7 +317,7 @@ android.allow_backup = True
 # android.no-byte-compile-python = False
 
 # (str) The format used to package the app for release mode (aab or apk or aar).
-# android.release_artifact = aab
+android.release_artifact = aab
 
 # (str) The format used to package the app for debug mode (apk or aar).
 # android.debug_artifact = apk
@@ -334,7 +334,7 @@ android.allow_backup = True
 
 # (str) python-for-android branch to use, defaults to master
 #p4a.branch = master
-#p4a.branch = develop
+p4a.branch = develop
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
@@ -382,7 +382,7 @@ ios.kivy_ios_branch = master
 #ios.ios_deploy_dir = ../ios_deploy
 # Or specify URL and branch
 ios.ios_deploy_url = https://github.com/phonegap/ios-deploy
-ios.ios_deploy_branch = 1.12.2
+ios.ios_deploy_branch = 1.10.0
 
 # (bool) Whether or not to sign the code
 ios.codesign.allowed = false
@@ -421,10 +421,10 @@ log_level = 2
 warn_on_root = 1
 
 # (str) Path to build artifact storage, absolute or relative to spec file
-build_dir = .buildozer
+# build_dir = .buildozer
 
 # (str) Path to build output (i.e. .apk, .aab, .ipa) storage
-bin_dir = .buildozer/bin
+# bin_dir = .buildozer/bin
 
 #-----------------------------------------------------------------------------
 #   Notes about using this file:
