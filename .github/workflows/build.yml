@@ -30,12 +30,13 @@ jobs:
       run: |
         pip3.9 install --upgrade Cython==0.29.33 virtualenv buildozer
 
-    - name: Install Android SDK and Accept Licenses
+    - name: Install Android SDK Tools and Accept Licenses
       run: |
         mkdir -p ~/.android
         echo '24333f8a63b6825ea9c5514f83c2829b004d1fee' > ~/.android/repositories.cfg || true
-        $HOME/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager --install "build-tools;36.0.0-rc1" --verbose || true
-        yes | $HOME/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager --licenses || true
+        mkdir -p ~/.buildozer/android/platform/android-sdk/tools/bin
+        yes | $HOME/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --install "build-tools;36.0.0-rc1" --sdk_root=$HOME/.buildozer/android/platform/android-sdk
+        yes | $HOME/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses --sdk_root=$HOME/.buildozer/android/platform/android-sdk
 
     - name: Build APK
       run: |
