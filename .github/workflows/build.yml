@@ -29,10 +29,6 @@ jobs:
       run: |
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
 
-    - name: Install Cython using pip3
-      run: |
-        pip3 install Cython==0.29.33
-
     - name: Add Local Binary Path to Environment
       run: |
         echo 'export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games' >> ~/.bashrc
@@ -40,7 +36,7 @@ jobs:
     - name: Source Environment
       run: source ~/.bashrc
 
-    - name: Print PATH
+    - name: Log PATH
       run: echo $PATH
 
     - name: Clone Repository
@@ -62,6 +58,21 @@ jobs:
     - name: Verify buildozer Installation
       run: |
         python3.9 -m pip show buildozer
+
+    - name: Reinstall Cython Before Build
+      run: |
+        python3.9 -m pip install --force-reinstall Cython==0.29.33
+
+    - name: Set Python for Buildozer
+      run: |
+        export USE_PYTHON3=1
+        export PYTHONPATH=$(python3.9 -c "import sys; print(':'.join(sys.path))")
+        export PATH=/usr/bin:$PATH
+
+    - name: Log Python Environment
+      run: |
+        python3.9 -m site
+        python3.9 -c "import sys; print(sys.path)"
 
     - name: Build APK
       run: |
