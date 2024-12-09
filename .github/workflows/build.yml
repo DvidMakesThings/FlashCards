@@ -18,7 +18,7 @@ jobs:
 
     - name: Install Required Packages
       run: |
-        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
 
     - name: Upgrade pip for Python 3.9
       run: |
@@ -27,13 +27,18 @@ jobs:
 
     - name: Install Python Packages
       run: |
-        pip3.9 install --upgrade Cython==0.29.33 virtualenv buildozer
+        pip3.9 install --user --upgrade Cython==0.29.33 virtualenv buildozer
+        echo 'export PATH=$PATH:~/.local/bin/' >> ~/.bashrc
+        source ~/.bashrc
 
-    - name: Build APK
+    - name: Clone Repository
       run: |
         git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
         cd ~/FlashCards
-        pip3.9 install --user --upgrade Cython  # Ensure Cython is installed in Buildozer's environment
+
+    - name: Build APK
+      run: |
+        cd ~/FlashCards
         yes | buildozer -v android debug
 
     - name: Upload APK to Repository
