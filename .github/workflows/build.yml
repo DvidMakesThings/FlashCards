@@ -31,29 +31,23 @@ jobs:
 
     - name: Install Android SDK Command-Line Tools
       run: |
-        mkdir -p ~/.buildozer/android/platform/android-sdk/cmdline-tools
-        curl -o sdk-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip
-        unzip sdk-tools.zip -d ~/.buildozer/android/platform/android-sdk/cmdline-tools
-        mv ~/.buildozer/android/platform/android-sdk/cmdline-tools/cmdline-tools ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest
-        rm sdk-tools.zip
+        mkdir -p ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest
+        wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdline-tools.zip
+        unzip cmdline-tools.zip -d ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest
+        rm cmdline-tools.zip
 
-    - name: Install Build Tools, Platform Tools, and Accept Licenses
+    - name: Install Required Android Components
       run: |
-        export ANDROID_SDK_ROOT=$HOME/.buildozer/android/platform/android-sdk
-        yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install "build-tools;31.0.0" "platform-tools" "platforms;android-30"
-        yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
-
-    - name: Configure Buildozer Spec
-      run: |
-        sed -i "s|# (str) Android SDK directory|android.sdk_path = ~/.buildozer/android/platform/android-sdk|g" buildozer.spec
-        sed -i "s|# (str) Android NDK directory|android.ndk_path = ~/.buildozer/android/platform/android-ndk-r25b|g" buildozer.spec
-        sed -i "s|# (str) ANT directory|android.ant_path = ~/.buildozer/android/platform/apache-ant-1.9.4|g" buildozer.spec
+        yes | ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root=$HOME/.buildozer/android/platform/android-sdk --install "build-tools;31.0.0" "platform-tools" "platforms;android-30"
+        yes | ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
 
     - name: Build APK
       run: |
         git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
         cd ~/FlashCards
         export ANDROID_SDK_ROOT=$HOME/.buildozer/android/platform/android-sdk
+        export ANDROID_NDK_HOME=$HOME/.buildozer/android/platform/android-ndk-r25b
+        export ANDROID_HOME=$ANDROID_SDK_ROOT
         buildozer -v android debug
 
     - name: Upload APK to Repository

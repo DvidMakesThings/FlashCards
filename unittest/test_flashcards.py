@@ -95,7 +95,7 @@ class TestFlashcards(unittest.TestCase):
     including adding, reviewing, and calculating intervals.
     """
     # Path to original and test data
-    original_data_path = os.path.join(project_root, 'storage', 'data.json')
+    original_data_path = os.path.join(project_root, 'unittest', 'data.json')
     test_data_path = os.path.join(project_root, 'unittest', 'data_test.json')
 
     @classmethod
