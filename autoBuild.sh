@@ -38,6 +38,9 @@ APK_DIR="bin"
 APK_NAME="Wortmeister_v${VERSION}${BUILD_NUMBER}.apk"
 mv $APK_DIR/*-debug.apk $APK_DIR/$APK_NAME
 
+# Delete the previous build from the bin folder
+rm -f $APK_DIR/*-debug.apk
+
 # Stage all changes
 git add .
 

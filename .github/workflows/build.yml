@@ -33,6 +33,7 @@ jobs:
       run: |
         git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
         cd ~/FlashCards
+        pip3.9 install --user --upgrade Cython  # Ensure Cython is installed in Buildozer's environment
         yes | buildozer -v android debug
 
     - name: Upload APK to Repository
