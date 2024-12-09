@@ -35,20 +35,15 @@ jobs:
         export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
         export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
 
-    - name: Clone Repository
+    - name: Clone FlashCards Repository
       run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
 
-    - name: Verify Directory Contents
-      run: |
-        ls -la ~/FlashCards
-        ls -la ~/FlashCards/jnius || echo "jnius directory missing"
-
-    - name: Build pyjnius
+    - name: Clone and Build pyjnius
       run: |
         git clone https://github.com/kivy/pyjnius.git ~/pyjnius
         cd ~/pyjnius
         python3.9 setup.py build_ext --inplace
-        python3.9 setup.py install
+        sudo python3.9 setup.py install
 
     - name: Verify Python Packages Installation
       run: |
@@ -60,7 +55,7 @@ jobs:
     - name: Build APK
       run: |
         cd ~/FlashCards
-        yes | buildozer -v android debug || echo "Build failed"
+        yes | buildozer -v android debug
 
     - name: Upload APK to Repository
       env:
