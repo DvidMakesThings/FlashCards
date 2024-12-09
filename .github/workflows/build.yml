@@ -34,20 +34,22 @@ jobs:
     - name: Clone Repository
       run: |
         git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
-        cd ~/FlashCards
 
     - name: Build APK
       run: |
         cd ~/FlashCards
+        pip3.9 install --user --upgrade Cython==0.29.33  # Ensure Cython is available at runtime
         yes | buildozer -v android debug
 
     - name: Upload APK to Repository
+      env:
+        PUSH: ${{ secrets.PUSH }}
       run: |
         cd ~/FlashCards
         mkdir -p bin
         mv bin/*.apk ./bin/
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add ./bin/
-        git commit -m "Upload APK [skip ci]"
-        git push
+        git add .
+        git commit -m "APK autobuilder [skip ci]"
+        git push https://DvidMakesThings:${PUSH}@github.com/DvidMakesThings/FlashCards.git master
