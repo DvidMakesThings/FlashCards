@@ -25,54 +25,37 @@ jobs:
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         sudo python3.9 get-pip.py
 
-    - name: Install Python Packages Globally
+    - name: Install and Reinstall Python Packages
       run: |
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
+        python3.9 -m pip install --force-reinstall Cython==0.29.33
 
     - name: Add Local Binary Path to Environment
       run: |
         echo 'export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games' >> ~/.bashrc
 
-    - name: Source Environment
-      run: source ~/.bashrc
+    - name: Source Environment and Set PYTHONPATH
+      run: |
+        source ~/.bashrc
+        export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
+        echo "PYTHONPATH is set to $PYTHONPATH"
 
-    - name: Log PATH
+    - name: Print PATH
       run: echo $PATH
 
     - name: Clone Repository
       run: |
         git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
 
-    - name: Verify Cython Installation
+    - name: Verify Python Packages Installation
       run: |
         python3.9 -m pip show Cython
-
-    - name: Verify pyjnius Installation
-      run: |
         python3.9 -m pip show pyjnius
-
-    - name: Verify virtualenv Installation
-      run: |
         python3.9 -m pip show virtualenv
-
-    - name: Verify buildozer Installation
-      run: |
         python3.9 -m pip show buildozer
 
-    - name: Reinstall Cython Before Build
-      run: |
-        python3.9 -m pip install --force-reinstall Cython==0.29.33
-
-    - name: Set Python for Buildozer
-      run: |
-        export USE_PYTHON3=1
-        export PYTHONPATH=$(python3.9 -c "import sys; print(':'.join(sys.path))")
-        export PATH=/usr/bin:$PATH
-
-    - name: Log Python Environment
-      run: |
-        python3.9 -m site
-        python3.9 -c "import sys; print(sys.path)"
+    - name: Log Python Environment Variables
+      run: env | grep PYTHON
 
     - name: Build APK
       run: |
