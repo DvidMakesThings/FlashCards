@@ -1,0 +1,56 @@
+name: Build APK with WSL2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  setup-wsl-build:
+    runs-on: windows-latest
+
+    steps:
+    # Step 1: Download the WSL tar file from Google Drive
+    - name: Download WSL2 Distribution
+      run: |
+        curl -L -o Ubuntu-20.04_With_buildozer.tar "${{ secrets.UBUNTU_TARBALL_ARTIFACT }}"
+
+    # Step 2: Import the WSL tar file as a new distribution
+    - name: Install WSL2 Distribution
+      run: |
+        wsl --import UbuntuBuildozer C:\WSL\UbuntuBuildozer Ubuntu-20.04_With_buildozer.tar
+        wsl --set-version UbuntuBuildozer 2
+
+    # Step 3: Run your autobuild script in the WSL2 distribution
+    - name: Build APK in WSL2
+      run: |
+        wsl -d UbuntuBuildozer -u ${{ secrets.WSL2_USER }} -- bash -c "
+        cd ~/FlashCards && \
+        git pull origin master && \
+        buildozer -v android debug && \
+        VERSION=\$(grep '__version__' main.py | cut -d \"'\" -f 2) && \
+        BUILD_INFO_FILE=\"build_info.txt\" && \
+        if [ ! -f \"\$BUILD_INFO_FILE\" ]; then \
+          echo \"0\" > \"\$BUILD_INFO_FILE\"; \
+          echo \"\$VERSION\" >> \"\$BUILD_INFO_FILE\"; \
+        fi && \
+        BUILD_NUMBER=\$(sed -n '1p' \"\$BUILD_INFO_FILE\") && \
+        LAST_VERSION=\$(sed -n '2p' \"\$BUILD_INFO_FILE\") && \
+        if [ \"\$VERSION\" != \"\$LAST_VERSION\" ]; then \
+          BUILD_NUMBER=0; \
+        fi && \
+        BUILD_NUMBER=\$((BUILD_NUMBER + 1)) && \
+        echo \"\$BUILD_NUMBER\" > \"\$BUILD_INFO_FILE\"; \
+        echo \"\$VERSION\" >> \"\$BUILD_INFO_FILE\"; \
+        APK_DIR=\"bin\" && \
+        APK_NAME=\"Wortmeister_v\${VERSION}\${BUILD_NUMBER}.apk\" && \
+        mv \$APK_DIR/*-debug.apk \$APK_DIR/\$APK_NAME && \
+        rm -f \$APK_DIR/*-debug.apk && \
+        git add . && \
+        git commit -m \"APK autobuilder\" && \
+        git push https://DvidMakesThings:${{ secrets.PUSH }}@github.com/DvidMakesThings/FlashCards.git master
+        "
+
+    # Step 4: Output completion message
+    - name: Success
+      run: echo "APK Build and Push process completed successfully."
