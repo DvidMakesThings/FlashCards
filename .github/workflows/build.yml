@@ -25,13 +25,12 @@ jobs:
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         sudo python3.9 get-pip.py
 
-    - name: Install Cython and PyJNIus Globally
+    - name: Install Python Packages Globally
       run: |
-        sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius  # Global installation for system-wide availability
+        sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
 
-    - name: Install Buildozer and Python Packages
+    - name: Add Local Binary Path to Environment
       run: |
-        pip3.9 install --user --upgrade virtualenv buildozer
         echo 'export PATH=$PATH:~/.local/bin/' >> ~/.bashrc
         source ~/.bashrc
 
