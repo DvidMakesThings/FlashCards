@@ -31,4 +31,5 @@ class FlashcardApp(App):
 
 # Run the app if the script is executed directly
 if __name__ == '__main__':
+    __version__ = '1.0.0'  # Set the app version
     FlashcardApp().run()  # Start the FlashcardApp
