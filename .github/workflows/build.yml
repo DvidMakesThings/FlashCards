@@ -32,11 +32,17 @@ jobs:
     - name: Add Local Binary Path to Environment
       run: |
         echo 'export PATH=$PATH:~/.local/bin/' >> ~/.bashrc
-        source ~/.bashrc
+
+    - name: Source Environment
+      run: source ~/.bashrc
 
     - name: Clone Repository
       run: |
         git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
+    
+    - name: Verify Cython Installation
+      run: |
+        python3.9 -m pip show Cython
 
     - name: Build APK
       run: |
