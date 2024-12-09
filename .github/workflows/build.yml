@@ -34,12 +34,12 @@ jobs:
       run: |
         echo 'export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games' >> ~/.bashrc
 
-    - name: Source Environment and Set PYTHONPATH
+    - name: Set PYTHONPATH
       run: |
-        source ~/.bashrc
         export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
         echo "PYTHONPATH is set to $PYTHONPATH"
-
+        echo "export PYTHONPATH=$PYTHONPATH" >> ~/.bashrc
+  
     - name: Print PATH
       run: echo $PATH
 
