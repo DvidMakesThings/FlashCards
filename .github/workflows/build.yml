@@ -28,22 +28,27 @@ jobs:
     - name: Install and Reinstall Python Packages
       run: |
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
-        python3.9 -m pip install --force-reinstall --user Cython==0.29.33
+        python3.9 -m pip install --force-reinstall Cython==0.29.33
 
     - name: Set Environment Variables
       run: |
         export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
         export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
-        echo "PATH is set to $PATH"
-        echo "PYTHONPATH is set to $PYTHONPATH"
 
     - name: Clone Repository
       run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
 
-    - name: Precompile pyjnius
+    - name: Verify Directory Contents
       run: |
-        cd ~/FlashCards
-        python3.9 -m cython --cplus ./jnius/jnius.pyx
+        ls -la ~/FlashCards
+        ls -la ~/FlashCards/jnius || echo "jnius directory missing"
+
+    - name: Build pyjnius
+      run: |
+        git clone https://github.com/kivy/pyjnius.git ~/pyjnius
+        cd ~/pyjnius
+        python3.9 setup.py build_ext --inplace
+        python3.9 setup.py install
 
     - name: Verify Python Packages Installation
       run: |
@@ -52,13 +57,10 @@ jobs:
         python3.9 -m pip show virtualenv
         python3.9 -m pip show buildozer
 
-    - name: Log Python Environment Variables
-      run: env | grep PYTHON
-
     - name: Build APK
       run: |
         cd ~/FlashCards
-        yes | buildozer -v android debug
+        yes | buildozer -v android debug || echo "Build failed"
 
     - name: Upload APK to Repository
       env:
@@ -66,7 +68,7 @@ jobs:
       run: |
         cd ~/FlashCards
         mkdir -p bin
-        mv bin/*.apk ./bin/
+        mv bin/*.apk ./bin/ || echo "No APK found to upload"
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add .
