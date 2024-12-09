@@ -12,18 +12,26 @@ buildozer -v android debug
 # Extract the version from main.py
 VERSION=$(grep "__version__" main.py | cut -d "'" -f 2)
 
-# Read the current build number from a file, or initialize it to 0 if the file doesn't exist
-BUILD_NUMBER_FILE="build_number.txt"
-if [ ! -f "$BUILD_NUMBER_FILE" ]; then
-    echo "0" > "$BUILD_NUMBER_FILE"
+# Read the current build number and version from a file, or initialize them if the file doesn't exist
+BUILD_INFO_FILE="build_info.txt"
+if [ ! -f "$BUILD_INFO_FILE" ]; then
+    echo "0" > "$BUILD_INFO_FILE"
+    echo "$VERSION" >> "$BUILD_INFO_FILE"
 fi
-BUILD_NUMBER=$(cat "$BUILD_NUMBER_FILE")
+BUILD_NUMBER=$(sed -n '1p' "$BUILD_INFO_FILE")
+LAST_VERSION=$(sed -n '2p' "$BUILD_INFO_FILE")
+
+# Check if the version has changed
+if [ "$VERSION" != "$LAST_VERSION" ]; then
+    BUILD_NUMBER=0
+fi
 
 # Increment the build number
 BUILD_NUMBER=$((BUILD_NUMBER + 1))
 
-# Save the new build number back to the file
-echo "$BUILD_NUMBER" > "$BUILD_NUMBER_FILE"
+# Save the new build number and version back to the file
+echo "$BUILD_NUMBER" > "$BUILD_INFO_FILE"
+echo "$VERSION" >> "$BUILD_INFO_FILE"
 
 # Rename the APK file
 APK_DIR="bin"
@@ -39,4 +47,4 @@ git commit -m "APK autobuilder"
 # Push the changes to the repository using the personal access token from the environment variable
 git push https://DvidMakesThings:${GITHUB_TOKEN}@github.com/DvidMakesThings/FlashCards.git master
 
-echo "Build and push process completed successfully."
+echo "Build and push process completed successfully. APK renamed to $APK_NAME"
