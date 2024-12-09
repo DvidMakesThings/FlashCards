@@ -29,15 +29,19 @@ jobs:
       run: |
         pip3.9 install --upgrade Cython==0.29.33 virtualenv buildozer
 
-    - name: Setup Android SDK
+    - name: Install Android SDK Command-Line Tools
       run: |
         mkdir -p ~/.buildozer/android/platform/android-sdk/cmdline-tools
         curl -o sdk-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip
         unzip sdk-tools.zip -d ~/.buildozer/android/platform/android-sdk/cmdline-tools
         mv ~/.buildozer/android/platform/android-sdk/cmdline-tools/cmdline-tools ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest
         rm sdk-tools.zip
-        yes | ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root=$HOME/.buildozer/android/platform/android-sdk --install "build-tools;31.0.0" "platform-tools" "platforms;android-30"
-        yes | ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root=$HOME/.buildozer/android/platform/android-sdk --licenses
+
+    - name: Install Build Tools, Platform Tools, and Accept Licenses
+      run: |
+        export ANDROID_SDK_ROOT=$HOME/.buildozer/android/platform/android-sdk
+        yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install "build-tools;31.0.0" "platform-tools" "platforms;android-30"
+        yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
 
     - name: Configure Buildozer Spec
       run: |
@@ -49,6 +53,7 @@ jobs:
       run: |
         git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
         cd ~/FlashCards
+        export ANDROID_SDK_ROOT=$HOME/.buildozer/android/platform/android-sdk
         buildozer -v android debug
 
     - name: Upload APK to Repository
