@@ -30,17 +30,10 @@ jobs:
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
         python3.9 -m pip install --force-reinstall Cython==0.29.33
 
-    - name: Add Local Binary Path to Environment
+    - name: Set Environment Variables
       run: |
-        echo 'export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games' >> ~/.bashrc
-
-    - name: Set and Persist PYTHONPATH
-      run: |
-        export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
-        echo "export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages" >> ~/.bashrc
-
-    - name: Source Environment Variables
-      run: source ~/.bashrc
+        echo "PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games" >> $GITHUB_ENV
+        echo "PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages" >> $GITHUB_ENV
 
     - name: Verify PATH and PYTHONPATH
       run: |
@@ -58,13 +51,10 @@ jobs:
         python3.9 -m pip show buildozer
 
     - name: Log Python Environment Variables
-      run: |
-        source ~/.bashrc
-        env | grep PYTHON
+      run: env | grep PYTHON
 
     - name: Build APK
       run: |
-        source ~/.bashrc
         cd ~/FlashCards
         yes | buildozer -v android debug
 
