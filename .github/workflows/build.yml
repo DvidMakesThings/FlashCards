@@ -29,6 +29,10 @@ jobs:
       run: |
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
 
+    - name: Install Cython using pip3
+      run: |
+        pip3 install Cython==0.29.33
+
     - name: Add Local Binary Path to Environment
       run: |
         echo 'export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games' >> ~/.bashrc
