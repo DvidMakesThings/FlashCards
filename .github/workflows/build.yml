@@ -25,9 +25,13 @@ jobs:
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         sudo python3.9 get-pip.py
 
-    - name: Install Python Packages
+    - name: Install Cython Globally
       run: |
-        pip3.9 install --user --upgrade Cython==0.29.33 virtualenv buildozer
+        sudo pip3.9 install --upgrade Cython==0.29.33  # Global installation for system-wide availability
+
+    - name: Install Buildozer and Python Packages
+      run: |
+        pip3.9 install --user --upgrade virtualenv buildozer
         echo 'export PATH=$PATH:~/.local/bin/' >> ~/.bashrc
         source ~/.bashrc
 
@@ -38,7 +42,6 @@ jobs:
     - name: Build APK
       run: |
         cd ~/FlashCards
-        pip3.9 install --user --upgrade Cython==0.29.33  # Ensure Cython is available at runtime
         yes | buildozer -v android debug
 
     - name: Upload APK to Repository
