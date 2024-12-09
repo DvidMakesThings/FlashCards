@@ -1,23 +1,28 @@
+# Base image with Python 3.9 (you can change the version as needed)
 FROM ubuntu:20.04
 
-# Update and install necessary packages
+# Set environment variables
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
+# Install dependencies
 RUN apt-get update && apt-get install -y \
-    git zip unzip sudo openjdk-8-jdk python3-pip python3-setuptools python3-dev patch autoconf automake build-essential libtool pkg-config gettext zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libltdl-dev libssl-dev && \
-    apt-get clean
+    git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config \
+    zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev \
+    && apt-get clean
 
-# Install buildozer and other Python dependencies
-RUN pip3 install --upgrade buildozer Cython==0.29.33 wheel pip setuptools virtualenv
+# Upgrade pip and install required Python packages
+RUN pip3 install --no-cache-dir --upgrade \
+    Cython==0.29.33 virtualenv buildozer
 
-# Create a non-root user
-RUN useradd -m -U builder
+# Add Python's local bin directory to PATH
+ENV PATH="$PATH:/root/.local/bin"
 
-# Switch to non-root user
-USER builder
-WORKDIR /home/builder
+# Set working directory in the container
+WORKDIR /app
 
-# Set up environment
-RUN echo "export PATH=$PATH:/home/builder/.local/bin/" >> /home/builder/.profile && \
-    echo "export PATH=$PATH:/home/builder/.local/bin/" >> /home/builder/.bashrc
+# Copy project files into the container
+COPY . /app
 
-# Set the volume
-VOLUME /home/builder/source
+# Command to build APK
+CMD ["buildozer", "android", "debug"]

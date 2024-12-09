@@ -1,49 +1,51 @@
-name: Build and Push APK
+name: Build APK
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-apk:
+    runs-on: ubuntu-20.04
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v3
 
-      - name: Log in to Docker Hub
-        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Update System
+      run: |
+        sudo apt update
 
-      - name: Build Docker image
-        run: docker build -t jedie/buildozer .
+    - name: Install Required Packages
+      run: |
+        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
 
-      - name: Run Docker container to build APK
-        run: docker run --name buildozer-container -v ${PWD}:/buildozer jedie/buildozer buildozer --verbose android release
+    - name: Upgrade pip for Python 3.9
+      run: |
+        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        sudo python3.9 get-pip.py
 
-      - name: List contents of buildozer directory
-        run: docker exec buildozer-container ls -R /buildozer
+    - name: Install Python Packages
+      run: |
+        pip3.9 install --upgrade Cython==0.29.33 virtualenv buildozer
 
-      - name: Move APK to bin folder
-        run: |
-          mkdir -p bin
-          docker cp buildozer-container:/buildozer/.buildozer/android/platform/build-arm64-v8a/dists/your_project_name/bin/*.apk bin/
-        shell: bash
+    - name: Add Python to PATH
+      run: echo 'export PATH=$PATH:~/.local/bin/' >> $GITHUB_ENV
 
-      - name: Commit and push APK to bin folder
-        if: github.ref == 'refs/heads/master'
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add bin/*.apk
-          git commit -m "Add built APK"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build APK
+      run: |
+        git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
+        cd ~/FlashCards
+        buildozer -v android debug
 
-      - name: Clean up
-        run: docker rm -f buildozer-container
+    - name: Upload APK to Repository
+      run: |
+        cd ~/FlashCards
+        mkdir -p bin
+        mv bin/*.apk ./bin/
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add ./bin/
+        git commit -m "Upload APK [skip ci]"
+        git push
