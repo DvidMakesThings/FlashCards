@@ -34,18 +34,21 @@ jobs:
       run: |
         echo 'export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games' >> ~/.bashrc
 
-    - name: Set PYTHONPATH
+    - name: Set and Persist PYTHONPATH
       run: |
         export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
-        echo "PYTHONPATH is set to $PYTHONPATH"
-        echo "export PYTHONPATH=$PYTHONPATH" >> ~/.bashrc
-  
-    - name: Print PATH
-      run: echo $PATH
+        echo "export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages" >> ~/.bashrc
+
+    - name: Source Environment Variables
+      run: source ~/.bashrc
+
+    - name: Verify PATH and PYTHONPATH
+      run: |
+        echo $PATH
+        echo $PYTHONPATH
 
     - name: Clone Repository
-      run: |
-        git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
+      run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
 
     - name: Verify Python Packages Installation
       run: |
@@ -55,10 +58,13 @@ jobs:
         python3.9 -m pip show buildozer
 
     - name: Log Python Environment Variables
-      run: env | grep PYTHON
+      run: |
+        source ~/.bashrc
+        env | grep PYTHON
 
     - name: Build APK
       run: |
+        source ~/.bashrc
         cd ~/FlashCards
         yes | buildozer -v android debug
 
