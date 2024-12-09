@@ -25,9 +25,9 @@ jobs:
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         sudo python3.9 get-pip.py
 
-    - name: Install Cython Globally
+    - name: Install Cython and PyJNIus Globally
       run: |
-        sudo pip3.9 install --upgrade Cython==0.29.33  # Global installation for system-wide availability
+        sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius  # Global installation for system-wide availability
 
     - name: Install Buildozer and Python Packages
       run: |
