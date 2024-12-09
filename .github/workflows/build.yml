@@ -28,7 +28,7 @@ jobs:
     - name: Install and Reinstall Python Packages
       run: |
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
-        python3.9 -m pip install --force-reinstall Cython==0.29.33
+        sudo python3.9 -m pip install --force-reinstall Cython==0.29.33
 
     - name: Set Environment Variables
       run: |
@@ -38,12 +38,12 @@ jobs:
     - name: Clone FlashCards Repository
       run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
 
-    - name: Clone and Build pyjnius
+    - name: Force Cythonize pyjnius Manually
       run: |
         git clone https://github.com/kivy/pyjnius.git ~/pyjnius
         cd ~/pyjnius
-        python3.9 setup.py build_ext --inplace
-        sudo python3.9 setup.py install
+        sudo python3.9 setup.py build_ext --inplace
+        sudo python3.9 -m pip install .
 
     - name: Verify Python Packages Installation
       run: |
