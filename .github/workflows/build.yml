@@ -28,20 +28,22 @@ jobs:
     - name: Install and Reinstall Python Packages
       run: |
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
-        python3.9 -m pip install --force-reinstall Cython==0.29.33
+        python3.9 -m pip install --force-reinstall --user Cython==0.29.33
 
     - name: Set Environment Variables
       run: |
-        echo "PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games" >> $GITHUB_ENV
-        echo "PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages" >> $GITHUB_ENV
-
-    - name: Verify PATH and PYTHONPATH
-      run: |
-        echo $PATH
-        echo $PYTHONPATH
+        export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+        export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
+        echo "PATH is set to $PATH"
+        echo "PYTHONPATH is set to $PYTHONPATH"
 
     - name: Clone Repository
       run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
+
+    - name: Precompile pyjnius
+      run: |
+        cd ~/FlashCards
+        python3.9 -m cython --cplus ./jnius/jnius.pyx
 
     - name: Verify Python Packages Installation
       run: |
