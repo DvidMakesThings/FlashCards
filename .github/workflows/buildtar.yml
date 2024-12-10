@@ -12,13 +12,17 @@ jobs:
     steps:
     # Step 1: Download the WSL tar file from Google Drive
     - name: Download WSL2 Distribution
+      shell: bash
       run: |
+        echo "Starting the download of the tar file..."
         curl -L -o Ubuntu-20.04_With_buildozer.tar "${{ secrets.UBUNTU_TARBALL_ARTIFACT }}"
-        while (!(Test-Path "Ubuntu-20.04_With_buildozer.tar") -or ((Get-Item "Ubuntu-20.04_With_buildozer.tar").Length -eq 0)) {
-            Write-Host "Waiting for tar file to complete downloading..."
-            Start-Sleep -Seconds 5
-        }
-        Write-Host "Tar file downloaded successfully."
+        echo "Checking if the file is completely downloaded..."
+        while [ ! -f "Ubuntu-20.04_With_buildozer.tar" ] || [ $(stat -c%s "Ubuntu-20.04_With_buildozer.tar") -lt 10000000000 ]; do
+            echo "File size: $(stat -c%s "Ubuntu-20.04_With_buildozer.tar") bytes. Waiting for complete download..."
+            sleep 5
+        done
+        echo "Tar file downloaded successfully."
+
 
 
     # Step 2: Ensure the directory exists for the WSL distribution
