@@ -14,11 +14,12 @@ jobs:
     - name: Download WSL2 Distribution
       run: |
         curl -L -o Ubuntu-20.04_With_buildozer.tar "${{ secrets.UBUNTU_TARBALL_ARTIFACT }}"
-        while [ ! -f "Ubuntu-20.04_With_buildozer.tar" ] || [ ! -s "Ubuntu-20.04_With_buildozer.tar" ]; do
-          echo "Waiting for tar file to complete downloading..."
-          sleep 5
-        done
-        echo "Tar file downloaded successfully."
+        while (!(Test-Path "Ubuntu-20.04_With_buildozer.tar") -or ((Get-Item "Ubuntu-20.04_With_buildozer.tar").Length -eq 0)) {
+            Write-Host "Waiting for tar file to complete downloading..."
+            Start-Sleep -Seconds 5
+        }
+        Write-Host "Tar file downloaded successfully."
+
 
     # Step 2: Ensure the directory exists for the WSL distribution
     - name: Create WSL Distribution Directory
