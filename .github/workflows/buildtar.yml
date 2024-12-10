@@ -15,16 +15,24 @@ jobs:
       run: |
         curl -L -o Ubuntu-20.04_With_buildozer.tar "${{ secrets.UBUNTU_TARBALL_ARTIFACT }}"
 
-    # Step 2: Import the WSL tar file as a new distribution
+    # Step 2: Ensure the directory exists for the WSL distribution
+    - name: Create WSL Distribution Directory
+      run: |
+        mkdir -p C:\\WSL\\UbuntuBuildozer
+
+    # Step 3: Import the WSL tar file as a new distribution
     - name: Install WSL2 Distribution
       run: |
-        wsl --import UbuntuBuildozer C:\WSL\UbuntuBuildozer Ubuntu-20.04_With_buildozer.tar
+        wsl --import UbuntuBuildozer C:\\WSL\\UbuntuBuildozer Ubuntu-20.04_With_buildozer.tar
         wsl --set-version UbuntuBuildozer 2
 
-    # Step 3: Run your autobuild script in the WSL2 distribution
+    # Step 4: Run your autobuild script in the WSL2 distribution with user and password
     - name: Build APK in WSL2
+      env:
+        WSL2_USER: ${{ secrets.WSL2_USER }}
+        WSL2_PSW: ${{ secrets.WSL2_PSW }}
       run: |
-        wsl -d UbuntuBuildozer -u ${{ secrets.WSL2_USER }} -- bash -c "
+        echo ${{ secrets.WSL2_PSW }} | wsl -d UbuntuBuildozer -u ${{ secrets.WSL2_USER }} -- bash -c "
         cd ~/FlashCards && \
         git pull origin master && \
         buildozer -v android debug && \
@@ -51,6 +59,6 @@ jobs:
         git push https://DvidMakesThings:${{ secrets.PUSH }}@github.com/DvidMakesThings/FlashCards.git master
         "
 
-    # Step 4: Output completion message
+    # Step 5: Output completion message
     - name: Success
       run: echo "APK Build and Push process completed successfully."
