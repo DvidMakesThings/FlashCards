@@ -53,13 +53,6 @@ jobs:
     - name: Clone FlashCards Repository
       run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
 
-    - name: Verify Python Packages Installation
-      run: |
-        python3.9 -m pip show Cython
-        python3.9 -m pip show pyjnius
-        python3.9 -m pip show virtualenv
-        python3.9 -m pip show buildozer
-
     - name: Build APK
       run: |
         cd ~/FlashCards
