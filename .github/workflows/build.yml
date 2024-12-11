@@ -14,6 +14,17 @@ jobs:
    - name: Install Required Packages
      run: |
        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+   - name: Set Java 17 as Default
+     run: |
+       sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk-amd64/bin/java 1
+       sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+       sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac 1
+       sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+       export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+   - name: Verify Java Version
+     run: |
+       java -version
+       echo $JAVA_HOME
    - name: Create Virtual Environment
      run: |
        python3.9 -m venv ~/venv
@@ -23,10 +34,6 @@ jobs:
      run: |
        source ~/venv/bin/activate
        pip install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
-   - name: Set Environment Variables
-     run: |
-       export PATH=$PATH:~/.local/bin:~/venv/bin
-       export PYTHONPATH=~/venv/lib/python3.9/site-packages:$PYTHONPATH
    - name: Clone FlashCards Repository
      run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
    - name: Force Cythonize pyjnius Manually
@@ -36,13 +43,6 @@ jobs:
        cd ~/pyjnius
        python setup.py build_ext --inplace
        pip install .
-   - name: Verify Python Packages Installation
-     run: |
-       source ~/venv/bin/activate
-       pip show Cython
-       pip show pyjnius
-       pip show virtualenv
-       pip show buildozer
    - name: Build APK
      run: |
        source ~/venv/bin/activate
