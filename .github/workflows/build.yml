@@ -20,13 +20,17 @@ jobs:
         sudo add-apt-repository ppa:deadsnakes/ppa
         sudo apt update
         sudo apt install -y \
+          python3.9 \
+          python3.9-venv \
+          python3.9-dev \
+        pip3 install --user --upgrade buildozer
+        python3.9 -m venv venv
+        source venv/bin/activate
+        sudo apt install -y \
           git \
           zip \
           unzip \
           openjdk-17-jdk \
-          python3.9 \
-          python3.9-venv \
-          python3.9-dev \
           autoconf \
           libtool \
           pkg-config \
@@ -40,15 +44,11 @@ jobs:
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         sudo python3.9 get-pip.py
 
-    - name: Create and activate virtual environment
+    - name: Install Required Python Packages
       run: |
-        python3.9 -m venv venv
-        source venv/bin/activate
         pip install --upgrade pip
-        pip install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
+        pip3 install --upgrade Cython==0.29.33 virtualenv
         pip install --force-reinstall Cython==0.29.33
-        export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-        export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
 
     - name: Clone FlashCards Repository
       run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
