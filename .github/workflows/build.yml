@@ -16,8 +16,9 @@ jobs:
     - name: Update System and Install Required Packages
       run: | 
         sudo apt update
-        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-        sudo python3.9 get-pip.py
+        sudo apt install -y software-properties-common
+        sudo add-apt-repository ppa:deadsnakes/ppa
+        sudo apt update
         sudo apt install -y \
           git \
           zip \
@@ -36,13 +37,15 @@ jobs:
           cmake \
           libffi-dev \
           libssl-dev
+        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        sudo python3.9 get-pip.py
 
     - name: Create and activate virtual environment
       run: |
-        python3 -m venv venv
+        python3.9 -m venv venv
         source venv/bin/activate
-        sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
-        sudo python3.9 -m pip install --force-reinstall Cython==0.29.33
+        pip install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
+        pip install --force-reinstall Cython==0.29.33
         export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
         export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
 
@@ -72,4 +75,4 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add .
         git commit -m "APK autobuilder [skip ci]"
-        git push https://DvidMakesThings:${PUSH}@github.com/DvidMakesThings/FlashCards.git master
+        git push https://DvidMakesThings:${{ secrets.PUSH }}@github.com/DvidMakesThings/FlashCards.git master
