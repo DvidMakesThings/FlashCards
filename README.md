@@ -34,22 +34,32 @@ Store WortMeister in a JSON or SQLite database. Each card has:
 
 ```
 WortMeister_app/
-├── main.py                             # Entry point for the program
-├── app.kv                              # Kivy layout file (UI design)
+├── .github/                            
+│   └── workflows/                      # Folder, containing the autobuilder
+│       ├── build.yml                   # Workflow file for autobuilding
+│       └── README.md                   # Workflow description
+├── bin/                                
+│   └── AndroidApp.apk                  # Android app
 ├── core/
 │   ├── flashcard.py                    # Flashcard class and data model
-│   ├── manager.py                      # Flashcard manager (CRUD operations)
+│   ├── manager.py                      # Flashcard manager 
 │   └── algorithm.py                    # Spaced repetition algorithm
 ├── gui/
 │   ├── screens.py                      # Screen management (Study, Add Card, etc.)
 │   ├── widgets.py                      # Custom widgets (e.g., buttons, labels)
 │   └── handlers.py                     # Event and user interaction handlers
+├── img/                                # Folder for storing app images
 ├── storage/
 │   └── data.json                       # Stores flashcard data (or SQLite DB)
-└── unittest/
-    ├── test_WortMeister.py              # Unit test script
-    └── reports                         # Stores report files
-        └── test_report.html            # Unit test report file
+├── unittest/
+│   ├── test_WortMeister.py              # Unit test script
+│   └── reports                         # Stores report files
+│       └── test_report.html            # Unit test report file
+├── main.py                             # Entry point for the program
+├── app.kv                              # Kivy layout file (UI design)
+├── README.md                           # Project description
+├── LICENSE                             # License file
+└── requirements.txt                    # Requirements
 ```
 
 
