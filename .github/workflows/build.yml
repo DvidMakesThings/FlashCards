@@ -1,83 +1,103 @@
 name: Build APK
+
 on:
- push:
-   branches:
-     - master
+  push:
+    branches:
+      - master  # Trigger the workflow only on pushes to the master branch
+
 jobs:
- build-apk:
-   runs-on: ubuntu-20.04
-   steps:
-   - name: Checkout Repository
-     uses: actions/checkout@v3
-   - name: Update System
-     run: sudo apt update
-   - name: Install Required Packages
-     run: |
-       sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
-   - name: Set Java 17 as Default
-     run: |
-       sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk-amd64/bin/java 1
-       sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-       sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac 1
-       sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-       export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-       echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
-   - name: Set Up Virtual Environment
-     run: |
-       python3.9 -m venv venv
-       source venv/bin/activate
-       python -m pip install --upgrade pip
-   - name: Set Java 17 as Default 2
-     run: |
-       sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk-amd64/bin/java 1
-       sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-       sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac 1
-       sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-       export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-       echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
-   - name: Install Required Python Packages in `venv`
-     run: |
-       source venv/bin/activate
-       pip install Cython==0.29.33 pyjnius virtualenv buildozer
-       pip install --force-reinstall Cython==0.29.33
-   - name: Set Environment Variables
-     run: |
-       source venv/bin/activate
-       export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-       export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
-   - name: Clone FlashCards Repository
-     run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
-   - name: Force Cythonize pyjnius Manually
-     run: |
-       source venv/bin/activate
-       git clone https://github.com/kivy/pyjnius.git ~/pyjnius
-       cd ~/pyjnius
-       python setup.py build_ext --inplace
-       pip install .
-   - name: Verify Python Packages Installation
-     run: |
-       source venv/bin/activate
-       pip show Cython
-       pip show pyjnius
-       pip show virtualenv
-       pip show buildozer
-   - name: Build APK
-     env:
-       JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
-     run: |
-       source venv/bin/activate
-       cd ~/FlashCards
-       yes | buildozer -v android debug
-   - name: Upload APK to Repository
-     env:
-       PUSH: ${{ secrets.PUSH }}
-     run: |
-       source venv/bin/activate
-       cd ~/FlashCards
-       mkdir -p bin
-       mv bin/*.apk ./bin/ || echo "No APK found to upload"
-       git config --global user.name "github-actions[bot]"
-       git config --global user.email "github-actions[bot]@users.noreply.github.com"
-       git add .
-       git commit -m "APK autobuilder [skip ci]"
-       git push https://DvidMakesThings:${{ secrets.PUSH }}@github.com/DvidMakesThings/FlashCards.git master
+  build-apk:
+    runs-on: ubuntu-20.04  # Use Ubuntu 20.04 as the build environment
+
+    steps:
+    # Step 1: Checkout the repository to get the latest code
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    # Step 2: Update the system to ensure all packages are up-to-date
+    - name: Update System
+      run: sudo apt update
+
+    # Step 3: Install required dependencies for the build process
+    - name: Install Required Packages
+      run: |
+        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev \
+          autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 \
+          cmake libffi-dev libssl-dev
+
+    # Step 4: Configure Java 17 as the default Java version for the build
+    - name: Set Java 17 as Default
+      run: |
+        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk-amd64/bin/java 1
+        sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac 1
+        sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+        export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+        echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
+
+    # Step 5: Set up a virtual environment for Python 3.9
+    - name: Set Up Virtual Environment
+      run: |
+        python3.9 -m venv venv
+        source venv/bin/activate
+        python -m pip install --upgrade pip
+
+    # Step 6: Install the necessary Python packages in the virtual environment
+    - name: Install Required Python Packages in `venv`
+      run: |
+        source venv/bin/activate
+        pip install Cython==0.29.33 pyjnius virtualenv buildozer
+        pip install --force-reinstall Cython==0.29.33
+
+    # Step 7: Set up environment variables for the build
+    - name: Set Environment Variables
+      run: |
+        source venv/bin/activate
+        export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+        export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
+
+    # Step 8: Clone the FlashCards repository for the project
+    - name: Clone FlashCards Repository
+      run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
+
+    # Step 9: Force cythonize pyjnius to resolve any build issues
+    - name: Force Cythonize pyjnius Manually
+      run: |
+        source venv/bin/activate
+        git clone https://github.com/kivy/pyjnius.git ~/pyjnius
+        cd ~/pyjnius
+        python setup.py build_ext --inplace
+        pip install .
+
+    # Step 10: Verify that the required Python packages are installed
+    - name: Verify Python Packages Installation
+      run: |
+        source venv/bin/activate
+        pip show Cython
+        pip show pyjnius
+        pip show virtualenv
+        pip show buildozer
+
+    # Step 11: Build the APK using Buildozer
+    - name: Build APK
+      env:
+        JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64  # Ensure the correct Java version is used
+      run: |
+        source venv/bin/activate
+        cd ~/FlashCards
+        yes | buildozer -v android debug
+
+    # Step 12: Upload the built APK back to the repository
+    - name: Upload APK to Repository
+      env:
+        PUSH: ${{ secrets.PUSH }}  # Use GitHub Secrets to securely handle the push token
+      run: |
+        source venv/bin/activate
+        cd ~/FlashCards
+        mkdir -p bin
+        mv bin/*.apk ./bin/ || echo "No APK found to upload"
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "APK autobuilder [skip ci]"
+        git push https://DvidMakesThings:${{ secrets.PUSH }}@github.com/DvidMakesThings/FlashCards.git master
