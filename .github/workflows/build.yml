@@ -9,11 +9,15 @@ jobs:
    steps:
    - name: Checkout Repository
      uses: actions/checkout@v3
+
    - name: Update System
      run: sudo apt update
+
    - name: Install Required Packages
      run: |
        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+   
+     # Set Java 17 as Default, otherwise, build fails on GitHub Actions on line 53.280
    - name: Set Java 17 as Default
      run: |
        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk-amd64/bin/java 1
@@ -21,21 +25,33 @@ jobs:
        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac 1
        sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+     # Debug purpose
    - name: Verify Java Version
      run: |
        java -version
        echo $JAVA_HOME
+
+     # Create Virtual Environment
    - name: Create Virtual Environment
      run: |
        python3.9 -m venv ~/venv
        source ~/venv/bin/activate
        python -m pip install --upgrade pip
+
    - name: Install Python Packages in venv
      run: |
        source ~/venv/bin/activate
        pip install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
+
    - name: Clone FlashCards Repository
      run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
+
+     # Set JAVA_HOME for Gradle, otherwise, build fails on GitHub Actions in line 53.214
+   - name: Set JAVA_HOME for Gradle
+     run: |
+       echo "org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/FlashCards/gradle.properties
+
    - name: Force Cythonize pyjnius Manually
      run: |
        source ~/venv/bin/activate
@@ -43,11 +59,13 @@ jobs:
        cd ~/pyjnius
        python setup.py build_ext --inplace
        pip install .
+
    - name: Build APK
      run: |
        source ~/venv/bin/activate
        cd ~/FlashCards
        yes | buildozer -v android debug
+       
    - name: Upload APK to Repository
      env:
        PUSH: ${{ secrets.PUSH }}
