@@ -23,7 +23,7 @@ jobs:
           python3.9 \
           python3.9-venv \
           python3.9-dev \
-        pip3 install --user --upgrade buildozer
+        pip3 install --upgrade buildozer
         python3.9 -m venv venv
         source venv/bin/activate
         sudo apt install -y \
@@ -49,6 +49,9 @@ jobs:
         pip install --upgrade pip
         pip3 install --upgrade Cython==0.29.33 virtualenv
         pip install --force-reinstall Cython==0.29.33
+        echo "PATH=$PATH:/usr/local/bin/git" >> $GITHUB_ENV
+        echo "PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH" >> $GITHUB_ENV
+
 
     - name: Clone FlashCards Repository
       run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
