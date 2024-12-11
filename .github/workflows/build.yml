@@ -13,17 +13,34 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Create and activate virtual environment
-      run: |
-        python3 -m venv venv
-        source venv/bin/activate
-
     - name: Update System and Install Required Packages
       run: | 
         sudo apt update
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         sudo python3.9 get-pip.py
-        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+        sudo apt install -y \
+          git \
+          zip \
+          unzip \
+          openjdk-17-jdk \
+          python3.9 \
+          python3.9-venv \
+          python3.9-dev \
+          autoconf \
+          libtool \
+          pkg-config \
+          zlib1g-dev \
+          libncurses5-dev \
+          libncursesw5-dev \
+          libtinfo5 \
+          cmake \
+          libffi-dev \
+          libssl-dev
+
+    - name: Create and activate virtual environment
+      run: |
+        python3 -m venv venv
+        source venv/bin/activate
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
         sudo python3.9 -m pip install --force-reinstall Cython==0.29.33
         export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
