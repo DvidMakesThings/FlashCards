@@ -3,7 +3,7 @@ name: Build APK with WSL2
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   setup-wsl-build:

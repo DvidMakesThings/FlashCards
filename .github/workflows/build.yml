@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-apk:
@@ -13,37 +13,24 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Update System
-      run: sudo apt update
-
-    - name: Install Required Packages
+    - name: Create and activate virtual environment
       run: |
-        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+        python3 -m venv venv
+        source venv/bin/activate
 
-    - name: Upgrade pip for Python 3.9
-      run: |
+    - name: Update System and Install Required Packages
+      run: | 
+        sudo apt update
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         sudo python3.9 get-pip.py
-
-    - name: Install and Reinstall Python Packages
-      run: |
+        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
         sudo python3.9 -m pip install --force-reinstall Cython==0.29.33
-
-    - name: Set Environment Variables
-      run: |
         export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
         export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
 
     - name: Clone FlashCards Repository
       run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
-
-    - name: Force Cythonize pyjnius Manually
-      run: |
-        git clone https://github.com/kivy/pyjnius.git ~/pyjnius
-        cd ~/pyjnius
-        sudo python3.9 setup.py build_ext --inplace
-        sudo python3.9 -m pip install .
 
     - name: Verify Python Packages Installation
       run: |
