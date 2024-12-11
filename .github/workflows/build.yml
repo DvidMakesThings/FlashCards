@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-apk:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout Repository
@@ -28,7 +28,7 @@ jobs:
     - name: Install and Reinstall Python Packages
       run: |
         sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
-        sudo python3.9 -m pip install --force-reinstall Cython==0.29.33
+        python3.9 -m pip install --force-reinstall Cython==0.29.33
 
     - name: Set Environment Variables
       run: |
@@ -42,8 +42,8 @@ jobs:
       run: |
         git clone https://github.com/kivy/pyjnius.git ~/pyjnius
         cd ~/pyjnius
-        sudo python3.9 setup.py build_ext --inplace
-        sudo python3.9 -m pip install .
+        python3.9 setup.py build_ext --inplace
+        python3.9 -m pip install .
 
     - name: Verify Python Packages Installation
       run: |
