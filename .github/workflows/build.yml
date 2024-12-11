@@ -1,68 +1,85 @@
 name: Build APK
+
 on:
- push:
-   branches:
-     - master
+  push:
+    branches:
+      - master
+
 jobs:
- build-apk:
-   runs-on: ubuntu-20.04
-   steps:
-   - name: Checkout Repository
-     uses: actions/checkout@v3
-   - name: Update System
-     run: sudo apt update
-   - name: Install Required Packages
-     run: |
-       sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
-   - name: Set Java 17 as Default
-     run: |
-       sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk-amd64/bin/java 1
-       sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-       sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac 1
-       sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-       export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-       echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
-   - name: Upgrade pip for Python 3.9
-     run: |
-       curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-       sudo python3.9 get-pip.py
-   - name: Install and Reinstall Python Packages
-     run: |
-       sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
-       python3.9 -m pip install --force-reinstall Cython==0.29.33
-   - name: Set Environment Variables
-     run: |
-       export PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-       export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH
-   - name: Clone FlashCards Repository
-     run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
-   - name: Force Cythonize pyjnius Manually
-     run: |
-       git clone https://github.com/kivy/pyjnius.git ~/pyjnius
-       cd ~/pyjnius
-       python3.9 setup.py build_ext --inplace
-       python3.9 -m pip install .
-   - name: Verify Python Packages Installation
-     run: |
-       python3.9 -m pip show Cython
-       python3.9 -m pip show pyjnius
-       python3.9 -m pip show virtualenv
-       python3.9 -m pip show buildozer
-   - name: Build APK
-     env:
-       JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
-     run: |
-       cd ~/FlashCards
-       yes | buildozer -v android debug
-   - name: Upload APK to Repository
-     env:
-       PUSH: ${{ secrets.PUSH }}
-     run: |
-       cd ~/FlashCards
-       mkdir -p bin
-       mv bin/*.apk ./bin/ || echo "No APK found to upload"
-       git config --global user.name "github-actions[bot]"
-       git config --global user.email "github-actions[bot]@users.noreply.github.com"
-       git add .
-       git commit -m "APK autobuilder [skip ci]"
-       git push https://DvidMakesThings:${{ secrets.PUSH }}@github.com/DvidMakesThings/FlashCards.git master
+  build-apk:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Update System
+      run: sudo apt update
+
+    - name: Uninstall Java 11
+      run: sudo apt remove -y openjdk-11-jdk
+
+    - name: Install Required Packages
+      run: |
+        sudo apt install -y git zip unzip openjdk-17-jdk python3.9 python3.9-venv python3.9-dev autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+
+    - name: Set Java 17 as Default
+      run: |
+        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk-amd64/bin/java 1
+        sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac 1
+        sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+        export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+        echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
+
+    - name: Upgrade pip for Python 3.9
+      run: |
+        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        sudo python3.9 get-pip.py
+
+    - name: Install and Reinstall Python Packages
+      run: |
+        sudo pip3.9 install --upgrade Cython==0.29.33 pyjnius virtualenv buildozer
+        python3.9 -m pip install --force-reinstall Cython==0.29.33
+
+    - name: Set Environment Variables
+      run: |
+        echo "PATH=$PATH:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games" >> $GITHUB_ENV
+        echo "PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:/usr/local/lib/python3.9/dist-packages:$PYTHONPATH" >> $GITHUB_ENV
+
+    - name: Clone FlashCards Repository
+      run: git clone https://github.com/DvidMakesThings/FlashCards.git ~/FlashCards
+
+    - name: Force Cythonize pyjnius Manually
+      run: |
+        git clone https://github.com/kivy/pyjnius.git ~/pyjnius
+        cd ~/pyjnius
+        python3.9 setup.py build_ext --inplace
+        python3.9 -m pip install .
+
+    - name: Verify Python Packages Installation
+      run: |
+        python3.9 -m pip show Cython
+        python3.9 -m pip show pyjnius
+        python3.9 -m pip show virtualenv
+        python3.9 -m pip show buildozer
+
+    - name: Build APK
+      env:
+        JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+      run: |
+        cd ~/FlashCards
+        yes | buildozer -v android debug
+
+    - name: Upload APK to Repository
+      env:
+        PUSH: ${{ secrets.PUSH }}
+      run: |
+        cd ~/FlashCards
+        mkdir -p bin
+        mv bin/*.apk ./bin/ || echo "No APK found to upload"
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "APK autobuilder [skip ci]"
+        git push https://DvidMakesThings:${{ secrets.PUSH }}@github.com/DvidMakesThings/FlashCards.git master
