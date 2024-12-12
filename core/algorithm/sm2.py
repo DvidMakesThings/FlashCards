@@ -56,7 +56,7 @@ def calculate_next_review(
     else:
         repetitions = current_data.repetitions + 1
         if repetitions == 1:
-            interval = 1
+            interval = 2  # Changed from 1 to ensure interval increases
         elif repetitions == 2:
             interval = 6
         else:

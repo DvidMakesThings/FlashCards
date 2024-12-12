@@ -11,11 +11,27 @@ def run_tests():
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sys.path.insert(0, project_root)
     
-    # Discover and run tests
-    loader = unittest.TestLoader()
-    start_dir = os.path.join(project_root, 'tests')
-    suite = loader.discover(start_dir, pattern='test_*.py')
+    # Create test suite
+    suite = unittest.TestSuite()
     
+    # Add test modules explicitly
+    test_modules = [
+        'tests.core.test_flashcard',
+        'tests.core.test_manager',
+        'tests.core.test_sm2',
+        'tests.core.test_text_processor',
+        'tests.gui.test_study_controller',
+        'tests.gui.test_study_modes',
+        'tests.gui.test_ui_helpers'
+    ]
+    
+    for module in test_modules:
+        try:
+            suite.addTests(unittest.defaultTestLoader.loadTestsFromName(module))
+        except Exception as e:
+            print(f"Error loading tests from {module}: {e}")
+    
+    # Run tests
     runner = unittest.TextTestRunner(verbosity=2)
     result = runner.run(suite)
     

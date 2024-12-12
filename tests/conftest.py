@@ -1,18 +1,18 @@
 """
-Test configuration and fixtures.
+Test configuration and shared fixtures.
 """
-import pytest
-from kivy.core.window import Window
-from kivy.base import EventLoop
+import os
+import tempfile
+import shutil
 
-@pytest.fixture(autouse=True)
-def kivy_config():
-    """Configure Kivy for testing."""
-    Window.size = (800, 600)
-    EventLoop.ensure_window()
-    return Window
+def pytest_configure(config):
+    """Configure test environment."""
+    # Create temp directory for test storage
+    os.environ['TEST_STORAGE_DIR'] = tempfile.mkdtemp()
 
-@pytest.fixture
-def temp_storage(tmpdir):
-    """Provide temporary storage directory."""
-    return str(tmpdir)
+def pytest_unconfigure(config):
+    """Clean up test environment."""
+    # Remove temp test storage
+    test_dir = os.environ.get('TEST_STORAGE_DIR')
+    if test_dir and os.path.exists(test_dir):
+        shutil.rmtree(test_dir)
