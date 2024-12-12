@@ -6,7 +6,9 @@ from kivy.clock import Clock
 from core.manager import FlashcardManager
 from gui.screens.study.modes import StudyModeType
 from gui.screens.study.study_controller import StudyController
-from gui.utils.ui_helpers import toggle_widget
+from gui.screens.study.answer_handler import AnswerHandler
+from gui.screens.study.ui_state_manager import UIStateManager
+from gui.screens.study.card_display import CardDisplay
 
 class StudyScreen(Screen):
     """Main study screen handling UI interactions."""
@@ -15,6 +17,9 @@ class StudyScreen(Screen):
         super().__init__(**kwargs)
         self.controller = None
         self.category = None
+        self.answer_handler = AnswerHandler(self)
+        self.ui_manager = UIStateManager(self)
+        self.card_display = CardDisplay(self)
         
     def set_category(self, category: str) -> None:
         """Initialize study controller with selected category."""
@@ -24,8 +29,20 @@ class StudyScreen(Screen):
         
     def check_answer(self) -> None:
         """Handle answer checking."""
-        if self.controller:
-            self.controller.check_answer(self.ids.user_input.text)
+        if self.controller and self.controller.current_card:
+            user_answer = self.ids.user_input.text
+            is_correct = self.answer_handler.process_user_answer(
+                user_answer,
+                self.controller.current_card.answer
+            )
+            
+            if is_correct:
+                self.answer_handler.show_feedback(True)
+                Clock.schedule_once(lambda dt: self.handle_difficulty('easy'), 0.5)
+            else:
+                formatted_answer = self.controller.current_card.answer
+                self.answer_handler.show_feedback(False, formatted_answer)
+                self.ui_manager.show_study_buttons()
             
     def handle_difficulty(self, difficulty: str) -> None:
         """Handle difficulty rating in study mode."""
@@ -44,10 +61,4 @@ class StudyScreen(Screen):
             
     def reset_ui_state(self) -> None:
         """Reset UI elements to initial state."""
-        self.ids.user_input.text = ""
-        self.ids.user_input.foreground_color = (0.1, 0.1, 0.4, 1)
-        self.ids.feedback_label.text = ""
-        toggle_widget(self.ids.check_button, True)
-        toggle_widget(self.ids.next_button, False)
-        toggle_widget(self.ids.study_buttons, False)
-        toggle_widget(self.ids.practice_button, True)
+        self.ui_manager.reset_state()

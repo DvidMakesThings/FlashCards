@@ -4,15 +4,27 @@ Test configuration and shared fixtures.
 import os
 import tempfile
 import shutil
+import pytest
+from kivy.config import Config
 
-def pytest_configure(config):
-    """Configure test environment."""
+# Configure Kivy for testing
+Config.set('graphics', 'window_state', 'hidden')
+Config.set('graphics', 'headless', '1')
+
+@pytest.fixture(autouse=True)
+def test_env():
+    """Set up test environment."""
     # Create temp directory for test storage
-    os.environ['TEST_STORAGE_DIR'] = tempfile.mkdtemp()
-
-def pytest_unconfigure(config):
-    """Clean up test environment."""
-    # Remove temp test storage
-    test_dir = os.environ.get('TEST_STORAGE_DIR')
-    if test_dir and os.path.exists(test_dir):
+    test_dir = tempfile.mkdtemp()
+    os.environ['TEST_STORAGE_DIR'] = test_dir
+    
+    yield
+    
+    # Clean up after tests
+    if os.path.exists(test_dir):
         shutil.rmtree(test_dir)
+
+@pytest.fixture
+def temp_storage(tmpdir):
+    """Provide temporary storage directory."""
+    return str(tmpdir)

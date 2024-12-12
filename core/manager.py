@@ -2,11 +2,11 @@
 Flashcard management system implementation.
 """
 import os
-import random
 from typing import List, Optional
 from core.flashcard import Flashcard
 from core.utils.file_handler import ensure_storage_dir, load_json_file, save_json_file
 from core.utils.text_formatter import format_category_filename
+from core.algorithm.sm2 import is_due
 
 class FlashcardManager:
     """Manages flashcard operations and persistence."""
@@ -18,9 +18,9 @@ class FlashcardManager:
             os.path.dirname(os.path.dirname(__file__)), 'storage'
         )
         ensure_storage_dir(self.storage_path)
-        self.cards = self.load_cards()
+        self.cards = self._load_cards()
 
-    def load_cards(self) -> List[Flashcard]:
+    def _load_cards(self) -> List[Flashcard]:
         """Load flashcards from storage."""
         cards = []
         seen_cards = set()  # Track unique cards to prevent duplicates
@@ -50,6 +50,28 @@ class FlashcardManager:
                         seen_cards.add(card_id)
         return cards
 
+    def get_due_cards(self, category: str) -> List[Flashcard]:
+        """Get due cards for a specific category."""
+        # Filter cards by category and due status
+        category_cards = [
+            card for card in self.cards 
+            if card.category == category and is_due(card.last_review, card.interval)
+        ]
+        return category_cards
+
+    def add_card(self, question: str, answer: str, category: str) -> bool:
+        """Add a new flashcard."""
+        if self._is_duplicate(question, answer):
+            return False
+
+        # Create new cards (original and reverse)
+        new_card = Flashcard(question=question, answer=answer, category=category)
+        reverse_card = Flashcard(question=answer, answer=question, category=category)
+        
+        self.cards.extend([new_card, reverse_card])
+        self.save_cards()
+        return True
+
     def save_cards(self) -> None:
         """Save flashcards to storage."""
         if not self.category:
@@ -62,38 +84,6 @@ class FlashcardManager:
         category_cards = [card for card in self.cards if card.category == self.category]
         cards_data = [vars(card) for card in category_cards]
         save_json_file(file_path, cards_data)
-
-    def add_card(self, question: str, answer: str, category: Optional[str] = None) -> bool:
-        """Add a new flashcard."""
-        if self._is_duplicate(question, answer):
-            return False
-
-        # Set the category for the manager if not already set
-        if not self.category:
-            self.category = category or "Uncategorized"
-
-        new_card = Flashcard(
-            question=question,
-            answer=answer,
-            category=self.category
-        )
-        
-        reversed_card = Flashcard(
-            question=answer,
-            answer=question,
-            category=self.category
-        )
-
-        self.cards.extend([new_card, reversed_card])
-        self.save_cards()
-        return True
-
-    def get_due_cards(self, category: str) -> List[Flashcard]:
-        """Get and shuffle due cards for a category."""
-        # Filter cards by the specified category
-        category_cards = [card for card in self.cards if card.category == category]
-        random.shuffle(category_cards)
-        return category_cards
 
     def _is_duplicate(self, question: str, answer: str) -> bool:
         """Check for duplicate cards."""
