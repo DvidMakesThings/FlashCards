@@ -2,6 +2,7 @@
 Utility functions for UI operations.
 """
 from typing import Tuple
+from kivy.uix.widget import Widget
 
 def get_feedback_color(success: bool) -> Tuple[float, float, float, float]:
     """
@@ -42,3 +43,14 @@ def format_long_text(text: str, max_length: int = 40) -> str:
         lines.append(' '.join(current_line))
     
     return '\n'.join(lines)
+
+def toggle_widget(widget: Widget, show: bool) -> None:
+    """
+    Toggle widget visibility using disabled state and opacity.
+    
+    Args:
+        widget: The widget to toggle
+        show: True to show the widget, False to hide it
+    """
+    widget.disabled = not show
+    widget.opacity = 1 if show else 0

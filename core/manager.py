@@ -64,7 +64,7 @@ class FlashcardManager:
         save_json_file(file_path, cards_data)
 
     def add_card(self, question: str, answer: str, category: Optional[str] = None) -> bool:
-        """Add a new flashcard and its reverse."""
+        """Add a new flashcard."""
         if self._is_duplicate(question, answer):
             return False
 
@@ -75,19 +75,13 @@ class FlashcardManager:
         new_card = Flashcard(
             question=question,
             answer=answer,
-            category=self.category,
-            interval=1,
-            last_review=None,
-            score=0
+            category=self.category
         )
         
         reversed_card = Flashcard(
             question=answer,
             answer=question,
-            category=self.category,
-            interval=1,
-            last_review=None,
-            score=0
+            category=self.category
         )
 
         self.cards.extend([new_card, reversed_card])
@@ -96,6 +90,7 @@ class FlashcardManager:
 
     def get_due_cards(self, category: str) -> List[Flashcard]:
         """Get and shuffle due cards for a category."""
+        # Filter cards by the specified category
         category_cards = [card for card in self.cards if card.category == category]
         random.shuffle(category_cards)
         return category_cards

@@ -53,7 +53,7 @@ class SearchScreen(Screen):
         
         # Question label
         question_label = Label(
-            text=f"Question: {card.question}",
+            text=f"{card.question}",
             color=(0.2, 0.2, 0.2, 1),
             size_hint_y=None,
             height='40dp',
@@ -64,7 +64,7 @@ class SearchScreen(Screen):
         
         # Answer label
         answer_label = Label(
-            text=f"Answer: {card.answer}",
+            text=f"{card.answer}",
             color=(0.2, 0.2, 0.2, 1),
             size_hint_y=None,
             height='40dp',

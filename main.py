@@ -19,4 +19,5 @@ class FlashcardApp(App):
         return ScreenManagerUtil.create_screen_manager()
 
 if __name__ == '__main__':
+    __version__ = '1.2.0'  # Set the app version
     FlashcardApp().run()
