@@ -1,2722 +1,3362 @@
 [
     {
-        "question": "zwischenmenschliches",
-        "answer": "emberi kapcsolatok",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
-    },
-    {
-        "question": "emberi kapcsolatok",
-        "answer": "zwischenmenschliches",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
-    },
-    {
-        "question": "der Kreis, die Kreise",
-        "answer": "kör",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
-    },
-    {
         "question": "kör",
         "answer": "der Kreis, die Kreise",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "unterscheiden, unterschied, hat unterschieden",
         "answer": "megkülönböztet",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "megkülönböztet",
         "answer": "unterscheiden, unterschied, hat unterschieden",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Abschnitt, die Abschnitte",
         "answer": "szakasz, rész",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "szakasz, rész",
         "answer": "der Abschnitt, die Abschnitte",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "hervorheben, hob hervor, hat hervorgehoben",
         "answer": "kiemel",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kiemel",
         "answer": "hervorheben, hob hervor, hat hervorgehoben",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 1,
+        "easiness": 2.6,
+        "score": 1
     },
     {
         "question": "unternehmen, unternahm, hat unternommen",
         "answer": "vállal",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "vállal",
         "answer": "unternehmen, unternahm, hat unternommen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gegenseitig",
         "answer": "kölcsönösen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kölcsönösen",
         "answer": "gegenseitig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "unterstützen, unterstützte, hat unterstützt",
         "answer": "támogat",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "támogat",
         "answer": "unterstützen, unterstützte, hat unterstützt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "einige",
         "answer": "néhány",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "néhány",
         "answer": "einige",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Ausgabe, die Ausgaben",
         "answer": "kiadás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kiadás",
         "answer": "die Ausgabe, die Ausgaben",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Studienplatz, die Studienplätze",
         "answer": "hallgatói hely",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "hallgatói hely",
         "answer": "der Studienplatz, die Studienplätze",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Studierende, die Studierenden",
         "answer": "egyetemista",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "egyetemista",
         "answer": "die Studierende, die Studierenden",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "schauen, schaute, hat geschaut",
         "answer": "néz, tekint",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "néz, tekint",
         "answer": "schauen, schaute, hat geschaut",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "stoßen, stieß, hat/ist gestoßen",
         "answer": "taszít",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "taszít",
         "answer": "stoßen, stieß, hat/ist gestoßen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "mittlerweile",
         "answer": "időközben",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "időközben",
         "answer": "mittlerweile",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "berufstätig",
         "answer": "dolgozó",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "dolgozó",
         "answer": "berufstätig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gründen, gründete, hat gegründet",
         "answer": "alapít",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "alapít",
         "answer": "gründen, gründete, hat gegründet",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "entgegen unserer Erwartung",
         "answer": "várakozásainkkal ellentétben",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 1,
+        "easiness": 2.6,
+        "score": 1
     },
     {
         "question": "várakozásainkkal ellentétben",
         "answer": "entgegen unserer Erwartung",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "eigen",
         "answer": "saját",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "saját",
         "answer": "eigen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "eigentlich",
         "answer": "valójában",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "valójában",
         "answer": "eigentlich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "fest",
         "answer": "erős",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "erős",
         "answer": "fest",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "einpannen, spannte ein, hat eingespannt",
         "answer": "rögzít",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "rögzít",
         "answer": "einpannen, spannte ein, hat eingespannt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "beschließen, beschloss, hat beschlossen",
         "answer": "elhatároz",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "elhatároz",
         "answer": "beschließen, beschloss, hat beschlossen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "verbringen, verbrachte, hat verbracht",
         "answer": "időt tölteni",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "időt tölteni",
         "answer": "verbringen, verbrachte, hat verbracht",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gut tun, tat gut, hat gutgetan",
         "answer": "jót tesz",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "jót tesz",
         "answer": "gut tun, tat gut, hat gutgetan",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Gegenwart, die Gegenwart",
         "answer": "jelen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "jelen",
         "answer": "die Gegenwart, die Gegenwart",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Vergangenheit, die Vergangenheiten",
         "answer": "múlt",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 1,
+        "easiness": 2.6,
+        "score": 1
     },
     {
         "question": "múlt",
         "answer": "die Vergangenheit, die Vergangenheiten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Vorvergangenheit, die Vorvergangenheiten",
         "answer": "régmúlt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "régmúlt",
         "answer": "die Vorvergangenheit, die Vorvergangenheiten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Abfolge, die Abfolgen",
         "answer": "sorrend",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "sorrend",
         "answer": "die Abfolge, die Abfolgen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Reihenfolge, die Reihenfolgen",
         "answer": "sorrend",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "sorrend",
         "answer": "die Reihenfolge, die Reihenfolgen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Reihe, die Reihen",
         "answer": "sor, sorozat",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "sor, sorozat",
         "answer": "die Reihe, die Reihen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "abschließen, schloss ab, hat abgeschlossen",
         "answer": "befejez",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "befejez",
         "answer": "abschließen, schloss ab, hat abgeschlossen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Mitglied, die Mitglieder",
         "answer": "tag",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "tag",
         "answer": "das Mitglied, die Mitglieder",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Konflikt, die Konflikte",
         "answer": "konfliktus",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "konfliktus",
         "answer": "der Konflikt, die Konflikte",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "erschöpft",
         "answer": "kimerült",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kimerült",
         "answer": "erschöpft",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Beitrag, die Beiträge",
         "answer": "hozzájárulás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "hozzájárulás",
         "answer": "der Beitrag, die Beiträge",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "schaden, schadete, hat geschadet",
         "answer": "árt",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "árt",
         "answer": "schaden, schadete, hat geschadet",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "eben",
         "answer": "éppen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "éppen",
         "answer": "eben",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "nachgeben, gab nach, hat nachgegeben",
         "answer": "enged",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "enged",
         "answer": "nachgeben, gab nach, hat nachgegeben",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gelten (gilt), galt, hat gegolten",
         "answer": "érvényes valakire",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "érvényes valakire",
         "answer": "gelten (gilt), galt, hat gegolten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gültig",
         "answer": "érvényes",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "érvényes",
         "answer": "gültig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "genervt",
         "answer": "bosszús",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "bosszús",
         "answer": "genervt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Schweigen, die Schweigen",
         "answer": "hallgatás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "hallgatás",
         "answer": "das Schweigen, die Schweigen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Austausch, die Austausche",
         "answer": "csere, párbeszéd",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "csere, párbeszéd",
         "answer": "der Austausch, die Austausche",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "einigen, einigte, hat geeinigt",
         "answer": "kibékít",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kibékít",
         "answer": "einigen, einigte, hat geeinigt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "vermeiden, vermied, hat vermieden",
         "answer": "elkerül",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "elkerül",
         "answer": "vermeiden, vermied, hat vermieden",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "erleichtert",
         "answer": "megkönnyebbült",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "megkönnyebbült",
         "answer": "erleichtert",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Aussage, die Aussagen",
         "answer": "kijelentés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kijelentés",
         "answer": "die Aussage, die Aussagen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gelingen, gelang, ist gelungen",
         "answer": "sikerül",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "sikerül",
         "answer": "gelingen, gelang, ist gelungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Gelingen, die Gelingen",
         "answer": "siker",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "siker",
         "answer": "das Gelingen, die Gelingen",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "zustimmen, stimmte zu, hat zugestimmt",
         "answer": "beleegyezik",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "beleegyezik",
         "answer": "zustimmen, stimmte zu, hat zugestimmt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "übertreiben, übertrieb, hat übertrieben",
         "answer": "túloz",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "túloz",
         "answer": "übertreiben, übertrieb, hat übertrieben",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Kompromiss, die Kompromisse",
         "answer": "egyesség",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "egyesség",
         "answer": "der Kompromiss, die Kompromisse",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "sich aufregen, regte sich auf, hat sich aufgeregt über + A",
         "answer": "felidegesíti magát",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "felidegesíti magát",
         "answer": "sich aufregen, regte sich auf, hat sich aufgeregt über + A",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Aufforderung, die Aufforderungen",
         "answer": "felhívás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "felhívás",
         "answer": "die Aufforderung, die Aufforderungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Vermutung, die Vermutungen",
         "answer": "feltételezés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "feltételezés",
         "answer": "die Vermutung, die Vermutungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "tauschen, tauschte, hat getauscht",
         "answer": "cserél",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "cserél",
         "answer": "tauschen, tauschte, hat getauscht",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "verhindern, verhinderte, hat verhindert",
         "answer": "megakadályoz",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "megakadályoz",
         "answer": "verhindern, verhinderte, hat verhindert",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "schließlich",
         "answer": "végül",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "végül",
         "answer": "schließlich",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "das Gericht, die Gerichte",
         "answer": "bíróság",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "bíróság",
         "answer": "das Gericht, die Gerichte",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Zwang, die Zwänge",
         "answer": "kényszer",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kényszer",
         "answer": "der Zwang, die Zwänge",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kommerziell",
         "answer": "kereskedelmi",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kereskedelmi",
         "answer": "kommerziell",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Atelier, die Ateliers",
         "answer": "műterem",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "műterem",
         "answer": "das Atelier, die Ateliers",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "beeinflussen, beeinflusste, hat beeinflusst",
         "answer": "befolyásol",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "befolyásol",
         "answer": "beeinflussen, beeinflusste, hat beeinflusst",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Prominente, die Prominenten",
         "answer": "kiválóság",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kiválóság",
         "answer": "der Prominente, die Prominenten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "zahlreich",
         "answer": "számos",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "számos",
         "answer": "zahlreich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "leidenschaftlich",
         "answer": "szenvedélyes",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "szenvedélyes",
         "answer": "leidenschaftlich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Leidenschaft, die Leidenschaften",
         "answer": "szenvedély",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "szenvedély",
         "answer": "die Leidenschaft, die Leidenschaften",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "sich engagieren, engagierte sich, hat sich engagiert",
         "answer": "kiáll valamiért",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kiáll valamiért",
         "answer": "sich engagieren, engagierte sich, hat sich engagiert",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "erhalten, erhielt, hat erhalten",
         "answer": "kap, megőriz",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "kap, megőriz",
         "answer": "erhalten, erhielt, hat erhalten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Gegend, die Gegenden",
         "answer": "környék",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "környék",
         "answer": "die Gegend, die Gegenden",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Fabel, die Fabeln",
         "answer": "állatmese",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "állatmese",
         "answer": "die Fabel, die Fabeln",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Märchen, die Märchen",
         "answer": "mese",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "mese",
         "answer": "das Märchen, die Märchen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Weisheit, die Weisheiten",
         "answer": "bölcsesség",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "bölcsesség",
         "answer": "die Weisheit, die Weisheiten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Jagd, die Jagden",
         "answer": "vadászat",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "vadászat",
         "answer": "die Jagd, die Jagden",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Streit, die Streite",
         "answer": "vita",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "vita",
         "answer": "der Streit, die Streite",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "wütend",
         "answer": "dühös",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "dühös",
         "answer": "wütend",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Beute",
         "answer": "zsákmány",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "zsákmány",
         "answer": "die Beute",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Hirsch, die Hirsche",
         "answer": "szarvas",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "szarvas",
         "answer": "der Hirsch, die Hirsche",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "brüllen, brüllte, hat gebrüllt",
         "answer": "ordít, bömböl",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "ordít, bömböl",
         "answer": "brüllen, brüllte, hat gebrüllt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "zornig",
         "answer": "dühös",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "dühös",
         "answer": "zornig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "beißen, biss, hat gebissen",
         "answer": "harap",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "harap",
         "answer": "beißen, biss, hat gebissen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Feind, die Feinde",
         "answer": "ellenfél",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "ellenfél",
         "answer": "der Feind, die Feinde",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "höflich",
         "answer": "udvarias",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "udvarias",
         "answer": "höflich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "begründen, begründete, hat begründet",
         "answer": "indokol",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "indokol",
         "answer": "begründen, begründete, hat begründet",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "der Rabe, die Raben",
         "answer": "holló",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "holló",
         "answer": "der Rabe, die Raben",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "eilig",
         "answer": "gyors",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gyors",
         "answer": "eilig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "loben, lobte, hat gelobt",
         "answer": "dicsér",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "dicsér",
         "answer": "loben, lobte, hat gelobt",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "der Gesang, die Gesänge",
         "answer": "ének",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "ének",
         "answer": "der Gesang, die Gesänge",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Schnabel, die Schnäbel",
         "answer": "csőr",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "csőr",
         "answer": "der Schnabel, die Schnäbel",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "vorsingen, sang vor, hat vorgesungen",
         "answer": "előénekel",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "előénekel",
         "answer": "vorsingen, sang vor, hat vorgesungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "dabei",
         "answer": "eközben",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "eközben",
         "answer": "dabei",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "fressen, fraß, hat gefressen",
         "answer": "fal",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "fal",
         "answer": "fressen, fraß, hat gefressen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Art, die Arten",
         "answer": "fajta",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "fajta",
         "answer": "die Art, die Arten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "verwitwet",
         "answer": "özvegy",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "özvegy",
         "answer": "verwitwet",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Kloster, die Klöster",
         "answer": "kolostor",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kolostor",
         "answer": "das Kloster, die Klöster",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "zusätzlich",
         "answer": "további",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "további",
         "answer": "zusätzlich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Unterstützung, die Unterstützungen",
         "answer": "támogatás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "támogatás",
         "answer": "die Unterstützung, die Unterstützungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Abwechslung, die Abwechslungen",
         "answer": "változatosság",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "változatosság",
         "answer": "die Abwechslung, die Abwechslungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Rücksicht, die Rücksichten",
         "answer": "bevétel",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "bevétel",
         "answer": "die Rücksicht, die Rücksichten",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "sich austauschen, tauschte sich aus, hat sich ausgetauscht mit + D / über + A",
         "answer": "társalog vkivel",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "társalog vkivel",
         "answer": "sich austauschen, tauschte sich aus, hat sich ausgetauscht mit + D / über + A",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gerecht",
         "answer": "igazságos",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "igazságos",
         "answer": "gerecht",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "erledigen, erledigte, hat erledigt",
         "answer": "elintéz",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "elintéz",
         "answer": "erledigen, erledigte, hat erledigt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Kabine, die Kabinen",
         "answer": "fülke",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "fülke",
         "answer": "die Kabine, die Kabinen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Gelände, die Geländes",
         "answer": "terep",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "terep",
         "answer": "das Gelände, die Geländes",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Verständnis, die Verständnisse",
         "answer": "megértés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "megértés",
         "answer": "das Verständnis, die Verständnisse",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "übrigens",
         "answer": "egyébként",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "egyébként",
         "answer": "übrigens",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "merkwürdig",
         "answer": "furcsa",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "furcsa",
         "answer": "merkwürdig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Unterlage, die Unterlagen",
         "answer": "dokumentum, irat",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "dokumentum, irat",
         "answer": "die Unterlage, die Unterlagen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Vorlesung, die Vorlesungen",
         "answer": "előadás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "előadás",
         "answer": "die Vorlesung, die Vorlesungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "zufällig",
         "answer": "esetleg",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "esetleg",
         "answer": "zufällig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Spätschicht, die Spätschichten",
         "answer": "délutáni műszak",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "délutáni műszak",
         "answer": "die Spätschicht, die Spätschichten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Krankenkasse, die Krankenkassen",
         "answer": "betegbiztosító pénztár",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "betegbiztosító pénztár",
         "answer": "die Krankenkasse, die Krankenkassen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Mahnung, die Mahnungen",
         "answer": "figyelmeztetés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "figyelmeztetés",
         "answer": "die Mahnung, die Mahnungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Stundenlohn, die Stundenlöhne",
         "answer": "órabér",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "órabér",
         "answer": "der Stundenlohn, die Stundenlöhne",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Pflicht, die Pflichten",
         "answer": "kötelesség",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kötelesség",
         "answer": "die Pflicht, die Pflichten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Forderung, die Forderungen",
         "answer": "követelés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "követelés",
         "answer": "die Forderung, die Forderungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Versammlung, die Versammlungen",
         "answer": "gyűlés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gyűlés",
         "answer": "die Versammlung, die Versammlungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Erhöhung, die Erhöhungen",
         "answer": "emelés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "emelés",
         "answer": "die Erhöhung, die Erhöhungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Gelegenheit, die Gelegenheiten",
         "answer": "alkalom",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "alkalom",
         "answer": "die Gelegenheit, die Gelegenheiten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Lagerfeuer, die Lagerfeuer",
         "answer": "tábortűz",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "tábortűz",
         "answer": "das Lagerfeuer, die Lagerfeuer",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "einstecken, steckte ein, hat eingesteckt",
         "answer": "elrak",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "elrak",
         "answer": "einstecken, steckte ein, hat eingesteckt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "offenbar",
         "answer": "nyilvánvaló",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "nyilvánvaló",
         "answer": "offenbar",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Vorschlag, die Vorschläge",
         "answer": "javaslat",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "javaslat",
         "answer": "der Vorschlag, die Vorschläge",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "beschließen, beschloss, hat beschlossen",
         "answer": "dönt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "dönt",
         "answer": "beschließen, beschloss, hat beschlossen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Eigenschaft, die Eigenschaften",
         "answer": "tulajdonság",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "tulajdonság",
         "answer": "die Eigenschaft, die Eigenschaften",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "neugierig",
         "answer": "kíváncsi",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kíváncsi",
         "answer": "neugierig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "fleißig",
         "answer": "szorgalmas",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "szorgalmas",
         "answer": "fleißig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "ehrlich",
         "answer": "őszinte",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "őszinte",
         "answer": "ehrlich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "fröhlich",
         "answer": "vidám",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "vidám",
         "answer": "fröhlich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "entdecken, entdeckte, hat entdeckt",
         "answer": "felfedez",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "felfedez",
         "answer": "entdecken, entdeckte, hat entdeckt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Strecke, die Strecken",
         "answer": "pálya, vonal",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "pálya, vonal",
         "answer": "die Strecke, die Strecken",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Bescheid, die Bescheide",
         "answer": "értesítés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "értesítés",
         "answer": "der Bescheid, die Bescheide",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "zufällig",
         "answer": "véletlen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "véletlen",
         "answer": "zufällig",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "anscheinend",
         "answer": "úgy tűnik",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "úgy tűnik",
         "answer": "anscheinend",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Verabredung, die Verabredungen",
         "answer": "randi, találkozó",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "randi, találkozó",
         "answer": "die Verabredung, die Verabredungen",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "sorgen, sorgte, hat gesorgt",
         "answer": "aggódik",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "aggódik",
         "answer": "sorgen, sorgte, hat gesorgt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "erst",
         "answer": "csak",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 1,
+        "easiness": 2.6,
+        "score": 1
     },
     {
         "question": "csak",
         "answer": "erst",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "aufbauen, baute auf, hat aufgebaut",
         "answer": "felépít",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "felépít",
         "answer": "aufbauen, baute auf, hat aufgebaut",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "anmelden, meldete an, hat angemeldet",
         "answer": "bejelent",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "bejelent",
         "answer": "anmelden, meldete an, hat angemeldet",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "verabreden sich, verabredete sich, hat sich verabredet",
         "answer": "összebeszél",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "összebeszél",
         "answer": "verabreden sich, verabredete sich, hat sich verabredet",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Ausdruck, die Ausdrücke",
         "answer": "kifejezés",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kifejezés",
         "answer": "der Ausdruck, die Ausdrücke",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gelaunt",
         "answer": "jókedvű",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "jókedvű",
         "answer": "gelaunt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
-    },
-    {
-        "question": "eben",
-        "answer": "éppen",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
-    },
-    {
-        "question": "éppen",
-        "answer": "eben",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "nämlich",
         "answer": "tudniillik",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "tudniillik",
         "answer": "nämlich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "spannend",
         "answer": "izgalmas",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "izgalmas",
         "answer": "spannend",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "restlich",
         "answer": "maradék",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "maradék",
         "answer": "restlich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "erfahren",
         "answer": "tapasztalt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "tapasztalt",
         "answer": "erfahren",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Praxis, die Praxen",
         "answer": "gyakorlat, tapasztalat",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gyakorlat, tapasztalat",
         "answer": "die Praxis, die Praxen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Beratung, die Beratungen",
         "answer": "tanácsadás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "tanácsadás",
         "answer": "die Beratung, die Beratungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Einzelheit, die Einzelheiten",
         "answer": "részlet",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "részlet",
         "answer": "die Einzelheit, die Einzelheiten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "behaupten, behauptete, hat behauptet",
         "answer": "állít",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "állít",
         "answer": "behaupten, behauptete, hat behauptet",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Ehegatte, die Ehegatten",
         "answer": "háztárs",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "háztárs",
         "answer": "der Ehegatte, die Ehegatten",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "angeblich",
         "answer": "állítólagos",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "állítólagos",
         "answer": "angeblich",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "die Schlagzeile, die Schlagzeilen",
         "answer": "szalagcím",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "szalagcím",
         "answer": "die Schlagzeile, die Schlagzeilen",
-        "interval": 2,
-        "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "category": "Lektion 7",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
     },
     {
         "question": "die Behauptung, die Behauptungen",
         "answer": "állítás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "állítás",
         "answer": "die Behauptung, die Behauptungen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "beweisen, bewies, hat bewiesen",
         "answer": "bizonyít",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "bizonyít",
         "answer": "beweisen, bewies, hat bewiesen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "beschäftigt",
         "answer": "elfoglalt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "elfoglalt",
         "answer": "beschäftigt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Einfluss, die Einflüsse",
         "answer": "hatás, befolyás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "hatás, befolyás",
         "answer": "der Einfluss, die Einflüsse",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Erfolg, die Erfolge",
         "answer": "siker",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "siker",
         "answer": "der Erfolg, die Erfolge",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Ersatz, die Ersätze",
         "answer": "pótlás",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "pótlás",
         "answer": "der Ersatz, die Ersätze",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "kümmern, kümmerte, hat gekümmert",
         "answer": "érdekel",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "érdekel",
         "answer": "kümmern, kümmerte, hat gekümmert",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Hase, die Hasen",
         "answer": "nyúl",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "nyúl",
         "answer": "der Hase, die Hasen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Frosch, die Frösche",
         "answer": "béka",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "béka",
         "answer": "der Frosch, die Frösche",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "überlegen, überlegte, hat überlegt",
         "answer": "meggondol",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "meggondol",
         "answer": "überlegen, überlegte, hat überlegt",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "genießen, genoss, hat genossen",
         "answer": "élvez",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "élvez",
         "answer": "genießen, genoss, hat genossen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "aufregend",
         "answer": "izgalmas",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "izgalmas",
         "answer": "aufregend",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "das Ufer, die Ufer",
         "answer": "vizpart",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "vizpart",
         "answer": "das Ufer, die Ufer",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "der Angsthase, die Angsthasen",
         "answer": "gyáva nyúl",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
         "question": "gyáva nyúl",
         "answer": "der Angsthase, die Angsthasen",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
-        "question": "die Gelegenheit, die Gelegenheiten",
-        "answer": "alkalom",
+        "question": "zwischenmenschliches",
+        "answer": "emberi kapcsolatok",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     },
     {
-        "question": "alkalom",
-        "answer": "die Gelegenheit, die Gelegenheiten",
+        "question": "emberi kapcsolatok",
+        "answer": "zwischenmenschliches",
+        "category": "Lektion 7",
         "interval": 2,
         "last_review": null,
-        "score": 0,
-        "category": "Lektion 7"
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
+    },
+    {
+        "question": "der Kreis, die Kreise",
+        "answer": "kör",
+        "category": "Lektion 7",
+        "interval": 2,
+        "last_review": null,
+        "repetitions": 0,
+        "easiness": 2.5,
+        "score": 0
     }
 ]

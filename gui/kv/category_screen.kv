@@ -1,0 +1,32 @@
+# Category Screen KV
+<CategoryScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '10dp'
+        spacing: '10dp'
+        canvas.before:
+            Rectangle:
+                source: 'img/background_game.png'
+                pos: self.pos
+                size: self.size
+        
+        # Scrollable list to display available categories
+        ScrollView:
+            GridLayout:
+                id: category_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: '40dp'
+                row_force_default: True
+                spacing: '5dp'
+
+        # Back button
+        Button:
+            text: "Back"
+            font_size: '20sp'
+            background_color: 0.50, 0.80, 0.20, 1
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            on_press: app.root.current = 'home'

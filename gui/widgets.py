@@ -1,37 +1,32 @@
-# File: gui/widgets.py
+"""
+Custom widget implementations.
+"""
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+from gui.utils.widget_styles import BUTTON_STYLES, TEXT_INPUT_STYLES
 
-class CustomButton(Button):
-    """
-    Custom button widget with predefined styling.
-    Inherits from Kivy's Button class and sets custom font size
-    and background color.
-    """
-    def __init__(self, **kwargs):
-        """
-        Initializes the custom button with default properties.
-        
-        Parameters:
-            kwargs: Additional properties to pass to the Button class.
-        """
+class StyledButton(Button):
+    """Button with predefined styling."""
+    
+    def __init__(self, style='primary', **kwargs):
         super().__init__(**kwargs)
-        self.font_size = '18sp'  # Set the font size of the button text
-        self.background_color = (0.2, 0.6, 0.8, 1)  # Set the background color to a soft blue
+        self.apply_style(style)
 
-class CustomTextInput(TextInput):
-    """
-    Custom text input widget with predefined styling.
-    Inherits from Kivy's TextInput class and sets custom font size
-    and hint text color.
-    """
-    def __init__(self, **kwargs):
-        """
-        Initializes the custom text input with default properties.
-        
-        Parameters:
-            kwargs: Additional properties to pass to the TextInput class.
-        """
+    def apply_style(self, style: str):
+        """Apply predefined style to the button."""
+        if style in BUTTON_STYLES:
+            for key, value in BUTTON_STYLES[style].items():
+                setattr(self, key, value)
+
+class StyledTextInput(TextInput):
+    """TextInput with predefined styling."""
+    
+    def __init__(self, style='default', **kwargs):
         super().__init__(**kwargs)
-        self.font_size = '16sp'  # Set the font size of the text input text
-        self.hint_text_color = (0.5, 0.5, 0.5, 1)  # Set the hint text color to a gray shade
+        self.apply_style(style)
+
+    def apply_style(self, style: str):
+        """Apply predefined style to the text input."""
+        if style in TEXT_INPUT_STYLES:
+            for key, value in TEXT_INPUT_STYLES[style].items():
+                setattr(self, key, value)

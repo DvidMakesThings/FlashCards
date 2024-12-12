@@ -1,0 +1,47 @@
+# Home Screen KV
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '20dp'
+        spacing: '20dp'
+        canvas.before:
+            Rectangle:
+                source: 'img/background916.png'
+                pos: self.pos
+                size: self.size
+        
+        Widget:
+            size_hint_y: 0.6
+        
+        # Main buttons section at the bottom
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '20dp'
+            size_hint_y: 0.4
+            
+            Button:
+                text: "Start Studying"
+                font_size: '24sp'
+                background_color: 0.2, 0.6, 0.9, 1
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: '60dp'
+                on_press: root.on_study_press()
+            
+            Button:
+                text: "Add New Flashcard"
+                font_size: '24sp'
+                background_color: 0.50, 0.80, 0.20, 1
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: '60dp'
+                on_press: root.on_add_card_press()
+                
+            Button:
+                text: "Search Words"
+                font_size: '24sp'
+                background_color: 0.2, 0.6, 0.9, 1
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: '60dp'
+                on_press: root.on_search_press()
