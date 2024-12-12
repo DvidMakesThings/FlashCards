@@ -1,60 +1,54 @@
+"""
+Core flashcard model implementation.
+"""
 from datetime import datetime
+from dataclasses import dataclass
+from core.utils.text_processor import normalize_text
+from core.algorithm.sm2 import SM2Data, calculate_next_review, quality_from_difficulty
 
+@dataclass
 class Flashcard:
-    """
-    The Flashcard class represents a single flashcard object with a question, answer, 
-    review interval, last review date, score, and category.
+    """Represents a single flashcard with question, answer, and review data."""
     
-    This class provides functionality to check the user's answer and update the review 
-    details based on the difficulty of the user's response.
-    """
+    question: str
+    answer: str
+    category: str
+    interval: int = 1
+    last_review: str | None = None
+    repetitions: int = 0
+    easiness: float = 2.5
+    score: int = 0
 
-    def __init__(self, question, answer, interval, last_review, score, category):
-        """
-        Initializes the Flashcard object with the provided question, answer, interval, 
-        last review date, score, and category.
-        
-        Parameters:
-            question (str): The question text for the flashcard.
-            answer (str): The answer to the question.
-            interval (int): The review interval (in days) for the flashcard.
-            last_review (str): The date when the card was last reviewed (in 'YYYY-MM-DD' format).
-            score (int): The score representing the user's success with the card.
-            category (str): The category to which the flashcard belongs.
-        """
-        self.question = question
-        self.answer = answer
-        self.interval = interval
-        self.last_review = last_review
-        self.score = score
-        self.category = category
+    def check_answer(self, user_answer: str) -> bool:
+        """Check if the user's answer matches the correct answer."""
+        return normalize_text(user_answer) == normalize_text(self.answer)
 
-    def check_answer(self, user_answer):
+    def update_review(self, difficulty: str) -> None:
         """
-        Checks whether the user's answer is correct, case-insensitively and ignoring extra spaces.
+        Update review data based on answer difficulty.
         
-        Parameters:
-            user_answer (str): The answer provided by the user.
-        
-        Returns:
-            bool: True if the user's answer matches the correct answer, otherwise False.
+        Args:
+            difficulty: User-rated difficulty ('again', 'hard', 'good', 'easy')
         """
-        # Normalize and compare the user's answer with the correct answer
-        return user_answer.strip().lower() == self.answer.strip().lower()
-
-    def update_review(self, difficulty):
-        """
-        Updates the review interval and last review date for the flashcard based on the 
-        user's difficulty level for the answer.
+        # Convert current state to SM2Data
+        current_data = SM2Data(
+            easiness=self.easiness,
+            interval=self.interval,
+            repetitions=self.repetitions
+        )
         
-        The difficulty affects the review interval (how soon the card should be reviewed again).
+        # Calculate next review using SM2 algorithm
+        quality = quality_from_difficulty(difficulty)
+        new_data, next_review = calculate_next_review(quality, current_data)
         
-        Parameters:
-            difficulty (str): The difficulty level of the user's answer ("easy", "medium", "hard").
-        """
-        # Import the function that calculates the next review interval based on difficulty
-        from core.algorithm import calculate_next_review
+        # Update card with new values
+        self.easiness = new_data.easiness
+        self.interval = new_data.interval
+        self.repetitions = new_data.repetitions
+        self.last_review = datetime.now().strftime('%Y-%m-%d')
         
-        # Update the interval and last review date based on the difficulty
-        self.interval = calculate_next_review(difficulty, self.interval)
-        self.last_review = datetime.now().strftime('%Y-%m-%d')  # Set last review to the current date
+        # Update score based on quality
+        if quality >= 4:
+            self.score += 1
+        elif quality <= 2:
+            self.score = max(0, self.score - 1)

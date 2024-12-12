@@ -1,0 +1,158 @@
+# Study Screen KV
+<StudyScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '20dp'
+        spacing: '10dp'
+        canvas.before:
+            Rectangle:
+                source: 'img/background_game.png'
+                pos: self.pos
+                size: self.size
+        
+        # Question display
+        BoxLayout:
+            orientation: 'vertical'
+            padding: '15dp'
+            spacing: '10dp'
+            size_hint_y: 0.4  # Fixed size ratio
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.9, 1, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+                Line:
+                    width: 2
+                    rounded_rectangle: (self.x, self.y, self.width, self.height, 20)
+            Label:
+                id: question_label
+                text: "Question goes here"
+                font_size: '22sp'
+                color: 0.1, 0.1, 0.4, 1
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+
+        # Answer input/display area
+        BoxLayout:
+            orientation: 'vertical'
+            padding: '15dp'
+            spacing: '10dp'
+            size_hint_y: 0.4  # Same size as question area
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+            TextInput:
+                id: user_input
+                hint_text: "Type your answer here"
+                font_size: '18sp'
+                background_color: 0, 0, 0, 0
+                foreground_color: 0.1, 0.1, 0.4, 1
+                multiline: False
+                text_align: 'center'
+                halign: 'center'
+                text_size: self.size
+
+        # Feedback label
+        Label:
+            id: feedback_label
+            text: ""
+            font_size: '20sp'
+            color: 0.50, 0.80, 0.20, 1
+            size_hint_y: None
+            height: '40dp'
+            
+        # Buttons container
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '10dp'
+            size_hint_y: None
+            height: self.minimum_height
+
+            # Check answer button
+            Button:
+                id: check_button
+                text: "Check Answer"
+                font_size: '20sp'
+                background_color: 0.2, 0.6, 0.9, 1
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: '60dp'
+                on_press: root.check_answer()
+
+            # Difficulty rating buttons (initially hidden)
+            GridLayout:
+                id: difficulty_buttons
+                cols: 2
+                spacing: '10dp'
+                size_hint_y: None
+                height: 0
+                opacity: 0
+
+                Button:
+                    id: again_button
+                    text: "Again"
+                    font_size: '20sp'
+                    background_color: 0.8, 0, 0, 1
+                    color: 1, 1, 1, 1
+                    size_hint_y: None
+                    height: '60dp'
+                    on_press: root.handle_difficulty('again')
+
+                Button:
+                    id: hard_button
+                    text: "Hard"
+                    font_size: '20sp'
+                    background_color: 0.8, 0.4, 0, 1
+                    color: 1, 1, 1, 1
+                    size_hint_y: None
+                    height: '60dp'
+                    on_press: root.handle_difficulty('hard')
+
+                Button:
+                    id: good_button
+                    text: "Good"
+                    font_size: '20sp'
+                    background_color: 0.2, 0.6, 0.9, 1
+                    color: 1, 1, 1, 1
+                    size_hint_y: None
+                    height: '60dp'
+                    on_press: root.handle_difficulty('good')
+
+                Button:
+                    id: easy_button
+                    text: "Easy"
+                    font_size: '20sp'
+                    background_color: 0.3, 0.7, 0.3, 1
+                    color: 1, 1, 1, 1
+                    size_hint_y: None
+                    height: '60dp'
+                    on_press: root.handle_difficulty('easy')
+
+            # Practice mode button
+            Button:
+                id: practice_button
+                text: "Practice All Cards"
+                font_size: '20sp'
+                background_color: 0.2, 0.6, 0.9, 1
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: '60dp'
+                opacity: 0
+                on_press: root.start_practice_mode()
+            
+            # Back button
+            Button:
+                text: "Back"
+                font_size: '20sp'
+                background_color: 0.50, 0.80, 0.20, 1
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: '60dp'
+                on_press: app.root.current = 'category'

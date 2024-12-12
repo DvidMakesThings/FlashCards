@@ -1,0 +1,63 @@
+# Search Screen KV
+<SearchScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '15dp'
+        spacing: '15dp'
+        canvas.before:
+            Rectangle:
+                source: 'img/background_game.png'
+                pos: self.pos
+                size: self.size
+
+        # Search Input Section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: '100dp'
+            spacing: '10dp'
+            padding: '10dp'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0.9
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15]
+
+            Label:
+                text: "Search Questions"
+                font_size: '18sp'
+                size_hint_y: None
+                height: '30dp'
+                color: 0.2, 0.2, 0.2, 1
+
+            TextInput:
+                id: search_input
+                hint_text: "Type to search questions..."
+                font_size: '18sp'
+                size_hint_y: None
+                height: '48dp'
+                multiline: False
+                padding: '10dp', '10dp'
+                on_text: root.on_text_change(self, self.text)
+
+        # Search Results
+        ScrollView:
+            GridLayout:
+                id: results_grid
+                cols: 1
+                spacing: '10dp'
+                size_hint_y: None
+                height: self.minimum_height
+                padding: '10dp'
+
+        # Back Button
+        Button:
+            text: "Back"
+            font_size: '20sp'
+            background_color: 0.50, 0.80, 0.20, 1
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: '60dp'
+            on_press: app.root.current = 'home'

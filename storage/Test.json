@@ -1,0 +1,42 @@
+[
+    {
+        "question": "zwischenmenschliches",
+        "answer": "emberi kapcsolatok",
+        "category": "Test",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 0,
+        "easiness": 1.7000000000000002,
+        "score": 0
+    },
+    {
+        "question": "emberi kapcsolatok",
+        "answer": "zwischenmenschliches",
+        "category": "Test",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 1,
+        "easiness": 2.36,
+        "score": 0
+    },
+    {
+        "question": "der Kreis, die Kreise",
+        "answer": "kör",
+        "category": "Test",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 1,
+        "easiness": 2.36,
+        "score": 0
+    },
+    {
+        "question": "kör",
+        "answer": "der Kreis, die Kreise",
+        "category": "Test",
+        "interval": 1,
+        "last_review": "2024-12-12",
+        "repetitions": 1,
+        "easiness": 2.36,
+        "score": 0
+    }
+]

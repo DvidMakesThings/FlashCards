@@ -1,0 +1,167 @@
+# Add Card Screen KV
+<AddCardScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '15dp'
+        spacing: '15dp'
+        canvas.before:
+            Rectangle:
+                source: 'img/background_game.png'
+                pos: self.pos
+                size: self.size
+
+        # Title Section
+        Label:
+            text: "Add New Flashcard"
+            font_size: '24sp'
+            size_hint_y: None
+            height: '40dp'
+            color: 1, 1, 1, 1
+
+        # Category Selection Section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: '160dp'
+            spacing: '10dp'
+            padding: '10dp'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0.9
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15]
+
+            Label:
+                text: "Select Category"
+                font_size: '18sp'
+                size_hint_y: None
+                height: '30dp'
+                color: 0.2, 0.2, 0.2, 1
+
+            RelativeLayout:
+                size_hint_y: None
+                height: '48dp'
+                
+                Spinner:
+                    id: category_spinner
+                    text: "Select or Add Category"
+                    values: []  # Will be populated in code
+                    font_size: '18sp'
+                    background_color: 0.2, 0.6, 0.9, 1
+                    color: 1, 1, 1, 1
+                    on_text: root.toggle_custom_category(self.text)
+                    size_hint_y: None
+                    height: '48dp'
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            BoxLayout:
+                id: custom_category_box
+                orientation: 'vertical'
+                size_hint_y: None
+                height: 0
+                opacity: 0
+                
+                TextInput:
+                    id: custom_category_input
+                    hint_text: "Enter New Category"
+                    font_size: '18sp'
+                    multiline: False
+                    padding: '10dp', '10dp'
+                    size_hint_y: None
+                    height: '48dp'
+
+        # Question Input Section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: '120dp'
+            spacing: '10dp'
+            padding: '10dp'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0.9
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15]
+
+            Label:
+                text: "Question"
+                font_size: '18sp'
+                size_hint_y: None
+                height: '30dp'
+                color: 0.2, 0.2, 0.2, 1
+
+            TextInput:
+                id: question_input
+                hint_text: "Enter Question"
+                font_size: '18sp'
+                size_hint_y: None
+                height: '48dp'
+                multiline: False
+                padding: '10dp', '10dp'
+
+        # Answer Input Section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: '120dp'
+            spacing: '10dp'
+            padding: '10dp'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0.9
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15]
+
+            Label:
+                text: "Answer"
+                font_size: '18sp'
+                size_hint_y: None
+                height: '30dp'
+                color: 0.2, 0.2, 0.2, 1
+
+            TextInput:
+                id: answer_input
+                hint_text: "Enter Answer"
+                font_size: '18sp'
+                size_hint_y: None
+                height: '48dp'
+                multiline: False
+                padding: '10dp', '10dp'
+
+        # Feedback Label
+        Label:
+            id: feedback_label
+            text: ""
+            font_size: '16sp'
+            size_hint_y: None
+            height: '40dp'
+            color: 1, 1, 1, 1
+
+        # Buttons Section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: '140dp'
+            spacing: '10dp'
+
+            Button:
+                text: "Save Card"
+                font_size: '20sp'
+                size_hint_y: None
+                height: '60dp'
+                background_color: 0.2, 0.6, 0.9, 1
+                on_press: root.save_card()
+
+            Button:
+                text: "Back"
+                font_size: '20sp'
+                size_hint_y: None
+                height: '60dp'
+                background_color: 0.5, 0.8, 0.2, 1
+                on_press: app.root.current = 'home'
