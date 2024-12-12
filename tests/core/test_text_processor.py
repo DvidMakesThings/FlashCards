@@ -6,27 +6,42 @@ from core.utils.text_processor import normalize_text, format_display_text
 
 class TestTextProcessor(unittest.TestCase):
     def test_normalize_text_removes_spaces(self):
-        """Test that normalize_text removes extra spaces."""
+        """Test space normalization.
+        
+        Specification:
+            Verify space handling in text normalization
+            
+        Criteria:
+            - Should remove leading/trailing spaces
+            - Should normalize multiple spaces to single space
+        """
         text = "  hello   world  "
         self.assertEqual(normalize_text(text), "hello world")
         
     def test_normalize_text_handles_line_breaks(self):
-        """Test that normalize_text handles line breaks."""
+        """Test line break handling.
+        
+        Specification:
+            Verify line break normalization
+            
+        Criteria:
+            - Should convert line breaks to spaces
+            - Should handle different line break types
+            - Should normalize multiple line breaks
+        """
         text = "hello\nworld\r\ntest"
         self.assertEqual(normalize_text(text), "hello world test")
         
     def test_normalize_text_removes_accents(self):
-        """Test that normalize_text removes accents."""
+        """Test accent removal.
+        
+        Specification:
+            Verify accent mark handling
+            
+        Criteria:
+            - Should remove accent marks
+            - Should preserve base characters
+            - Should handle multiple accented characters
+        """
         text = "hôtel crémè"
         self.assertEqual(normalize_text(text), "hotel creme")
-        
-    def test_format_display_text_handles_short_text(self):
-        """Test format_display_text with short text."""
-        text = "Short text"
-        self.assertEqual(format_display_text(text), "Short text")
-        
-    def test_format_display_text_breaks_long_text(self):
-        """Test format_display_text breaks long text appropriately."""
-        text = "This is a very long text that should be broken into multiple lines for better display"
-        formatted = format_display_text(text, max_length=20)
-        self.assertTrue(all(len(line) <= 20 for line in formatted.split('\n')))

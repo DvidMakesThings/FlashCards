@@ -3,7 +3,7 @@ Core flashcard model implementation.
 """
 from datetime import datetime
 from dataclasses import dataclass
-from core.utils.text_processor import normalize_text
+from core.utils.text_processing import normalize_text, compare_answers
 from core.algorithm.sm2 import SM2Data, calculate_next_review, quality_from_difficulty
 
 @dataclass
@@ -21,7 +21,7 @@ class Flashcard:
 
     def check_answer(self, user_answer: str) -> bool:
         """Check if the user's answer matches the correct answer."""
-        return normalize_text(user_answer) == normalize_text(self.answer)
+        return compare_answers(user_answer, self.answer)
 
     def update_review(self, difficulty: str) -> None:
         """

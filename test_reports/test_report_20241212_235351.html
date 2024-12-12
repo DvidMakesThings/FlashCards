@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Report</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .header { 
+            background: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .summary { 
+            margin: 20px 0;
+            padding: 15px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-case { 
+            border: 1px solid #ddd; 
+            margin: 15px 0; 
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .PASS { 
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+        }
+        .FAIL { 
+            background-color: #f8d7da;
+            border-left: 5px solid #dc3545;
+        }
+        .ERROR { 
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+        }
+        .details { 
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 3px;
+        }
+        .criteria { 
+            font-style: italic;
+            color: #666;
+        }
+        h1, h2, h3 { 
+            color: #333;
+            margin-top: 0;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Test Execution Report</h1>
+        <p><strong>Start Time:</strong> 2024-12-12 23:53:51</p>
+        <p><strong>Duration:</strong> 0:00:00.243784</p>
+    </div>
+    
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>Total Tests:</strong> 27</p>
+        <p><strong>Success Rate:</strong> 100.00%</p>
+        <p><strong>Failures:</strong> 0</p>
+        <p><strong>Errors:</strong> 0</p>
+    </div>
+    
+    <div class="test-cases">
+        <h2>Test Cases</h2>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_flashcard.TestFlashcard.test_check_answer_case_insensitive</h3>
+            <p><strong>Description:</strong> Test case-insensitive answer matching.</p>
+            <p><strong>Specification:</strong> Verify case-insensitive answer matching
+    
+Criteria:
+    - Should return True regardless of case
+    - Should normalize both input and stored answer</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should return True regardless of case
+    - Should normalize both input and stored answer</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_flashcard.TestFlashcard.test_check_answer_exact_match</h3>
+            <p><strong>Description:</strong> Test exact answer matching.</p>
+            <p><strong>Specification:</strong> Verify exact answer matching functionality
+    
+Criteria:
+    - Should return True for exact match
+    - Should be case-sensitive
+    - Should handle whitespace correctly</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should return True for exact match
+    - Should be case-sensitive
+    - Should handle whitespace correctly</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_flashcard.TestFlashcard.test_check_answer_with_line_breaks</h3>
+            <p><strong>Description:</strong> Test answer matching with line breaks.</p>
+            <p><strong>Specification:</strong> Verify line break handling in answers
+    
+Criteria:
+    - Should treat line breaks as spaces
+    - Should normalize multiple line breaks
+    - Should match answers split across lines</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should treat line breaks as spaces
+    - Should normalize multiple line breaks
+    - Should match answers split across lines</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_flashcard.TestFlashcard.test_check_answer_with_spaces</h3>
+            <p><strong>Description:</strong> Test answer matching with extra spaces.</p>
+            <p><strong>Specification:</strong> Verify space normalization in answer checking
+    
+Criteria:
+    - Should handle extra spaces before/after answer
+    - Should handle multiple spaces between words</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should handle extra spaces before/after answer
+    - Should handle multiple spaces between words</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_flashcard.TestFlashcard.test_update_review_easy</h3>
+            <p><strong>Description:</strong> Test review update with easy rating.</p>
+            <p><strong>Specification:</strong> Verify interval increase for easy answers
+    
+Criteria:
+    - Should increase interval
+    - Should update last review date
+    - Should maintain proper easiness factor</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should increase interval
+    - Should update last review date
+    - Should maintain proper easiness factor</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_manager.TestFlashcardManager.test_get_due_cards_by_category</h3>
+            <p><strong>Description:</strong> Test retrieving due cards by category.</p>
+            <p><strong>Specification:</strong> Verify category-specific card retrieval
+    
+Criteria:
+    - Should only return cards from specified category
+    - Should only include due cards
+    - Should return both original and reverse cards</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should only return cards from specified category
+    - Should only include due cards
+    - Should return both original and reverse cards</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_sm2.TestSM2Algorithm.test_calculate_next_review_perfect_recall</h3>
+            <p><strong>Description:</strong> Test next review calculation for perfect recall.</p>
+            <p><strong>Specification:</strong> Calculate next review date for a perfect recall (quality=5)
+    
+Criteria:
+    - Interval should increase
+    - Easiness factor should increase
+    - Next review date should be further in the future</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Interval should increase
+    - Easiness factor should increase
+    - Next review date should be further in the future</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_sm2.TestSM2Algorithm.test_calculate_next_review_poor_recall</h3>
+            <p><strong>Description:</strong> Test next review calculation for poor recall.</p>
+            <p><strong>Specification:</strong> Calculate next review date for poor recall (quality=0)
+    
+Criteria:
+    - Interval should reset to 1
+    - Repetitions should reset to 0
+    - Next review should be tomorrow</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Interval should reset to 1
+    - Repetitions should reset to 0
+    - Next review should be tomorrow</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_sm2.TestSM2Algorithm.test_is_due_with_future_review</h3>
+            <p><strong>Description:</strong> Test is_due with future review date.</p>
+            <p><strong>Specification:</strong> Check if a card with future review date is due
+    
+Criteria:
+    - Should return False when review date is in the future</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should return False when review date is in the future</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_sm2.TestSM2Algorithm.test_is_due_with_no_review</h3>
+            <p><strong>Description:</strong> Test is_due with no previous review.</p>
+            <p><strong>Specification:</strong> Check if a card with no review history is due
+    
+Criteria:
+    - Should return True when last_review is None</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should return True when last_review is None</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_sm2.TestSM2Algorithm.test_is_due_with_past_review</h3>
+            <p><strong>Description:</strong> Test is_due with past review date.</p>
+            <p><strong>Specification:</strong> Check if a card with past review date is due
+    
+Criteria:
+    - Should return True when review date has passed</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should return True when review date has passed</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_sm2.TestSM2Algorithm.test_quality_from_difficulty</h3>
+            <p><strong>Description:</strong> Test difficulty to quality conversion.</p>
+            <p><strong>Specification:</strong> Convert user-friendly difficulty ratings to SM2 quality scores
+    
+Criteria:
+    - 'again' should return 0 (complete blackout)
+    - 'hard' should return 2 (answer looked familiar)
+    - 'good' should return 3 (correct with difficulty)
+    - 'easy' should return 5 (perfect recall)
+    - Unknown values should default to 3 (good)</p>
+            <p><strong>Pass/Fail Criteria:</strong> - 'again' should return 0 (complete blackout)
+    - 'hard' should return 2 (answer looked familiar)
+    - 'good' should return 3 (correct with difficulty)
+    - 'easy' should return 5 (perfect recall)
+    - Unknown values should default to 3 (good)</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_text_processor.TestTextProcessor.test_normalize_text_handles_line_breaks</h3>
+            <p><strong>Description:</strong> Test line break handling.</p>
+            <p><strong>Specification:</strong> Verify line break normalization
+    
+Criteria:
+    - Should convert line breaks to spaces
+    - Should handle different line break types
+    - Should normalize multiple line breaks</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should convert line breaks to spaces
+    - Should handle different line break types
+    - Should normalize multiple line breaks</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_text_processor.TestTextProcessor.test_normalize_text_removes_accents</h3>
+            <p><strong>Description:</strong> Test accent removal.</p>
+            <p><strong>Specification:</strong> Verify accent mark handling
+    
+Criteria:
+    - Should remove accent marks
+    - Should preserve base characters
+    - Should handle multiple accented characters</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should remove accent marks
+    - Should preserve base characters
+    - Should handle multiple accented characters</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.core.test_text_processor.TestTextProcessor.test_normalize_text_removes_spaces</h3>
+            <p><strong>Description:</strong> Test space normalization.</p>
+            <p><strong>Specification:</strong> Verify space handling in text normalization
+    
+Criteria:
+    - Should remove leading/trailing spaces
+    - Should normalize multiple spaces to single space</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should remove leading/trailing spaces
+    - Should normalize multiple spaces to single space</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_study_controller.TestStudyController.test_load_next_card_no_cards</h3>
+            <p><strong>Description:</strong> Test loading next card when no cards available.</p>
+            <p><strong>Specification:</strong> No specification provided</p>
+            <p><strong>Pass/Fail Criteria:</strong> No criteria specified</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_study_controller.TestStudyController.test_load_next_card_with_cards</h3>
+            <p><strong>Description:</strong> Test loading next card with available cards.</p>
+            <p><strong>Specification:</strong> No specification provided</p>
+            <p><strong>Pass/Fail Criteria:</strong> No criteria specified</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_study_controller.TestStudyController.test_switch_mode</h3>
+            <p><strong>Description:</strong> Test switching study modes.</p>
+            <p><strong>Specification:</strong> No specification provided</p>
+            <p><strong>Pass/Fail Criteria:</strong> No criteria specified</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_study_modes.TestPracticeMode.test_correct_answer_practice</h3>
+            <p><strong>Description:</strong> Test handling correct answer in practice mode.</p>
+            <p><strong>Specification:</strong> No specification provided</p>
+            <p><strong>Pass/Fail Criteria:</strong> No criteria specified</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_study_modes.TestPracticeMode.test_incorrect_answer_practice</h3>
+            <p><strong>Description:</strong> Test handling incorrect answer in practice mode.</p>
+            <p><strong>Specification:</strong> No specification provided</p>
+            <p><strong>Pass/Fail Criteria:</strong> No criteria specified</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_study_modes.TestStudyMode.test_correct_answer</h3>
+            <p><strong>Description:</strong> Test handling correct answer.</p>
+            <p><strong>Specification:</strong> No specification provided</p>
+            <p><strong>Pass/Fail Criteria:</strong> No criteria specified</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_study_modes.TestStudyMode.test_incorrect_answer</h3>
+            <p><strong>Description:</strong> Test handling incorrect answer.</p>
+            <p><strong>Specification:</strong> No specification provided</p>
+            <p><strong>Pass/Fail Criteria:</strong> No criteria specified</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_study_screen.TestStudyScreen.test_check_answer_with_formatting</h3>
+            <p><strong>Description:</strong> Test answer checking with formatted text.</p>
+            <p><strong>Specification:</strong> Verify answer checking with line breaks and formatting
+    
+Criteria:
+    - Should normalize line breaks
+    - Should preserve essential formatting
+    - Should match equivalent answers</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should normalize line breaks
+    - Should preserve essential formatting
+    - Should match equivalent answers</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_ui_helpers.TestUIHelpers.test_format_long_text</h3>
+            <p><strong>Description:</strong> Test text formatting.</p>
+            <p><strong>Specification:</strong> Verify text formatting with line breaks
+    
+Criteria:
+    - Should break lines at word boundaries
+    - Should not exceed max length per line
+    - Should preserve words</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should break lines at word boundaries
+    - Should not exceed max length per line
+    - Should preserve words</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_ui_helpers.TestUIHelpers.test_get_feedback_color_failure</h3>
+            <p><strong>Description:</strong> Test feedback color for failure.</p>
+            <p><strong>Specification:</strong> Verify color values for failure feedback
+    
+Criteria:
+    - Should return red color tuple for failure
+    - Color values should be in range 0-1</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should return red color tuple for failure
+    - Color values should be in range 0-1</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_ui_helpers.TestUIHelpers.test_get_feedback_color_success</h3>
+            <p><strong>Description:</strong> Test feedback color for success.</p>
+            <p><strong>Specification:</strong> Verify color values for success feedback
+    
+Criteria:
+    - Should return green color tuple for success
+    - Color values should be in range 0-1</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should return green color tuple for success
+    - Color values should be in range 0-1</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+        <div class="test-case PASS">
+            <h3>tests.gui.test_ui_helpers.TestUIHelpers.test_toggle_widget</h3>
+            <p><strong>Description:</strong> Test widget visibility toggling.</p>
+            <p><strong>Specification:</strong> Verify widget visibility state changes
+    
+Criteria:
+    - Should enable/disable widget
+    - Should set correct opacity
+    - Should handle both show and hide states</p>
+            <p><strong>Pass/Fail Criteria:</strong> - Should enable/disable widget
+    - Should set correct opacity
+    - Should handle both show and hide states</p>
+            <p><strong>Status:</strong> PASS</p>
+            
+        </div>
+        
+    </div>
+</body>
+</html>
+        
