@@ -28,3 +28,17 @@ class UIStateManager:
         """Show difficulty rating buttons."""
         toggle_widget(self.screen.ids.check_button, False)
         toggle_widget(self.screen.ids.study_buttons, True)
+        
+    def show_practice_buttons(self):
+        """Show practice mode buttons."""
+        toggle_widget(self.screen.ids.check_button, False)
+        toggle_widget(self.screen.ids.next_button, True)
+        # In practice mode, we don't show difficulty buttons for incorrect answers
+        toggle_widget(self.screen.ids.study_buttons, False)
+        
+    def disable_all_buttons(self):
+        """Disable all interactive buttons."""
+        toggle_widget(self.screen.ids.check_button, False)
+        toggle_widget(self.screen.ids.next_button, False)
+        toggle_widget(self.screen.ids.study_buttons, False)
+        toggle_widget(self.screen.ids.practice_button, False)

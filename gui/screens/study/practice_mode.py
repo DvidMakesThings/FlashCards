@@ -19,22 +19,20 @@ class PracticeMode:
         if normalized_input == normalized_answer:
             self._handle_correct_answer()
         else:
-            # Format the display of the correct answer
-            formatted_answer = format_display_text(current_card.answer)
-            self._handle_incorrect_answer(formatted_answer)
+            self._handle_incorrect_answer(current_card.answer)
 
-    def _handle_correct_answer(self) -> None:
-        """Handle correct answer by showing feedback and advancing."""
+    def _handle_correct_answer(self):
+        """Handle correct answer in practice mode."""
         feedback = format_feedback_message("Correct!", True)
         self.screen.ids.feedback_label.text = feedback['text']
         self.screen.ids.feedback_label.color = feedback['color']
         toggle_widget(self.screen.ids.check_button, False)
-        # Automatically advance to next card after delay
-        Clock.schedule_once(lambda dt: self.screen.next_practice_card(), 0.5)
 
-    def _handle_incorrect_answer(self, formatted_answer: str) -> None:
-        """Show correct answer and next button for incorrect answers."""
-        feedback = format_feedback_message(f"Is the correct answer:", False)
+    def _handle_incorrect_answer(self, correct_answer: str):
+        """Handle incorrect answer in practice mode."""
+        # Format the display of the correct answer
+        formatted_answer = format_display_text(correct_answer)
+        feedback = format_feedback_message(f"... is the correct answer", False)
         self.screen.ids.feedback_label.text = feedback['text']
         self.screen.ids.feedback_label.color = feedback['color']
         self.screen.ids.user_input.text = formatted_answer

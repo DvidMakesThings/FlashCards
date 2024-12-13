@@ -38,11 +38,17 @@ class StudyScreen(Screen):
             
             if is_correct:
                 self.answer_handler.show_feedback(True)
-                Clock.schedule_once(lambda dt: self.handle_difficulty('easy'), 0.5)
+                if self.controller.mode_type == StudyModeType.PRACTICE:
+                    Clock.schedule_once(lambda dt: self.next_practice_card(), 1.0)
+                else:
+                    Clock.schedule_once(lambda dt: self.handle_difficulty('easy'), 0.5)
             else:
                 formatted_answer = self.controller.current_card.answer
                 self.answer_handler.show_feedback(False, formatted_answer)
-                self.ui_manager.show_study_buttons()
+                if self.controller.mode_type == StudyModeType.PRACTICE:
+                    self.ui_manager.show_practice_buttons()
+                else:
+                    self.ui_manager.show_study_buttons()
             
     def handle_difficulty(self, difficulty: str) -> None:
         """Handle difficulty rating in study mode."""
@@ -58,6 +64,7 @@ class StudyScreen(Screen):
         """Load next card in practice mode."""
         if self.controller:
             self.controller.load_next_card()
+            self.ui_manager.reset_state()
             
     def reset_ui_state(self) -> None:
         """Reset UI elements to initial state."""
