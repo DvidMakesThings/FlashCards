@@ -35,7 +35,7 @@ class AnswerHandler:
             self.screen.ids.feedback_label.text = feedback['text']
             self.screen.ids.feedback_label.color = feedback['color']
         else:
-            feedback = format_feedback_message("The correct answer is:", False)
+            feedback = format_feedback_message("... is the correct answer", False)
             self.screen.ids.feedback_label.text = feedback['text']
             self.screen.ids.feedback_label.color = feedback['color']
             if formatted_answer:

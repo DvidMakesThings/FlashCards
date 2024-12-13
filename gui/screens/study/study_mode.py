@@ -33,7 +33,7 @@ class StudyMode:
 
     def _handle_incorrect_answer(self, formatted_answer: str) -> None:
         """Handle incorrect answer in study mode."""
-        feedback = format_feedback_message(f"Is the correct answer", False)
+        feedback = format_feedback_message(f"... is the correct answer", False)
         self.screen.ids.feedback_label.text = feedback['text']
         self.screen.ids.feedback_label.color = feedback['color']
         self.screen.ids.user_input.text = formatted_answer
